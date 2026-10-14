@@ -1,0 +1,282 @@
+.lgc-signin {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.lgc-signin__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(14, 90, 115, 0.08), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(14, 90, 115, 0.06), transparent 50%);
+  pointer-events: none;
+}
+
+.lgc-signin__card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.18);
+  padding: 28px 26px 22px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(6px);
+}
+
+.lgc-signin__logoWrap {
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+
+.lgc-signin__logoPlaceholder {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0e5a73;
+  font-size: 14px;
+  border: 1px dashed rgba(14, 90, 115, 0.35);
+  border-radius: 999px;
+  padding: 10px 14px;
+}
+
+.lgc-signin__title {
+  text-align: center;
+  margin: 8px 0 18px;
+  font-size: 28px;
+  line-height: 1.1;
+  color: #0b3f52;
+}
+
+.lgc-signin__form {
+  display: grid;
+  gap: 12px;
+}
+
+.lgc-signin__field {
+  display: grid;
+  gap: 6px;
+}
+
+.lgc-signin__label {
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.65);
+  display: none; /* κρατάμε μόνο placeholder όπως στο mock */
+}
+
+.lgc-signin__input {
+  width: 100%;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+  padding: 0 16px;
+  font-size: 14px;
+  outline: none;
+  color: #0f172a;
+}
+
+.lgc-signin__input:focus {
+  border-color: rgba(14, 90, 115, 0.55);
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.14);
+  background: #ffffff;
+}
+
+.lgc-signin__passwordRow {
+  position: relative;
+}
+
+.lgc-signin__input--password {
+  padding-right: 44px;
+}
+
+.lgc-signin__eyeBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.lgc-signin__btn {
+  margin-top: 6px;
+  height: 46px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(14, 90, 115, 0.22);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+.lgc-signin__btn:hover{
+  filter: brightness(1.03);
+  box-shadow: 0 12px 24px rgba(14, 90, 115, 0.26);
+}
+
+.lgc-signin__btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.18), 0 12px 24px rgba(14, 90, 115, 0.26);
+}
+
+.lgc-signin__btn:active {
+  transform: translateY(1px);
+}
+
+.lgc-signin__links {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.lgc-signin__link {
+  color: rgba(15, 23, 42, 0.75);
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+
+.lgc-signin__link:hover {
+  color: rgba(11, 63, 82, 0.95);
+  text-decoration: underline;
+}
+
+.lgc-signin__link:focus-visible{
+  outline: none;
+  text-decoration: underline;
+  color: rgba(11, 63, 82, 0.95);
+}
+/* --- layout wrapper to allow card + footer logo --- */
+.lgc-signin__wrap{
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+/* replace placeholder with real svg */
+.lgc-signin__logoPlaceholder{
+  display: none;
+}
+
+.lgc-signin__brandLogo{
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 520px){
+  .lgc-signin{
+    padding: 18px;
+  }
+  .lgc-signin__card{
+    max-width: 420px;
+    padding: 22px 18px 18px;
+    border-radius: 16px;
+  }
+  .lgc-signin__brandLogo{
+    width: 300px;
+  }
+  .lgc-signin__title{
+    font-size: 24px;
+    margin: 6px 0 14px;
+  }
+  .lgc-signin__links{
+    font-size: 12px;
+  }
+}
+@media (max-width: 360px){
+  .lgc-signin__brandLogo{
+    width: 260px;
+  }
+  .lgc-signin__footerLogo{
+    width: 120px;
+  }
+}
+
+/* footer netwind logo under the card */
+.lgc-signin__footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.lgc-signin__footerLogo{
+  width: 120px;
+  max-width: 50vw;
+  height: auto;
+  display: block;
+  opacity: 0.65;
+}
+.lgc-signin__wrap{ z-index: 5 !important; }
+.lgc-signin__card{ z-index: 6 !important; }
+.lgc-signin__bg{ z-index: 0 !important; }
+
+.lgc-signin__input::placeholder{
+  color: rgba(15, 23, 42, 0.55);
+}
+.lgc-signin__consent{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.75);
+}
+
+.lgc-signin__checkbox{
+  margin-top: 2px;
+}
+
+.lgc-signin__consentText{
+  line-height: 1.25;
+}
+
+.lgc-signin__btn--ghost{
+  background: #ffffff;
+  color: #0b3f52;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: none;
+}
+.lgc-signin__note{
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(15, 23, 42, 0.75);
+}
+
+.lgc-signin__links--center{
+  justify-content: center;
+}
+
+.lgc-signin__btn--ghost{
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.lgc-signin__btn--ghost:hover{
+  background: rgba(14, 90, 115, 0.06);
+}
+
+.lgc-signin__btn--ghost:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.14);
+}

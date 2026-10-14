@@ -1,0 +1,335 @@
+/* ClinicScribe App UI (scoped) */
+.cs-app{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.cs-app__sidebar{
+  border-right: 1px solid rgba(15, 23, 42, 0.10);
+  background: #f8fafc;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-app__brand{
+  display: flex;
+  justify-content: flex-start;
+  padding: 6px 6px 2px;
+}
+
+.cs-app__brandLogo{
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-app__newBtn{
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  color: #0b3f52;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cs-app__newBtn:hover{
+  background: rgba(14, 90, 115, 0.06);
+}
+
+.cs-app__sectionTitle{
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.60);
+  padding: 6px 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cs-app__caseList{
+  display: grid;
+  gap: 8px;
+  padding: 0 4px;
+  overflow: auto;
+}
+
+.cs-app__caseItem{
+  text-align: left;
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.cs-app__caseItem:hover{
+  border-color: rgba(14, 90, 115, 0.28);
+  background: rgba(14, 90, 115, 0.05);
+}
+
+.cs-app__caseItem.is-active{
+  border-color: rgba(14, 90, 115, 0.55);
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.10);
+}
+
+.cs-app__caseName{
+  font-weight: 700;
+  color: #0b3f52;
+  font-size: 14px;
+}
+
+.cs-app__caseMeta{
+  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.60);
+}
+
+.cs-app__sidebarFooter{
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px 6px 6px;
+}
+
+.cs-app__netwind{
+  width: 120px;
+  height: auto;
+  opacity: 0.55;
+  display: block;
+}
+
+.cs-app__main{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-width: 0;
+}
+
+.cs-app__topbar{
+  height: 56px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: #ffffff;
+}
+
+.cs-app__topbarLeft{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-app__hamburger{
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  cursor: pointer;
+  color: #0b3f52;
+  font-weight: 800;
+}
+
+.cs-app__hamburger:hover{
+  background: rgba(14, 90, 115, 0.06);
+}
+
+/* overlay for mobile drawer */
+.cs-app__overlay{
+  display: none;
+}
+
+.cs-app__topbarTitle{
+  font-weight: 800;
+  color: #0b3f52;
+}
+
+.cs-app__topbarActions{
+  display: flex;
+  gap: 10px;
+}
+
+.cs-app__topBtn{
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cs-app__topBtn--ghost{
+  background: #ffffff;
+  color: #0b3f52;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.cs-app__chat{
+  overflow: auto;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(14, 90, 115, 0.06), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(14, 90, 115, 0.04), transparent 50%);
+}
+
+.cs-app__chatInner{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 22px 16px 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.cs-app__msgRow{
+  display: flex;
+}
+
+.cs-app__msgRow.is-user{
+  justify-content: flex-end;
+}
+
+.cs-app__bubble{
+  max-width: min(720px, 92%);
+  border-radius: 16px;
+  padding: 12px 12px 10px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
+}
+
+.cs-app__msgRow.is-user .cs-app__bubble{
+  background: rgba(14, 90, 115, 0.10);
+  border-color: rgba(14, 90, 115, 0.22);
+}
+
+.cs-app__bubbleText{
+  white-space: pre-wrap;
+  line-height: 1.45;
+  font-size: 14px;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.cs-app__bubbleMeta{
+  margin-top: 6px;
+  font-size: 11px;
+  color: rgba(15, 23, 42, 0.55);
+  text-align: right;
+}
+
+.cs-app__composer{
+  border-top: 1px solid rgba(15, 23, 42, 0.10);
+  background: #ffffff;
+  padding: 12px 12px 10px;
+}
+
+.cs-app__composerInner{
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 16px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.10);
+}
+
+.cs-app__iconBtn{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.cs-app__iconBtn:hover{
+  background: rgba(14, 90, 115, 0.06);
+}
+
+.cs-app__input{
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  line-height: 1.45;
+  padding: 10px 10px;
+  background: transparent;
+  color: #0f172a;
+}
+
+.cs-app__sendBtn{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cs-app__hint{
+  max-width: 920px;
+  margin: 8px auto 0;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.60);
+  text-align: center;
+}
+
+@media (max-width: 920px){
+  .cs-app{
+    grid-template-columns: 1fr;
+  }
+
+  .cs-app__hamburger{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cs-app__overlay{
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 160ms ease;
+    z-index: 40;
+  }
+
+  .cs-app__overlay.is-open{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cs-app__sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(320px, 86vw);
+    transform: translateX(-105%);
+    transition: transform 180ms ease;
+    z-index: 50;
+    box-shadow: 0 18px 45px rgba(2, 6, 23, 0.35);
+  }
+
+  .cs-app__sidebar.is-open{
+    transform: translateX(0);
+  }
+}
