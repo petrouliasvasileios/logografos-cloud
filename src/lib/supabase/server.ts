@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 
-export function createSupabaseServerClient() {
-  const cookieStore = cookies();
+export async function createSupabaseServerClient() {
+  const cookieStore = await cookies();
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
@@ -18,7 +18,7 @@ export function createSupabaseServerClient() {
             cookieStore.set(name, value, options);
           });
         } catch {
-          // middleware handles session refresh
+          // Server Components: set can fail; middleware/route handlers handle refresh
         }
       },
     },
