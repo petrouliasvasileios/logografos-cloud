@@ -25,28 +25,55 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  const { data } = await supabase.auth.getUser();
-  const isLoggedIn = !!data.user;
-
   const pathname = request.nextUrl.pathname;
 
-  // Protect /app and everything under it
-  if (pathname.startsWith("/app") && !isLoggedIn) {
+  const { data } = await supabase.auth.getUser();
+  const user = data.user ?? null;
+  const isLoggedIn = !!user;
+
+  // Helper: redirect
+  const redirectTo = (toPath: string) => {
     const url = request.nextUrl.clone();
-    url.pathname = "/signin";
+    url.pathname = toPath;
     return NextResponse.redirect(url);
+  };
+
+  // If not logged in: protect /app and /pending
+  if (!isLoggedIn) {
+    if (pathname.startsWith("/app") || pathname === "/pending") {
+      return redirectTo("/signin");
+    }
+    return response;
   }
 
-  // Optional: if logged in and tries to go to /signin, redirect to /app
-  if (pathname === "/signin" && isLoggedIn) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/app";
-    return NextResponse.redirect(url);
+  // Logged in: fetch access_level from profiles
+  const { data: profile, error: profileError } = await supabase
+    .from("profiles")
+    .select("access_level")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+  // If profile missing (edge case), treat as pending (safe default)
+  const accessLevel = profile?.access_level ?? "pending";
+  const isActive = accessLevel === "active";
+
+  // If user is pending/blocked: keep them out of /app
+  if (!isActive) {
+    // allow them to see /pending
+    if (pathname.startsWith("/app")) return redirectTo("/pending");
+    if (pathname === "/signin") return redirectTo("/pending");
+    return response;
+  }
+
+  // If user is active:
+  // - if they try to go to /signin or /pending, send them to /app
+  if (pathname === "/signin" || pathname === "/pending") {
+    return redirectTo("/app");
   }
 
   return response;
 }
 
 export const config = {
-  matcher: ["/app/:path*", "/signin"],
+  matcher: ["/app/:path*", "/signin", "/pending"],
 };
