@@ -1,7 +1,9 @@
 "use client";
 
 import "./app.css";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type ChatRole = "user" | "assistant";
 
@@ -19,6 +21,58 @@ type CaseItem = {
 };
 
 export default function Page() {
+  const router = useRouter();
+  const supabase = useMemo(() => createSupabaseBrowserClient(), []);
+
+  const [userEmail, setUserEmail] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+  const [userAvatarUrl, setUserAvatarUrl] = useState<string>("");
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState<boolean>(false);
+  const userMenuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    (async () => {
+      const { data } = await supabase.auth.getUser();
+      const u = data.user;
+
+      if (!isMounted) return;
+
+      const meta: any = u?.user_metadata ?? {};
+      setUserEmail(u?.email ?? "");
+      setUserName(meta?.full_name ?? meta?.name ?? "");
+      setUserAvatarUrl(meta?.avatar_url ?? meta?.picture ?? "");
+    })();
+
+    const onDocClick = (e: MouseEvent) => {
+      if (!userMenuRef.current) return;
+      if (!userMenuRef.current.contains(e.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", onDocClick);
+    return () => {
+      isMounted = false;
+      document.removeEventListener("mousedown", onDocClick);
+    };
+  }, [supabase]);
+
+  const initials = useMemo(() => {
+    const base = (userName || userEmail || "U").trim();
+    const parts = base.split(/\s+/).filter(Boolean);
+    const a = parts[0]?.[0] ?? "U";
+    const b = parts.length > 1 ? parts[parts.length - 1][0] : "";
+    return (a + b).toUpperCase();
+  }, [userName, userEmail]);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.push("/signin");
+    router.refresh();
+  };
+
   const cases: CaseItem[] = useMemo(
     () => [
       { id: "c1", patientName: "Παπαδόπουλος Γ.", dateLabel: "Σήμερα" },
@@ -134,9 +188,65 @@ export default function Page() {
             <button className="cs-app__topBtn" type="button">
               Εξαγωγή Word
             </button>
-            <button className="cs-app__topBtn cs-app__topBtn--ghost" type="button">
-              Ρυθμίσεις
+
+            <button
+              className="cs-app__topBtn cs-app__topBtn--ghost"
+              type="button"
+              onClick={() => router.push("/account")}
+            >
+              Λογαριασμός
             </button>
+
+            <div className="cs-app__userMenu" ref={userMenuRef}>
+              <button
+                className="cs-app__avatarBtn"
+                type="button"
+                aria-label="Μενού χρήστη"
+                aria-expanded={isUserMenuOpen ? "true" : "false"}
+                onClick={() => setIsUserMenuOpen((v) => !v)}
+              >
+                {userAvatarUrl ? (
+                  <img
+                    className="cs-app__avatarImg"
+                    src={userAvatarUrl}
+                    alt="Φωτογραφία χρήστη"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <span className="cs-app__avatarFallback" aria-hidden="true">
+                    {initials}
+                  </span>
+                )}
+              </button>
+
+              <div
+                className={
+                  "cs-app__userDropdown" + (isUserMenuOpen ? " is-open" : "")
+                }
+              >
+                <button
+                  className="cs-app__userDropdownItem"
+                  type="button"
+                  onClick={() => {
+                    setIsUserMenuOpen(false);
+                    router.push("/account");
+                  }}
+                >
+                  Λογαριασμός
+                </button>
+
+                <button
+                  className="cs-app__userDropdownItem cs-app__userDropdownItem--danger"
+                  type="button"
+                  onClick={() => {
+                    setIsUserMenuOpen(false);
+                    handleLogout();
+                  }}
+                >
+                  Αποσύνδεση
+                </button>
+              </div>
+            </div>
           </div>
         </header>
 
@@ -146,7 +256,8 @@ export default function Page() {
               <div
                 key={m.id}
                 className={
-                  "cs-app__msgRow " + (m.role === "user" ? "is-user" : "is-assistant")
+                  "cs-app__msgRow " +
+                  (m.role === "user" ? "is-user" : "is-assistant")
                 }
               >
                 <div className="cs-app__bubble">
@@ -160,7 +271,11 @@ export default function Page() {
 
         <div className="cs-app__composer" aria-label="Σύνταξη μηνύματος">
           <div className="cs-app__composerInner">
-            <button className="cs-app__iconBtn" type="button" aria-label="Ηχογράφηση">
+            <button
+              className="cs-app__iconBtn"
+              type="button"
+              aria-label="Ηχογράφηση"
+            >
               🎙
             </button>
 
@@ -172,13 +287,18 @@ export default function Page() {
               rows={1}
             />
 
-            <button className="cs-app__sendBtn" type="button" aria-label="Αποστολή">
+            <button
+              className="cs-app__sendBtn"
+              type="button"
+              aria-label="Αποστολή"
+            >
               ➤
             </button>
           </div>
 
           <div className="cs-app__hint">
-            Το ClinicScribe βοηθά στη σύνταξη κειμένου. Ο ιατρός ελέγχει και υπογράφει.
+            Το ClinicScribe βοηθά στη σύνταξη κειμένου. Ο ιατρός ελέγχει και
+            υπογράφει.
           </div>
         </div>
       </section>
