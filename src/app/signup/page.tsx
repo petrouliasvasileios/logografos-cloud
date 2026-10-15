@@ -2,10 +2,27 @@
 
 import "../signin/signin.css";
 import { useState } from "react";
+import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  async function handleGoogleSignUp() {
+    const supabase = createSupabaseBrowserClient();
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      console.error("Google sign-up error:", error.message);
+      alert("Σφάλμα εγγραφής με Google. Δες Console για λεπτομέρειες.");
+    }
+  }
 
   return (
     <main className="lgc-signin">
@@ -118,8 +135,34 @@ export default function Page() {
               Εγγραφή
             </button>
 
-            <button className="lgc-signin__btn lgc-signin__btn--ghost" type="button">
-              Εγγραφή με Google
+            <button
+              className="lgc-signin__googleBtn"
+              type="button"
+              onClick={handleGoogleSignUp}
+            >
+              <span className="lgc-signin__googleIcon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="18" height="18">
+                  <path
+                    fill="#EA4335"
+                    d="M24 9.5c3.54 0 6.72 1.22 9.22 3.22l6.9-6.9C35.9 2.34 30.3 0 24 0 14.62 0 6.51 5.38 2.56 13.22l8.02 6.22C12.5 13.02 17.77 9.5 24 9.5z"
+                  />
+                  <path
+                    fill="#4285F4"
+                    d="M46.5 24.5c0-1.64-.15-3.22-.43-4.75H24v9h12.7c-.55 2.96-2.2 5.47-4.7 7.16l7.2 5.58C43.6 37.34 46.5 31.4 46.5 24.5z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M10.58 28.56c-.5-1.5-.78-3.1-.78-4.76s.28-3.26.78-4.76l-8.02-6.22C.92 16.36 0 20.07 0 23.8c0 3.73.92 7.44 2.56 10.98l8.02-6.22z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M24 48c6.3 0 11.6-2.08 15.47-5.66l-7.2-5.58c-2 1.35-4.56 2.14-8.27 2.14-6.23 0-11.5-3.52-13.42-8.44l-8.02 6.22C6.51 42.62 14.62 48 24 48z"
+                  />
+                  <path fill="none" d="M0 0h48v48H0z" />
+                </svg>
+              </span>
+
+              <span className="lgc-signin__googleText">Εγγραφή με Google</span>
             </button>
 
             <div className="lgc-signin__links">
