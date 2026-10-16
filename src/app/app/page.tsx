@@ -88,6 +88,11 @@ export default function Page() {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isSending, setIsSending] = useState<boolean>(false);
 
+  const [isRecording, setIsRecording] = useState<boolean>(false);
+  const [isTranscribing, setIsTranscribing] = useState<boolean>(false);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<BlobPart[]>([]);
+
   const chatEndRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToBottom = (behavior: ScrollBehavior = "smooth") => {
@@ -97,6 +102,68 @@ export default function Page() {
   const nowTime = () => {
     const d = new Date();
     return d.toLocaleTimeString("el-GR", { hour: "2-digit", minute: "2-digit" });
+  };
+
+  const startRecording = async () => {
+    if (isRecording || isTranscribing) return;
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+      chunksRef.current = [];
+      const mr = new MediaRecorder(stream);
+      mediaRecorderRef.current = mr;
+
+      mr.ondataavailable = (e) => {
+        if (e.data && e.data.size > 0) chunksRef.current.push(e.data);
+      };
+
+      mr.onstop = async () => {
+        // σταμάτα τα tracks για να κλείσει το mic indicator
+        stream.getTracks().forEach((t) => t.stop());
+
+        const blob = new Blob(chunksRef.current, { type: mr.mimeType || "audio/webm" });
+        chunksRef.current = [];
+
+        if (blob.size < 1000) return; // πολύ μικρό/άδειο
+
+        setIsTranscribing(true);
+        try {
+          const fd = new FormData();
+          fd.append("file", blob, "audio.webm");
+
+          const r = await fetch("/api/transcribe", { method: "POST", body: fd });
+          const data = await r.json();
+
+          if (!r.ok) throw new Error(data?.error || "Σφάλμα μεταγραφής.");
+
+          const t = String(data?.text || "").trim();
+          if (t) {
+            setInput((prev) => {
+              const base = prev.trim();
+              return base ? base + " " + t : t;
+            });
+          }
+        } catch (e: any) {
+          alert("Αποτυχία μεταγραφής. " + (e?.message ? `(${e.message})` : ""));
+        } finally {
+          setIsTranscribing(false);
+        }
+      };
+
+      mr.start();
+      setIsRecording(true);
+    } catch (e: any) {
+      alert("Δεν δόθηκε πρόσβαση στο μικρόφωνο ή δεν υποστηρίζεται. " + (e?.message ? `(${e.message})` : ""));
+    }
+  };
+
+  const stopRecording = () => {
+    if (!mediaRecorderRef.current) return;
+    try {
+      mediaRecorderRef.current.stop();
+    } catch {}
+    setIsRecording(false);
   };
 
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -363,9 +430,25 @@ export default function Page() {
         <div className="cs-app__composer" aria-label="Σύνταξη μηνύματος">
           <div className="cs-app__composerInner">
             <button
-  className="cs-app__iconBtn cs-app__micBtn"
+  className={
+    "cs-app__iconBtn cs-app__micBtn" +
+    (isRecording ? " is-recording" : "") +
+    (isTranscribing ? " is-transcribing" : "")
+  }
   type="button"
-  aria-label="Ηχογράφηση"
+  aria-label={
+    isTranscribing
+      ? "Μεταγραφή σε εξέλιξη"
+      : isRecording
+      ? "Διακοπή ηχογράφησης"
+      : "Έναρξη ηχογράφησης"
+  }
+  onClick={() => {
+    if (isTranscribing) return;
+    if (isRecording) stopRecording();
+    else startRecording();
+  }}
+  disabled={isTranscribing}
 >
   <svg
     className="cs-app__micIcon"

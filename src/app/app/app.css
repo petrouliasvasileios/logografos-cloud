@@ -671,3 +671,13 @@
     font-size: 16px !important;
   }
 }
+.cs-app .cs-app__micBtn.is-recording{
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  color: rgba(239, 68, 68, 0.95) !important;
+}
+
+.cs-app .cs-app__micBtn.is-transcribing{
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
