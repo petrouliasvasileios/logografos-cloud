@@ -1,31 +1,69 @@
-/* Legal pages: “consent-style” centered card, readable typography.
-   Scoped ONLY when main has both: .lgc-legal.lgc-signin
+/* Legal pages: centered card layout, independent from signin.css
+   Applies ONLY when main has both classes: .lgc-legal.lgc-signin
 */
 
+.lgc-legal.lgc-signin{
+  /* override signin page grid centering */
+  display: block !important;
+  place-items: initial !important;
+  min-height: 100vh !important;
+  padding: 28px 16px 28px !important;
+  background: #ffffff !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* wrapper must NOT be capped to 520px */
 .lgc-legal.lgc-signin .lgc-signin__wrap{
-  /* πιο “modal” αίσθηση */
-  padding-top: 28px;
-  padding-bottom: 28px;
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 18px !important;
+
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+  position: relative !important;
+  z-index: 5 !important;
 }
 
+/* card must NOT be capped to 420px */
 .lgc-legal.lgc-signin .lgc-signin__card{
-  max-width: 860px;
-  padding: 28px 30px 22px;
-  border-radius: 18px;
+  width: 100% !important;
+  max-width: none !important;
+
+  padding: 28px 30px 22px !important;
+  border-radius: 18px !important;
+
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.10) !important;
+  box-shadow: 0 18px 55px rgba(2, 6, 23, 0.10) !important;
+
+  backdrop-filter: none !important;
+  position: relative !important;
+  z-index: 6 !important;
 }
 
-/* Μικραίνουμε το ClinicScribe logo μόνο στις legal */
+/* Logo alignment + sizing ONLY on legal */
 .lgc-legal.lgc-signin .lgc-signin__logoWrap{
-  margin-bottom: 8px;
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 8px !important;
 }
 
 .lgc-legal.lgc-signin .lgc-signin__brandLogo{
-  width: auto;
-  max-width: 320px;
-  max-height: 72px;
+  width: auto !important;
+  max-width: 320px !important;
+  max-height: 72px !important;
+  height: auto !important;
+  display: block !important;
 }
 
-/* Τίτλοι/metadata */
+/* Titles / meta */
 .lgc-legal.lgc-signin .lgc-legal__title{
   text-align: center;
   margin: 10px 0 8px;
@@ -41,7 +79,7 @@
   color: rgba(15, 23, 42, 0.60);
 }
 
-/* Περιεχόμενο */
+/* Content */
 .lgc-legal.lgc-signin .lgc-legal__content{
   display: grid;
   gap: 14px;
@@ -87,10 +125,12 @@
   text-underline-offset: 3px;
 }
 
-/* NetWind footer: κάν’ το διακριτικό (ή και κρύψ’ το) */
+/* NetWind footer: subtle */
 .lgc-legal.lgc-signin .lgc-signin__footer{
   margin-top: 14px;
   padding-bottom: 6px;
+  display: flex;
+  justify-content: center;
 }
 
 .lgc-legal.lgc-signin .lgc-signin__footerLogo{
@@ -101,20 +141,18 @@
 
 /* Mobile */
 @media (max-width: 520px){
-  .lgc-legal.lgc-signin .lgc-signin__wrap{
-    padding-top: 18px;
-    padding-bottom: 18px;
+  .lgc-legal.lgc-signin{
+    padding: 18px !important;
   }
 
   .lgc-legal.lgc-signin .lgc-signin__card{
-    max-width: 720px;
-    padding: 20px 16px 16px;
-    border-radius: 16px;
+    padding: 20px 16px 16px !important;
+    border-radius: 16px !important;
   }
 
   .lgc-legal.lgc-signin .lgc-signin__brandLogo{
-    max-width: 260px;
-    max-height: 56px;
+    max-width: 260px !important;
+    max-height: 56px !important;
   }
 
   .lgc-legal.lgc-signin .lgc-legal__title{
