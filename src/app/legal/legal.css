@@ -1,34 +1,58 @@
-/* Legal pages reuse lgc-signin layout + add readable legal typography */
-.lgc-legal.lgc-signin .lgc-signin__card{
-  max-width: 720px; /* λίγο πιο άνετο για κείμενο, αλλά κρατάει “card” look */
+/* Legal pages: “consent-style” centered card, readable typography.
+   Scoped ONLY when main has both: .lgc-legal.lgc-signin
+*/
+
+.lgc-legal.lgc-signin .lgc-signin__wrap{
+  /* πιο “modal” αίσθηση */
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
+.lgc-legal.lgc-signin .lgc-signin__card{
+  max-width: 860px;
+  padding: 28px 30px 22px;
+  border-radius: 18px;
+}
+
+/* Μικραίνουμε το ClinicScribe logo μόνο στις legal */
+.lgc-legal.lgc-signin .lgc-signin__logoWrap{
+  margin-bottom: 8px;
+}
+
+.lgc-legal.lgc-signin .lgc-signin__brandLogo{
+  width: auto;
+  max-width: 320px;
+  max-height: 72px;
+}
+
+/* Τίτλοι/metadata */
 .lgc-legal.lgc-signin .lgc-legal__title{
   text-align: center;
-  margin: 8px 0 10px;
-  font-size: 26px;
+  margin: 10px 0 8px;
+  font-size: 28px;
   line-height: 1.15;
   color: #0b3f52;
 }
 
 .lgc-legal.lgc-signin .lgc-legal__meta{
   text-align: center;
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   font-size: 12px;
   color: rgba(15, 23, 42, 0.60);
 }
 
+/* Περιεχόμενο */
 .lgc-legal.lgc-signin .lgc-legal__content{
   display: grid;
-  gap: 12px;
+  gap: 14px;
   font-size: 14px;
-  line-height: 1.6;
-  color: rgba(15, 23, 42, 0.86);
+  line-height: 1.7;
+  color: rgba(15, 23, 42, 0.88);
 }
 
 .lgc-legal.lgc-signin .lgc-legal__content h2{
-  margin: 10px 0 0;
-  font-size: 15px;
+  margin: 14px 0 0;
+  font-size: 16px;
   line-height: 1.35;
   color: rgba(11, 63, 82, 0.98);
 }
@@ -39,19 +63,19 @@
 
 .lgc-legal.lgc-signin .lgc-legal__content ul{
   margin: 0;
-  padding-left: 18px;
+  padding-left: 20px;
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
+/* Actions */
 .lgc-legal.lgc-signin .lgc-legal__actions{
-  margin-top: 14px;
-  display: grid;
-  gap: 10px;
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
 }
 
 .lgc-legal.lgc-signin .lgc-legal__backLink{
-  text-align: center;
   font-size: 13px;
   color: rgba(15, 23, 42, 0.75);
   text-decoration: none;
@@ -60,18 +84,45 @@
 .lgc-legal.lgc-signin .lgc-legal__backLink:hover{
   color: rgba(11, 63, 82, 0.95);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
+/* NetWind footer: κάν’ το διακριτικό (ή και κρύψ’ το) */
+.lgc-legal.lgc-signin .lgc-signin__footer{
+  margin-top: 14px;
+  padding-bottom: 6px;
+}
+
+.lgc-legal.lgc-signin .lgc-signin__footerLogo{
+  max-height: 34px;
+  width: auto;
+  opacity: 0.55;
+}
+
+/* Mobile */
 @media (max-width: 520px){
+  .lgc-legal.lgc-signin .lgc-signin__wrap{
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
   .lgc-legal.lgc-signin .lgc-signin__card{
+    max-width: 720px;
     padding: 20px 16px 16px;
     border-radius: 16px;
   }
+
+  .lgc-legal.lgc-signin .lgc-signin__brandLogo{
+    max-width: 260px;
+    max-height: 56px;
+  }
+
   .lgc-legal.lgc-signin .lgc-legal__title{
     font-size: 22px;
   }
+
   .lgc-legal.lgc-signin .lgc-legal__content{
     font-size: 13px;
-    line-height: 1.65;
+    line-height: 1.75;
   }
 }

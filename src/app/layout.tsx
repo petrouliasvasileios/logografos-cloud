@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LegalBar from "./LegalBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,45 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         {children}
 
-        <footer className="lgc-legalbar" aria-label="Νομικές πληροφορίες">
-          <nav className="lgc-legalbar__nav" aria-label="Σύνδεσμοι νομικών κειμένων">
-            <a
-              className="lgc-legalbar__link"
-              href="/legal/terms"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Όροι
-            </a>
-            <span className="lgc-legalbar__sep">•</span>
-            <a
-              className="lgc-legalbar__link"
-              href="/legal/privacy"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Απόρρητο
-            </a>
-            <span className="lgc-legalbar__sep">•</span>
-            <a
-              className="lgc-legalbar__link"
-              href="/legal/disclaimer"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Αποποίηση
-            </a>
-            <span className="lgc-legalbar__sep">•</span>
-            <a
-              className="lgc-legalbar__link"
-              href="/legal/ip"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Πνευματική Ιδιοκτησία
-            </a>
-          </nav>
-        </footer>
+        <LegalBar />
       </body>
     </html>
   );

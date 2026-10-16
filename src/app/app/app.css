@@ -185,7 +185,7 @@
 .cs-app__chatInner{
   max-width: 920px;
   margin: 0 auto;
-  padding: 22px 16px 28px;
+  padding: 22px 16px 120px;
   display: grid;
   gap: 12px;
 }
@@ -230,6 +230,10 @@
   border-top: 1px solid rgba(15, 23, 42, 0.10);
   background: #ffffff;
   padding: 12px 12px 10px;
+
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
 }
 
 .cs-app__composerInner{
@@ -607,4 +611,48 @@
 
 .cs-app .cs-app__micIcon{
   display:block !important;
+}
+/* App inline legal menu (scrolls with composer content) */
+.cs-app__legalMenu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(0,0,0,0.62);
+}
+
+.cs-app__legalLink{
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cs-app__legalLink:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cs-app__legalSep{
+  opacity: 0.45;
+}
+
+@media (max-width: 480px){
+  .cs-app__legalMenu{
+    font-size: 11px;
+    gap: 8px;
+    padding: 9px 10px;
+  }
 }
