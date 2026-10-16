@@ -185,7 +185,7 @@
 .cs-app__chatInner{
   max-width: 920px;
   margin: 0 auto;
-  padding: 22px 16px 120px;
+  padding: 22px 16px 240px;
   display: grid;
   gap: 12px;
 }
@@ -231,9 +231,14 @@
   background: #ffffff;
   padding: 12px 12px 10px;
 
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   bottom: 0;
-  z-index: 30;
+  z-index: 60;
+
+  /* iOS safe area */
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
 }
 
 .cs-app__composerInner{

@@ -1,3 +1,21 @@
+/* Force centered card layout for legal pages (do NOT depend on signin.css) */
+.lgc-legal.lgc-signin .lgc-signin__wrap{
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 28px 16px 28px;
+}
+
+.lgc-legal.lgc-signin .lgc-signin__card{
+  width: 100%;
+  max-width: 860px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 18px;
+  box-shadow: 0 18px 55px rgba(2, 6, 23, 0.10);
+}
+
 .lgc-signin {
   min-height: 100vh;
   display: grid;
