@@ -575,3 +575,25 @@
     padding-bottom: 88px !important;
   }
 }
+/* ================================
+   Mic button icon (clean outline)
+================================ */
+.cs-app .cs-app__micBtn{
+  color:#0b3f52;
+}
+
+.cs-app .cs-app__micIcon{
+  display:block;
+}
+
+.cs-app .cs-app__micBtn:hover{
+  background: rgba(14, 90, 115, 0.06);
+  border-color: rgba(14, 90, 115, 0.22);
+}
+
+.cs-app .cs-app__micBtn:active{
+  transform: translateY(1px);
+}
+.cs-app .cs-app__micBtn{
+  color:#111111 !important;
+}
