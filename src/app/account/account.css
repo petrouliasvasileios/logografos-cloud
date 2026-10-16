@@ -97,3 +97,41 @@
   color: rgba(15, 23, 42, 0.60);
   line-height: 1.5;
 }
+/* ================================
+   Mobile fixes (Account)
+================================ */
+@media (max-width: 720px){
+  .cs-account{
+    padding: 14px;
+    overflow-x: hidden;
+  }
+
+  .cs-account__card{
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .cs-account__top{
+    flex-wrap: wrap;      /* κρίσιμο: να μη σπρώχνει δεξιά */
+    align-items: flex-start;
+  }
+
+  .cs-account__actions{
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;      /* να σπάνε σε 2η γραμμή */
+    gap: 8px;
+  }
+
+  .cs-account__btn{
+    height: 38px;
+    padding: 0 10px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .cs-account__title{
+    width: 100%;
+    font-size: 18px;
+  }
+}

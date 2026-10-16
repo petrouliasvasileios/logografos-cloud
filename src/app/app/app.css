@@ -511,3 +511,8 @@
     max-width: 100%;
   }
 }
+/* show/hide helpers */
+.cs-app .cs-app__onlyDesktop{ display:inline-flex; }
+@media (max-width: 720px){
+  .cs-app .cs-app__onlyDesktop{ display:none; }
+}
