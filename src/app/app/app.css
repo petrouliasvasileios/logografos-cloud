@@ -540,3 +540,38 @@
     align-items:center !important;
   }
 }
+/* ================================
+   Mobile: bring composer higher + reduce hint footprint
+================================ */
+@media (max-width: 920px){
+  /* λιγότερο padding στο composer */
+  .cs-app .cs-app__composer{
+    padding: 8px 10px 6px !important;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom)) !important;
+  }
+
+  /* κάνε το hint πιο “compact” (ή κρύψ’ το τελείως αν θες) */
+  .cs-app .cs-app__hint{
+    margin: 6px auto 0 !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* λίγο πιο “σφιχτή” η μπάρα */
+  .cs-app .cs-app__composerInner{
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+
+  .cs-app .cs-app__iconBtn,
+  .cs-app .cs-app__sendBtn{
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 12px !important;
+  }
+
+  /* ώστε να μην αφήνουμε υπερβολικό κενό κάτω */
+  .cs-app .cs-app__chatInner{
+    padding-bottom: 88px !important;
+  }
+}

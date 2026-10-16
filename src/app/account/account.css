@@ -135,3 +135,7 @@
     font-size: 18px;
   }
 }
+/* Mic icon color: black like sample */
+.cs-app .cs-app__micBtn{
+  color:#111111 !important;
+}
