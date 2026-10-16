@@ -516,3 +516,27 @@
 @media (max-width: 720px){
   .cs-app .cs-app__onlyDesktop{ display:none; }
 }
+/* ================================
+   Mobile topbar: force hide title + account button
+   (keep only hamburger + Export Word + avatar)
+================================ */
+@media (max-width: 920px){
+  .cs-app .cs-app__topbarTitle{
+    display:none !important;
+  }
+
+  /* κρύψε το κουμπί "Λογαριασμός" στο topbar */
+  .cs-app .cs-app__topbarActions .cs-app__topBtn--ghost{
+    display:none !important;
+  }
+
+  /* κράτα actions σε 1 γραμμή */
+  .cs-app .cs-app__topbarActions{
+    flex-wrap:nowrap !important;
+    gap:8px !important;
+  }
+
+  .cs-app .cs-app__topbar{
+    align-items:center !important;
+  }
+}
