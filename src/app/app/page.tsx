@@ -181,7 +181,7 @@ export default function Page() {
             >
               ☰
             </button>
-            <div className="cs-app__topbarTitle">ClinicScribe</div>
+            <div className="cs-app__topbarTitle">ClinicScribe v2</div>
           </div>
 
           <div className="cs-app__topbarActions">
@@ -272,12 +272,50 @@ export default function Page() {
         <div className="cs-app__composer" aria-label="Σύνταξη μηνύματος">
           <div className="cs-app__composerInner">
             <button
-              className="cs-app__iconBtn"
-              type="button"
-              aria-label="Ηχογράφηση"
-            >
-              🎙
-            </button>
+  className="cs-app__iconBtn cs-app__micBtn"
+  type="button"
+  aria-label="Ηχογράφηση"
+>
+  <svg
+    className="cs-app__micIcon"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path
+      d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3Z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M19 11a7 7 0 0 1-14 0"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M12 18v3"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M8 21h8"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</button>
+
 
             <textarea
               className="cs-app__input"
