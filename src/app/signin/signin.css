@@ -346,3 +346,12 @@
   font-size: 12px;
   color: rgba(15, 23, 42, 0.55);
 }
+.lgc-signin__consentText .lgc-signin__link{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.lgc-signin__consentText .lgc-signin__link:hover{
+  opacity: 0.85;
+}

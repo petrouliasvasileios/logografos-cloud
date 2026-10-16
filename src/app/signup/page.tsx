@@ -7,8 +7,20 @@ import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [specialty, setSpecialty] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   async function handleGoogleSignUp() {
+    if (!acceptedTerms) {
+      alert("Για να συνεχίσεις, πρέπει να αποδεχτείς τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+      return;
+    }
     const supabase = createSupabaseBrowserClient();
 
     const { error } = await supabase.auth.signInWithOAuth({
@@ -22,6 +34,57 @@ export default function Page() {
       console.error("Google sign-up error:", error.message);
       alert("Σφάλμα εγγραφής με Google. Δες Console για λεπτομέρειες.");
     }
+  }
+
+  async function handleEmailSignUp(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!acceptedTerms) {
+      alert("Για να συνεχίσεις, πρέπει να αποδεχτείς τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+      return;
+    }
+
+    if (!firstName.trim() || !lastName.trim() || !specialty.trim() || !email.trim()) {
+      alert("Συμπλήρωσε όλα τα πεδία (Όνομα, Επώνυμο, Ειδικότητα, Email).");
+      return;
+    }
+
+    if (!password || !confirmPassword) {
+      alert("Συμπλήρωσε κωδικό και επιβεβαίωση κωδικού.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Ο κωδικός πρέπει να έχει τουλάχιστον 6 χαρακτήρες.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Οι κωδικοί δεν ταιριάζουν.");
+      return;
+    }
+
+    const supabase = createSupabaseBrowserClient();
+
+    const { error } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: {
+        data: {
+          full_name: `${firstName.trim()} ${lastName.trim()}`.trim(),
+          specialty: specialty.trim(),
+        },
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      console.error("Email sign-up error:", error.message);
+      alert(`Σφάλμα εγγραφής. ${error.message}`);
+      return;
+    }
+
+    alert("Έγινε εγγραφή. Έλεγξε το email σου για επιβεβαίωση.");
   }
 
   return (
@@ -41,7 +104,7 @@ export default function Page() {
 
           <h1 className="lgc-signin__title">Εγγραφή</h1>
 
-          <form className="lgc-signin__form" onSubmit={(e) => e.preventDefault()}>
+          <form className="lgc-signin__form" onSubmit={handleEmailSignUp}>
             <label className="lgc-signin__field">
               <input
                 className="lgc-signin__input"
@@ -49,6 +112,9 @@ export default function Page() {
                 name="firstName"
                 placeholder="Όνομα"
                 autoComplete="given-name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
               />
             </label>
 
@@ -59,6 +125,9 @@ export default function Page() {
                 name="lastName"
                 placeholder="Επώνυμο"
                 autoComplete="family-name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
               />
             </label>
 
@@ -69,6 +138,9 @@ export default function Page() {
                 name="specialty"
                 placeholder="Ειδικότητα"
                 autoComplete="organization-title"
+                value={specialty}
+                onChange={(e) => setSpecialty(e.target.value)}
+                required
               />
             </label>
 
@@ -79,6 +151,9 @@ export default function Page() {
                 name="email"
                 placeholder="Email"
                 autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </label>
 
@@ -90,6 +165,9 @@ export default function Page() {
                   name="password"
                   placeholder="Κωδικός"
                   autoComplete="new-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
                 <button
                   type="button"
@@ -110,6 +188,9 @@ export default function Page() {
                   name="confirmPassword"
                   placeholder="Επιβεβαίωση κωδικού"
                   autoComplete="new-password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
                 />
                 <button
                   type="button"
@@ -125,13 +206,26 @@ export default function Page() {
             </label>
 
             <label className="lgc-signin__consent">
-              <input className="lgc-signin__checkbox" type="checkbox" name="consent" />
+              <input
+                className="lgc-signin__checkbox"
+                type="checkbox"
+                name="consent"
+                checked={acceptedTerms}
+                onChange={(e) => setAcceptedTerms(e.target.checked)}
+              />
               <span className="lgc-signin__consentText">
-                Αποδέχομαι τους Όρους Χρήσης και την Πολιτική Απορρήτου
+                Αποδέχομαι τους{" "}
+                <a className="lgc-signin__link" href="/legal/terms" target="_blank" rel="noreferrer">
+                  Όρους Χρήσης
+                </a>{" "}
+                και την{" "}
+                <a className="lgc-signin__link" href="/legal/privacy" target="_blank" rel="noreferrer">
+                  Πολιτική Απορρήτου
+                </a>
               </span>
             </label>
 
-            <button className="lgc-signin__btn" type="submit">
+            <button className="lgc-signin__btn" type="submit" disabled={!acceptedTerms}>
               Εγγραφή
             </button>
 
