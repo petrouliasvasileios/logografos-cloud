@@ -35,12 +35,14 @@ export async function POST(req: Request) {
     });
 
     const buf = await Packer.toBuffer(doc);
+    const uint8 = new Uint8Array(buf);
+
 
     const safeName = (body?.fileName || "gnomatefsi")
       .replace(/[^\w\-]+/g, "_")
       .slice(0, 60);
 
-    return new NextResponse(buf, {
+    return new NextResponse(uint8, {
       status: 200,
       headers: {
         "Content-Type":
