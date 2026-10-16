@@ -681,3 +681,13 @@
   opacity: 0.6 !important;
   cursor: not-allowed !important;
 }
+/* Mobile: αφήνουμε χώρο ώστε το τελευταίο bubble να μην κρύβεται από το composer */
+.cs-app .cs-app__chatInner{
+  padding-bottom: 140px !important;
+}
+
+@media (min-width: 768px){
+  .cs-app .cs-app__chatInner{
+    padding-bottom: 120px !important;
+  }
+}
