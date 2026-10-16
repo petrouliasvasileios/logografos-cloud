@@ -136,7 +136,10 @@ export default function Page() {
         setIsTranscribing(true);
         try {
           const fd = new FormData();
-          fd.append("file", blob, "audio.webm");
+          const file = new File([blob], "audio.webm", {
+            type: blob.type || "audio/webm",
+          });
+          fd.append("file", file);
 
           const r = await fetch("/api/transcribe", { method: "POST", body: fd });
           const data = await r.json();
