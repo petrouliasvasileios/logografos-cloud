@@ -86,33 +86,123 @@ export default function Page() {
   const [activeCaseId, setActiveCaseId] = useState<string>("c1");
   const [input, setInput] = useState<string>("");
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isSending, setIsSending] = useState<boolean>(false);
 
-  const messages: ChatMessage[] = useMemo(
-    () => [
-      {
-        id: "m1",
+  const chatEndRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToBottom = (behavior: ScrollBehavior = "smooth") => {
+    chatEndRef.current?.scrollIntoView({ behavior, block: "end" });
+  };
+
+  const nowTime = () => {
+    const d = new Date();
+    return d.toLocaleTimeString("el-GR", { hour: "2-digit", minute: "2-digit" });
+  };
+
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      id: "m1",
+      role: "assistant",
+      text:
+        "Είμαι έτοιμος. Υπαγόρευσε τα στοιχεία/ευρήματα και θα συντάξω ιατρική γνωμάτευση.",
+      time: "22:51",
+    },
+    {
+      id: "m2",
+      role: "user",
+      text:
+        "Ασθενής με οσφυαλγία 10 ημερών. Κλινικά: περιορισμός κάμψης, χωρίς νευρολογικό έλλειμμα. Προτείνεται ανάπαυση και αντιφλεγμονώδη.",
+      time: "22:52",
+    },
+    {
+      id: "m3",
+      role: "assistant",
+      text:
+        "Θέλεις η γνωμάτευση να είναι για εργασία/άδεια ή καθαρά ιατρική αναφορά; Επίσης, να συμπεριλάβω διάγνωση (ICD-10) ή όχι;",
+      time: "22:52",
+    },
+  ]);
+
+  useEffect(() => {
+    scrollToBottom("auto");
+  }, [messages]);
+
+  const handleSend = async () => {
+    const text = input.trim();
+    if (!text || isSending) return;
+
+    const userMsg: ChatMessage = {
+      id: "u_" + Date.now(),
+      role: "user",
+      text,
+      time: nowTime(),
+    };
+
+    setMessages((prev) => [...prev, userMsg]);
+    setInput("");
+    setIsSending(true);
+
+    try {
+      const r = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text }),
+      });
+
+      const data = await r.json();
+
+      if (!r.ok) {
+        throw new Error(data?.error || "Σφάλμα επικοινωνίας με τον server.");
+      }
+
+      const assistantMsg: ChatMessage = {
+        id: "a_" + Date.now(),
+        role: "assistant",
+        text: String(data?.reply || ""),
+        time: nowTime(),
+      };
+
+      setMessages((prev) => [...prev, assistantMsg]);
+    } catch (e: any) {
+      const assistantErr: ChatMessage = {
+        id: "a_err_" + Date.now(),
         role: "assistant",
         text:
-          "Είμαι έτοιμος. Υπαγόρευσε τα στοιχεία/ευρήματα και θα συντάξω ιατρική γνωμάτευση.",
-        time: "22:51",
-      },
-      {
-        id: "m2",
-        role: "user",
-        text:
-          "Ασθενής με οσφυαλγία 10 ημερών. Κλινικά: περιορισμός κάμψης, χωρίς νευρολογικό έλλειμμα. Προτείνεται ανάπαυση και αντιφλεγμονώδη.",
-        time: "22:52",
-      },
-      {
-        id: "m3",
-        role: "assistant",
-        text:
-          "Θέλεις η γνωμάτευση να είναι για εργασία/άδεια ή καθαρά ιατρική αναφορά; Επίσης, να συμπεριλάβω διάγνωση (ICD-10) ή όχι;",
-        time: "22:52",
-      },
-    ],
-    [activeCaseId]
-  );
+          "Παρουσιάστηκε σφάλμα. Δοκίμασε ξανά. " +
+          (e?.message ? `(${e.message})` : ""),
+        time: nowTime(),
+      };
+      setMessages((prev) => [...prev, assistantErr]);
+    } finally {
+      setIsSending(false);
+    }
+  };
+    {
+      id: "m1",
+      role: "assistant",
+      text:
+        "Είμαι έτοιμος. Υπαγόρευσε τα στοιχεία/ευρήματα και θα συντάξω ιατρική γνωμάτευση.",
+      time: "22:51",
+    },
+    {
+      id: "m2",
+      role: "user",
+      text:
+        "Ασθενής με οσφυαλγία 10 ημερών. Κλινικά: περιορισμός κάμψης, χωρίς νευρολογικό έλλειμμα. Προτείνεται ανάπαυση και αντιφλεγμονώδη.",
+      time: "22:52",
+    },
+    {
+      id: "m3",
+      role: "assistant",
+      text:
+        "Θέλεις η γνωμάτευση να είναι για εργασία/άδεια ή καθαρά ιατρική αναφορά; Επίσης, να συμπεριλάβω διάγνωση (ICD-10) ή όχι;",
+      time: "22:52",
+    },
+  ]);
+
+  useEffect(() => {
+    scrollToBottom("auto");
+  }, [messages]);
 
   return (
     <main className="cs-app">
@@ -266,6 +356,7 @@ export default function Page() {
                 </div>
               </div>
             ))}
+            <div ref={chatEndRef} />
           </div>
         </div>
 
@@ -322,6 +413,12 @@ export default function Page() {
               placeholder="Γράψε ή υπαγόρευσε…"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSend();
+                }
+              }}
               rows={1}
             />
 
@@ -329,8 +426,10 @@ export default function Page() {
               className="cs-app__sendBtn"
               type="button"
               aria-label="Αποστολή"
+              onClick={handleSend}
+              disabled={isSending || !input.trim()}
             >
-              ➤
+              {isSending ? "…" : "➤"}
             </button>
           </div>
 
