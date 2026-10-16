@@ -463,3 +463,51 @@
     min-width:220px;
   }
 }
+/* ================================
+   Mobile topbar fix (App)
+   APPEND at very end of app.css
+================================ */
+@media (max-width: 720px){
+  /* μην αφήνεις fixed height όταν τα actions κάνουν wrap */
+  .cs-app .cs-app__topbar{
+    height: auto;
+    min-height: 56px;
+    padding: 10px 12px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .cs-app .cs-app__topbarLeft{
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .cs-app .cs-app__topbarActions{
+    flex: 0 0 auto;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cs-app .cs-app__topBtn{
+    padding: 8px 10px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
+
+/* extra-tight phones */
+@media (max-width: 420px){
+  .cs-app .cs-app__topbarActions{
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 720px){
+  .cs-app{
+    overflow-x: hidden;
+  }
+  .cs-app .cs-app__chatInner{
+    width: 100%;
+    max-width: 100%;
+  }
+}
