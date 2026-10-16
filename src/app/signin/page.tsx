@@ -6,8 +6,21 @@ import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem("lgc_terms_accepted_v1");
+      if (saved === "1") setAcceptedTerms(true);
+    } catch {}
+  }, []);
 
   async function handleGoogleSignIn() {
+    if (!acceptedTerms) {
+      alert("Για να συνεχίσεις, πρέπει να αποδεχτείς τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+      return;
+    }
+
     const supabase = createSupabaseBrowserClient();
 
     const { error } = await supabase.auth.signInWithOAuth({
@@ -70,6 +83,32 @@ export default function Page() {
 
               <span className="lgc-signin__googleText">Σύνδεση με Google</span>
             </button>
+
+            <label className="lgc-signin__consent">
+              <input
+                className="lgc-signin__checkbox"
+                type="checkbox"
+                name="consent"
+                checked={acceptedTerms}
+                onChange={(e) => {
+                  const v = e.target.checked;
+                  setAcceptedTerms(v);
+                  try {
+                    window.localStorage.setItem("lgc_terms_accepted_v1", v ? "1" : "0");
+                  } catch {}
+                }}
+              />
+              <span className="lgc-signin__consentText">
+                Αποδέχομαι τους{" "}
+                <a className="lgc-signin__link" href="/legal/terms" target="_blank" rel="noreferrer">
+                  Όρους Χρήσης
+                </a>{" "}
+                και την{" "}
+                <a className="lgc-signin__link" href="/legal/privacy" target="_blank" rel="noreferrer">
+                  Πολιτική Απορρήτου
+                </a>
+              </span>
+            </label>
 
             <div className="lgc-signin__divider" aria-hidden="true">
               <span className="lgc-signin__dividerLine" />
