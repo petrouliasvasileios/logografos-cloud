@@ -24,3 +24,76 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* =========================
+   ClinicScribe Legal Bar
+   ========================= */
+
+.lgc-legalbar{
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+
+  pointer-events: none; /* so it doesn't block UI except links */
+}
+
+.lgc-legalbar__nav{
+  pointer-events: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 10px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  font-size: 11px;
+  line-height: 1;
+  color: rgba(0,0,0,0.65);
+}
+
+.lgc-legalbar__link{
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lgc-legalbar__link:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lgc-legalbar__sep{
+  opacity: 0.45;
+}
+
+/* Mobile: ακόμα μικρότερο */
+@media (max-width: 480px){
+  .lgc-legalbar{
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .lgc-legalbar__nav{
+    font-size: 10px;
+    padding: 7px 9px;
+    gap: 6px;
+  }
+}
+
+/* Προστασία: να μην “πατάει” το footer πάνω σε content */
+body{
+  padding-bottom: 64px;
+}

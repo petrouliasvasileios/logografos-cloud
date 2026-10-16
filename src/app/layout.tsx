@@ -23,7 +23,49 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+
+        <footer className="lgc-legalbar" aria-label="Νομικές πληροφορίες">
+          <nav className="lgc-legalbar__nav" aria-label="Σύνδεσμοι νομικών κειμένων">
+            <a
+              className="lgc-legalbar__link"
+              href="/legal/terms"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Όροι
+            </a>
+            <span className="lgc-legalbar__sep">•</span>
+            <a
+              className="lgc-legalbar__link"
+              href="/legal/privacy"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Απόρρητο
+            </a>
+            <span className="lgc-legalbar__sep">•</span>
+            <a
+              className="lgc-legalbar__link"
+              href="/legal/disclaimer"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Αποποίηση
+            </a>
+            <span className="lgc-legalbar__sep">•</span>
+            <a
+              className="lgc-legalbar__link"
+              href="/legal/ip"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Πνευματική Ιδιοκτησία
+            </a>
+          </nav>
+        </footer>
+      </body>
     </html>
   );
 }
