@@ -1,7 +1,7 @@
 "use client";
 
 import "./signin.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 export default function Page() {
