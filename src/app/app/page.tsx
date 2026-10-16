@@ -244,32 +244,6 @@ export default function Page() {
       setIsSending(false);
     }
   };
-    {
-      id: "m1",
-      role: "assistant",
-      text:
-        "Είμαι έτοιμος. Υπαγόρευσε τα στοιχεία/ευρήματα και θα συντάξω ιατρική γνωμάτευση.",
-      time: "22:51",
-    },
-    {
-      id: "m2",
-      role: "user",
-      text:
-        "Ασθενής με οσφυαλγία 10 ημερών. Κλινικά: περιορισμός κάμψης, χωρίς νευρολογικό έλλειμμα. Προτείνεται ανάπαυση και αντιφλεγμονώδη.",
-      time: "22:52",
-    },
-    {
-      id: "m3",
-      role: "assistant",
-      text:
-        "Θέλεις η γνωμάτευση να είναι για εργασία/άδεια ή καθαρά ιατρική αναφορά; Επίσης, να συμπεριλάβω διάγνωση (ICD-10) ή όχι;",
-      time: "22:52",
-    },
-  ]);
-
-  useEffect(() => {
-    scrollToBottom("auto");
-  }, [messages]);
 
   return (
     <main className="cs-app">
@@ -510,7 +484,7 @@ export default function Page() {
               type="button"
               aria-label="Αποστολή"
               onClick={handleSend}
-              disabled={isSending || !input.trim()}
+              disabled={isSending || isTranscribing || !input.trim()}
             >
               {isSending ? "…" : "➤"}
             </button>
