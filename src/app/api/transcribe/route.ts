@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   try {
