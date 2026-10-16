@@ -94,8 +94,14 @@ export default function Page() {
   const chunksRef = useRef<BlobPart[]>([]);
 
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+  const lastAssistantRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToBottom = (behavior: ScrollBehavior = "smooth") => {
+    // Προτεραιότητα: τελευταίο assistant bubble
+    if (lastAssistantRef.current) {
+      lastAssistantRef.current.scrollIntoView({ behavior, block: "end" });
+      return;
+    }
     chatEndRef.current?.scrollIntoView({ behavior, block: "end" });
   };
 
@@ -191,7 +197,10 @@ export default function Page() {
   ]);
 
   useEffect(() => {
-    scrollToBottom("auto");
+    const last = messages[messages.length - 1];
+    if (last?.role === "assistant") {
+      scrollToBottom("smooth");
+    }
   }, [messages]);
 
   const handleSend = async () => {
@@ -383,20 +392,27 @@ export default function Page() {
 
         <div className="cs-app__chat">
           <div className="cs-app__chatInner">
-            {messages.map((m) => (
-              <div
-                key={m.id}
-                className={
-                  "cs-app__msgRow " +
-                  (m.role === "user" ? "is-user" : "is-assistant")
-                }
-              >
+            {messages.map((m, idx) => {
+              const isLast = idx === messages.length - 1;
+              const isLastAssistant =
+                isLast && m.role === "assistant";
+
+              return (
+                <div
+                  key={m.id}
+                  ref={isLastAssistant ? lastAssistantRef : null}
+                  className={
+                    "cs-app__msgRow " +
+                    (m.role === "user" ? "is-user" : "is-assistant")
+                  }
+                >
                 <div className="cs-app__bubble">
                   <div className="cs-app__bubbleText">{m.text}</div>
                   <div className="cs-app__bubbleMeta">{m.time}</div>
                 </div>
-              </div>
-            ))}
+                </div>
+              );
+            })}
             <div ref={chatEndRef} />
           </div>
         </div>
