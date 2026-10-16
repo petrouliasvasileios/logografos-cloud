@@ -257,6 +257,47 @@ export default function Page() {
     }
   };
 
+  const exportWord = async () => {
+    const lastAssistant = [...messages].reverse().find((m) => m.role === "assistant");
+    const text = (lastAssistant?.text || "").trim();
+
+    if (!text) {
+      alert("Δεν υπάρχει απάντηση βοηθού για εξαγωγή.");
+      return;
+    }
+
+    try {
+      const r = await fetch("/api/export-docx", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text,
+          fileName: "gnomatefsi",
+        }),
+      });
+
+      if (!r.ok) {
+        const data = await r.json().catch(() => ({}));
+        throw new Error(data?.error || "Αποτυχία δημιουργίας Word.");
+      }
+
+      const blob = await r.blob();
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "gnomatefsi.docx";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      URL.revokeObjectURL(url);
+    } catch (e: any) {
+      alert("Δεν μπόρεσα να κατεβάσω Word. " + (e?.message ? `(${e.message})` : ""));
+    }
+  };
+
+  
   return (
     <main className="cs-app">
       <div
@@ -328,7 +369,7 @@ export default function Page() {
           </div>
 
           <div className="cs-app__topbarActions">
-            <button className="cs-app__topBtn" type="button">
+            <button className="cs-app__topBtn" type="button" onClick={exportWord}>
               Εξαγωγή Word
             </button>
 
