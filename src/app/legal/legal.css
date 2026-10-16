@@ -1,0 +1,77 @@
+/* Legal pages reuse lgc-signin layout + add readable legal typography */
+.lgc-legal.lgc-signin .lgc-signin__card{
+  max-width: 720px; /* λίγο πιο άνετο για κείμενο, αλλά κρατάει “card” look */
+}
+
+.lgc-legal.lgc-signin .lgc-legal__title{
+  text-align: center;
+  margin: 8px 0 10px;
+  font-size: 26px;
+  line-height: 1.15;
+  color: #0b3f52;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__meta{
+  text-align: center;
+  margin: 0 0 14px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.60);
+}
+
+.lgc-legal.lgc-signin .lgc-legal__content{
+  display: grid;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(15, 23, 42, 0.86);
+}
+
+.lgc-legal.lgc-signin .lgc-legal__content h2{
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.35;
+  color: rgba(11, 63, 82, 0.98);
+}
+
+.lgc-legal.lgc-signin .lgc-legal__content p{
+  margin: 0;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__content ul{
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__actions{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__backLink{
+  text-align: center;
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.75);
+  text-decoration: none;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__backLink:hover{
+  color: rgba(11, 63, 82, 0.95);
+  text-decoration: underline;
+}
+
+@media (max-width: 520px){
+  .lgc-legal.lgc-signin .lgc-signin__card{
+    padding: 20px 16px 16px;
+    border-radius: 16px;
+  }
+  .lgc-legal.lgc-signin .lgc-legal__title{
+    font-size: 22px;
+  }
+  .lgc-legal.lgc-signin .lgc-legal__content{
+    font-size: 13px;
+    line-height: 1.65;
+  }
+}

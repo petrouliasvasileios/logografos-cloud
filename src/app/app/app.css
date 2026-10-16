@@ -588,7 +588,7 @@
 
 .cs-app .cs-app__micBtn:hover{
   background: rgba(14, 90, 115, 0.06);
-  border-color: rgba(14, 90, 115, 0.22);
+  border-color: rgba(5, 18, 23, 0.22);
 }
 
 .cs-app .cs-app__micBtn:active{
@@ -596,4 +596,15 @@
 }
 .cs-app .cs-app__micBtn{
   color:#111111 !important;
+}
+/* Center mic icon inside the square button */
+.cs-app .cs-app__micBtn{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+}
+
+.cs-app .cs-app__micIcon{
+  display:block !important;
 }
