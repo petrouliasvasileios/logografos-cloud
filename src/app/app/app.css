@@ -788,3 +788,33 @@
     height: 48px !important;
   }
 }
+/* === Mobile drawer brand/logo hard fix === */
+@media (max-width: 920px){
+  .cs-app .cs-app__sidebar{
+    padding-top: 18px !important; /* δίνει “αέρα” πάνω */
+  }
+
+  .cs-app .cs-app__brand{
+    min-height: 72px !important;
+    padding: 10px 8px !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: 200px !important;
+    height: 52px !important;      /* force paint height */
+    max-height: 52px !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+/* extra small phones */
+@media (max-width: 420px){
+  .cs-app .cs-app__brandLogo{
+    width: 170px !important;
+    height: 46px !important;
+    max-height: 46px !important;
+  }
+}
