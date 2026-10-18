@@ -373,3 +373,24 @@
 .lgc-signin__consentText .lgc-signin__link:hover{
   opacity: 0.85;
 }
+/* === Signin tweaks (button + title) === */
+.lgc-signin .lgc-signin__btn{
+  background: #23908f !important;
+  font-weight: 400 !important; /* όχι bold */
+}
+
+/* αν έχεις hover state, το κρατάμε στο ίδιο χρώμα */
+.lgc-signin .lgc-signin__btn:hover{
+  background: #23908f !important;
+}
+
+/* Τίτλος "Σύνδεση" (μικρότερο 2-3 στιγμές) */
+.lgc-signin .lgc-signin__title{
+  font-size: calc(1em - 3px) !important;
+  font-weight: 500 !important; /* προαιρετικά λίγο πιο “normal” */
+}
+.lgc-signin .lgc-signin__btn{
+  background: #23908f !important;
+  font-weight: 400 !important;
+  font-size: 1.05em !important; /* +5% μεγαλύτερο */
+}

@@ -51,8 +51,7 @@ export default function Page() {
             />
           </div>
 
-          <h1 className="lgc-signin__title">Σύνδεση</h1>
-
+          
           <form className="lgc-signin__form" onSubmit={(e) => e.preventDefault()}>
             <button
               className="lgc-signin__googleBtn"
