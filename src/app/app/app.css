@@ -25,6 +25,13 @@
   overflow: visible;
 }
 
+@media (max-width: 420px){
+  .cs-app__brand{
+    min-height: 48px !important;
+    padding: 6px 4px !important;
+  }
+}
+
 .cs-app__brandLogo{
   width: 220px;
   max-width: 100%;
