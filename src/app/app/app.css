@@ -731,3 +731,18 @@
 
   border-bottom: 1px solid rgba(15, 23, 42, 0.10) !important;
 }
+/* Mobile: force topbar fixed (iOS-safe) */
+@media (max-width: 920px){
+  .cs-app .cs-app__topbar{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 90 !important;
+  }
+
+  /* αφήνουμε χώρο κάτω από την fixed topbar */
+  .cs-app .cs-app__chat{
+    padding-top: 84px !important;
+  }
+}
