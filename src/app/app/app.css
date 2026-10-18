@@ -18,8 +18,11 @@
 
 .cs-app__brand{
   display: flex;
+  align-items: center;
   justify-content: flex-start;
-  padding: 6px 6px 2px;
+  padding: 8px 6px;
+  min-height: 64px;
+  overflow: visible;
 }
 
 .cs-app__brandLogo{
@@ -745,4 +748,20 @@
   .cs-app .cs-app__chat{
     padding-top: 84px !important;
   }
+}
+/* REPLACE this block */
+.cs-app__brand{
+  display: flex;
+  justify-content: flex-start;
+  padding: 6px 6px 2px;
+}
+
+/* WITH this */
+.cs-app__brand{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 6px;
+  min-height: 64px;
+  overflow: visible;
 }
