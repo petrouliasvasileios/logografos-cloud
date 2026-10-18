@@ -818,3 +818,26 @@
     max-height: 46px !important;
   }
 }
+/* === FINAL OVERRIDE: Mobile drawer logo not clipped (SVG-safe) === */
+@media (max-width: 920px){
+  .cs-app .cs-app__brand{
+    min-height: auto !important;
+    padding: 12px 8px !important;
+    overflow: visible !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: 180px !important;
+    height: auto !important;
+    max-height: 60px !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 420px){
+  .cs-app .cs-app__brandLogo{
+    width: 140px !important;
+    max-height: 50px !important;
+  }
+}
