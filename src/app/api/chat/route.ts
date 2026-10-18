@@ -47,7 +47,7 @@ export async function POST(req: Request) {
 
     if (isCreatorQuestion) {
       const creatorReply =
-        "Δημιουργός της εφαρμογής ClinicScribe είναι ο Βασίλης Πετρούλιας. Τηλ: 6947930375";
+        "Το ClinicScribe αναπτύχθηκε από τον Βασίλης Πετρούλιας. Όλα τα πνευματικά δικαιώματα ανήκουν στον Βασίλη Πετρούλια. Για περισσότερες πληροφορίες: Τηλ: 6947930375";
       return NextResponse.json({ reply: creatorReply });
     }
 
