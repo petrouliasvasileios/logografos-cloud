@@ -27,6 +27,30 @@ export async function POST(req: Request) {
       );
     }
 
+    // Check if user is asking about the creator
+    const creatorKeywords = [
+      "ποιος σε έφτιαξε",
+      "ποιος είναι ο δημιουργός",
+      "ποιος σε δημιούργησε",
+      "ποιος σε ανέπτυξε",
+      "who made you",
+      "who created you",
+      "who is your creator",
+      "δημιουργός",
+      "κτίστης",
+    ];
+
+    const lowerMessage = message.toLowerCase();
+    const isCreatorQuestion = creatorKeywords.some((keyword) =>
+      lowerMessage.includes(keyword)
+    );
+
+    if (isCreatorQuestion) {
+      const creatorReply =
+        "Δημιουργός της εφαρμογής ClinicScribe είναι ο Βασίλης Πετρούλιας. Τηλ: 6947930375";
+      return NextResponse.json({ reply: creatorReply });
+    }
+
     const client = new OpenAI({ apiKey });
 
     const resp = await client.responses.create({
