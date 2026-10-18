@@ -73,17 +73,53 @@ export default function Page() {
     router.refresh();
   };
 
-  const cases: CaseItem[] = useMemo(
-    () => [
-      { id: "c1", patientName: "Παπαδόπουλος Γ.", dateLabel: "Σήμερα" },
-      { id: "c2", patientName: "Ιωάννου Μ.", dateLabel: "Χθες" },
-      { id: "c3", patientName: "Κωνσταντίνου Α.", dateLabel: "12/10" },
-      { id: "c4", patientName: "Δημητρίου Ε.", dateLabel: "10/10" },
-    ],
-    []
-  );
+  type DbCase = {
+    id: number;
+    case_type: string;
+    patient_name: string | null;
+    patient_amka: string | null;
+    patient_phone: string | null;
+    title: string;
+    created_at: string;
+  };
 
-  const [activeCaseId, setActiveCaseId] = useState<string>("c1");
+  const [cases, setCases] = useState<CaseItem[]>([]);
+  const [loadingCases, setLoadingCases] = useState(true);
+
+  useEffect(() => {
+    const loadCases = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("cases")
+          .select("id, case_type, patient_name, patient_amka, patient_phone, title, created_at")
+          .order("case_type", { ascending: true }) // general πρώτο
+          .order("created_at", { ascending: false }); // μετά ανά ημερομηνία
+
+        if (error) throw error;
+
+        const formatted = (data as DbCase[]).map((c) => ({
+          id: String(c.id),
+          patientName: c.title || c.patient_name || "Χωρίς όνομα",
+          dateLabel: new Date(c.created_at).toLocaleDateString("el-GR"),
+        }));
+
+        setCases(formatted);
+
+        // Set active case to general (first one)
+        if (formatted.length > 0) {
+          setActiveCaseId(formatted[0].id);
+        }
+      } catch (e: any) {
+        console.error("Error loading cases:", e);
+      } finally {
+        setLoadingCases(false);
+      }
+    };
+
+    loadCases();
+  }, [supabase]);
+
+  const [activeCaseId, setActiveCaseId] = useState<string | null>(null);
   const [input, setInput] = useState<string>("");
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -175,29 +211,40 @@ export default function Page() {
     setIsRecording(false);
   };
 
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: "m1",
-      role: "assistant",
-      text:
-        "Είμαι έτοιμος. Υπαγόρευσε τα στοιχεία/ευρήματα και θα συντάξω ιατρική γνωμάτευση.",
-      time: "22:51",
-    },
-    {
-      id: "m2",
-      role: "user",
-      text:
-        "Ασθενής με οσφυαλγία 10 ημερών. Κλινικά: περιορισμός κάμψης, χωρίς νευρολογικό έλλειμμα. Προτείνεται ανάπαυση και αντιφλεγμονώδη.",
-      time: "22:52",
-    },
-    {
-      id: "m3",
-      role: "assistant",
-      text:
-        "Θέλεις η γνωμάτευση να είναι για εργασία/άδεια ή καθαρά ιατρική αναφορά; Επίσης, να συμπεριλάβω διάγνωση (ICD-10) ή όχι;",
-      time: "22:52",
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+
+  // Load messages when active case changes
+  useEffect(() => {
+    if (!activeCaseId) return;
+
+    const loadMessages = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("messages")
+          .select("id, role, text, created_at")
+          .eq("case_id", parseInt(activeCaseId))
+          .order("created_at", { ascending: true });
+
+        if (error) throw error;
+
+        const formatted = (data as any[]).map((m) => ({
+          id: m.id.toString(),
+          role: m.role as ChatRole,
+          text: m.text,
+          time: new Date(m.created_at).toLocaleTimeString("el-GR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        }));
+
+        setMessages(formatted);
+      } catch (e: any) {
+        console.error("Error loading messages:", e);
+      }
+    };
+
+    loadMessages();
+  }, [activeCaseId, supabase]);
 
   useEffect(() => {
     const last = messages[messages.length - 1];
@@ -208,20 +255,42 @@ export default function Page() {
 
   const handleSend = async () => {
     const text = input.trim();
-    if (!text || isSending) return;
+    if (!text || isSending || !activeCaseId) return;
 
-    const userMsg: ChatMessage = {
-      id: "u_" + Date.now(),
-      role: "user",
-      text,
-      time: nowTime(),
-    };
-
-    setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setIsSending(true);
 
     try {
+      // 1) Insert user message to DB
+      const { data: userRow, error: userErr } = await supabase
+        .from("messages")
+        .insert([
+          {
+            case_id: parseInt(activeCaseId),
+            role: "user",
+            text,
+          },
+        ])
+        .select("id, role, text, created_at")
+        .single();
+
+      if (userErr) throw userErr;
+
+      // Update UI immediately
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: userRow.id.toString(),
+          role: "user",
+          text: userRow.text,
+          time: new Date(userRow.created_at).toLocaleTimeString("el-GR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        },
+      ]);
+
+      // 2) Call AI
       const r = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -234,30 +303,49 @@ export default function Page() {
         throw new Error(data?.error || "Σφάλμα επικοινωνίας με τον server.");
       }
 
-      const assistantMsg: ChatMessage = {
-        id: "a_" + Date.now(),
-        role: "assistant",
-        text: String(data?.reply || ""),
-        time: nowTime(),
-      };
+      const replyText = String(data?.reply || "").trim();
 
-      setMessages((prev) => [...prev, assistantMsg]);
+      // 3) Insert assistant message to DB
+      const { data: aRow, error: aErr } = await supabase
+        .from("messages")
+        .insert([
+          {
+            case_id: parseInt(activeCaseId),
+            role: "assistant",
+            text: replyText || "—",
+          },
+        ])
+        .select("id, role, text, created_at")
+        .single();
+
+      if (aErr) throw aErr;
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: aRow.id.toString(),
+          role: "assistant",
+          text: aRow.text,
+          time: new Date(aRow.created_at).toLocaleTimeString("el-GR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        },
+      ]);
     } catch (e: any) {
-      const assistantErr: ChatMessage = {
-        id: "a_err_" + Date.now(),
-        role: "assistant",
-        text:
-          "Παρουσιάστηκε σφάλμα. Δοκίμασε ξανά. " +
-          (e?.message ? `(${e.message})` : ""),
-        time: nowTime(),
-      };
-      setMessages((prev) => [...prev, assistantErr]);
+      console.error(e);
+      alert("Σφάλμα αποστολής. " + (e?.message ? `(${e.message})` : ""));
     } finally {
       setIsSending(false);
     }
   };
 
   const exportWord = async () => {
+    if (!activeCaseId) {
+      alert("Δεν υπάρχει ενεργό case.");
+      return;
+    }
+
     const lastAssistant = [...messages].reverse().find((m) => m.role === "assistant");
     const text = (lastAssistant?.text || "").trim();
 
