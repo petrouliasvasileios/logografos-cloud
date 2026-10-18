@@ -417,6 +417,15 @@ fd.append("file", file);
         className={"cs-app__sidebar" + (isSidebarOpen ? " is-open" : "")}
         aria-label="Πλευρικό μενού"
       >
+                <button
+          type="button"
+          className="cs-app__drawerClose"
+          aria-label="Κλείσιμο μενού"
+          onClick={() => setIsSidebarOpen(false)}
+        >
+          ×
+        </button>
+
         <div className="cs-app__brand">
           <img
             className="cs-app__brandLogo"
