@@ -765,3 +765,19 @@
   min-height: 64px;
   overflow: visible;
 }
+/* Logo fix: mobile responsive + builder-proof */
+.cs-app .cs-app__brandLogo{
+  width: 220px !important;
+  max-width: 100% !important;
+  height: 56px !important;
+  max-height: 56px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+@media (max-width: 420px){
+  .cs-app .cs-app__brandLogo{
+    width: 160px !important;
+    height: 48px !important;
+  }
+}
