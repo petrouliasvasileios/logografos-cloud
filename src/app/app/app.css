@@ -691,3 +691,31 @@
     padding-bottom: 120px !important;
   }
 }
+/* Waveform animation (recording indicator) */
+.cs-app__waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 12px;
+}
+
+.cs-app__waveformBar {
+  width: 3px;
+  height: 20px;
+  background-color: currentColor;
+  border-radius: 2px;
+  animation: waveformPulse 0.6s ease-in-out infinite;
+}
+
+.cs-app__waveformBar:nth-child(1) { animation-delay: 0s; }
+.cs-app__waveformBar:nth-child(2) { animation-delay: 0.1s; }
+.cs-app__waveformBar:nth-child(3) { animation-delay: 0.2s; }
+.cs-app__waveformBar:nth-child(4) { animation-delay: 0.3s; }
+.cs-app__waveformBar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes waveformPulse {
+  0%, 100% { height: 8px; opacity: 0.4; }
+  50% { height: 24px; opacity: 1; }
+}
