@@ -132,14 +132,18 @@ export default function Page() {
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const lastAssistantRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollToBottom = (behavior: ScrollBehavior = "smooth") => {
-    // Προτεραιότητα: τελευταίο assistant bubble
-    if (lastAssistantRef.current) {
-      lastAssistantRef.current.scrollIntoView({ behavior, block: "end" });
-      return;
-    }
-    chatEndRef.current?.scrollIntoView({ behavior, block: "end" });
-  };
+  const scrollToBottom = (
+  behavior: ScrollBehavior = "smooth",
+  block: ScrollLogicalPosition = "end"
+) => {
+  // Προτεραιότητα: τελευταίο assistant bubble
+  if (lastAssistantRef.current) {
+    lastAssistantRef.current.scrollIntoView({ behavior, block });
+    return;
+  }
+  chatEndRef.current?.scrollIntoView({ behavior, block });
+};
+
 
   const nowTime = () => {
     const d = new Date();
@@ -247,11 +251,15 @@ export default function Page() {
   }, [activeCaseId, supabase]);
 
   useEffect(() => {
-    const last = messages[messages.length - 1];
-    if (last?.role === "assistant") {
-      scrollToBottom("smooth");
-    }
-  }, [messages]);
+  const last = messages[messages.length - 1];
+  if (last?.role === "assistant") {
+    // περιμένουμε 1 frame για να έχει γίνει render το ref
+    requestAnimationFrame(() => {
+      scrollToBottom("smooth", "start");
+    });
+  }
+}, [messages]);
+
 
   const handleSend = async () => {
     const text = input.trim();
