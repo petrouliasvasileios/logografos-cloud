@@ -359,8 +359,28 @@ fd.append("file", file);
     }
   };
 
-  const exportWord = async () => {
-    if (!activeCaseId) {
+  const handleClearChat = async () => {
+  if (!activeCaseId) return;
+
+  const ok = confirm("Θέλεις σίγουρα να διαγράψεις ΟΛΑ τα μηνύματα αυτής της συνομιλίας;");
+  if (!ok) return;
+
+  try {
+    const { error } = await supabase
+      .from("messages")
+      .delete()
+      .eq("case_id", parseInt(activeCaseId));
+
+    if (error) throw error;
+
+    setMessages([]);
+  } catch (e: any) {
+    console.error(e);
+    alert("Αποτυχία καθαρισμού συνομιλίας. " + (e?.message ? `(${e.message})` : ""));
+  }
+};
+
+const exportWord = async () => {    if (!activeCaseId) {
       alert("Δεν υπάρχει ενεργό case.");
       return;
     }
@@ -485,6 +505,10 @@ fd.append("file", file);
           </div>
 
           <div className="cs-app__topbarActions">
+            <button className="cs-app__topBtn cs-app__topBtn--danger" type="button" onClick={handleClearChat} disabled={!activeCaseId || isSending || isTranscribing || messages.length === 0} title="Διαγραφή όλων των μηνυμάτων της τρέχουσας συνομιλίας">
+              Καθαρισμός
+            </button>
+
             <button className="cs-app__topBtn" type="button" onClick={exportWord}>
               Εξαγωγή Word
             </button>
