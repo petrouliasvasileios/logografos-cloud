@@ -54,7 +54,7 @@ export async function POST(req: Request) {
     const client = new OpenAI({ apiKey });
 
     const resp = await client.responses.create({
-      model: "gpt-4.1-mini",
+      model: "gpt-6.1-sol",
       input: [
         {
           role: "system",
