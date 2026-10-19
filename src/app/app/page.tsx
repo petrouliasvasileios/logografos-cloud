@@ -12,6 +12,7 @@ type ChatMessage = {
   role: ChatRole;
   text: string;
   time: string;
+  showExportHint?: boolean;
 };
 
 type CaseItem = {
@@ -105,10 +106,18 @@ export default function Page() {
 
         setCases(formatted);
 
-        // Set active case to general (first one)
-        if (formatted.length > 0) {
-          setActiveCaseId(formatted[0].id);
-        }
+// Set active case to general (first one)
+if (formatted.length > 0) {
+  setActiveCaseId(formatted[0].id);
+
+  const activeCase = (data as DbCase[]).find(
+    (c) => String(c.id) === formatted[0].id
+  );
+
+  if (activeCase) {
+    setActiveCaseData(activeCase);
+  }
+}
       } catch (e: any) {
         console.error("Error loading cases:", e);
       } finally {
@@ -116,13 +125,17 @@ export default function Page() {
       }
     };
 
+
     loadCases();
   }, [supabase]);
 
   const [activeCaseId, setActiveCaseId] = useState<string | null>(null);
+  const [activeCaseData, setActiveCaseData] = useState<DbCase | null>(null);
+
   const [input, setInput] = useState<string>("");
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isSending, setIsSending] = useState<boolean>(false);
+
 
   const [isRecording, setIsRecording] = useState<boolean>(false);
   const [isTranscribing, setIsTranscribing] = useState<boolean>(false);
@@ -276,6 +289,28 @@ fd.append("file", file);
     const text = input.trim();
     if (!text || isSending || !activeCaseId) return;
 
+    // If user asks for export/word, don't call the AI. Just show hint and auto-download.
+    const exportKeywords = ["word", "export", "κατέβασμα", "εξαγωγή", "docx"];
+    const askedForExport = exportKeywords.some((kw) =>
+      text.toLowerCase().includes(kw)
+    );
+
+    if (askedForExport) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `hint-${Date.now()}`,
+          role: "assistant",
+          text: "Η γνωμάτευση έχει κατεβεί. Θα την βρεις στο φάκελο Downloads.",
+          time: nowTime(),
+          showExportHint: true,
+        },
+      ]);
+      setInput("");
+      await exportWord();
+      return;
+    }
+
     setInput("");
     setIsSending(true);
 
@@ -298,6 +333,7 @@ fd.append("file", file);
       // Update UI immediately
       setMessages((prev) => [
         ...prev,
+      
         {
           id: userRow.id.toString(),
           role: "user",
@@ -309,12 +345,15 @@ fd.append("file", file);
         },
       ]);
 
-      // 2) Call AI
       const r = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text }),
-      });
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    message: text,
+    caseData: activeCaseData,
+  }),
+});
+
 
       const data = await r.json();
 
@@ -351,6 +390,7 @@ fd.append("file", file);
           }),
         },
       ]);
+
     } catch (e: any) {
       console.error(e);
       alert("Σφάλμα αποστολής. " + (e?.message ? `(${e.message})` : ""));
@@ -358,6 +398,7 @@ fd.append("file", file);
       setIsSending(false);
     }
   };
+
 
   const handleClearChat = async () => {
   if (!activeCaseId) return;
@@ -395,7 +436,9 @@ const exportWord = async () => {    if (!activeCaseId) {
       return;
     }
 
-    const lastAssistant = [...messages].reverse().find((m) => m.role === "assistant");
+    const lastAssistant = [...messages]
+  .reverse()
+  .find((m) => m.role === "assistant" && !m.showExportHint);
     const text = (lastAssistant?.text || "").trim();
 
     if (!text) {
@@ -465,7 +508,11 @@ const exportWord = async () => {    if (!activeCaseId) {
           />
         </div>
 
-        <button className="cs-app__newBtn" type="button">
+        <button
+          className="cs-app__newBtn"
+          type="button"
+          onClick={() => router.push("/new-case")}
+        >
           + Νέα γνωμάτευση
         </button>
 
@@ -730,6 +777,7 @@ const exportWord = async () => {    if (!activeCaseId) {
           </div>
         </div>
       </section>
+
     </main>
   );
 }

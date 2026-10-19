@@ -1,0 +1,148 @@
+.nc-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.nc-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.nc-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+}
+
+.nc-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  color: #1a1a1a;
+}
+
+.nc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.nc-formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nc-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.nc-input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.nc-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.nc-input:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.nc-hint {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.nc-footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.nc-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.nc-btn--primary {
+  background-color: #667eea;
+  color: white;
+}
+
+.nc-btn--primary:hover:not(:disabled) {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.nc-btn--primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.nc-btn--secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.nc-btn--secondary:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.nc-btn--secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .nc-card {
+    padding: 1.5rem;
+  }
+
+  .nc-title {
+    font-size: 1.5rem;
+  }
+
+  .nc-footer {
+    flex-direction: column;
+  }
+
+  .nc-btn {
+    width: 100%;
+  }
+}
+.nc-page .nc-input {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important; /* Chrome autofill / weird cases */
+}
+
+.nc-page .nc-input::placeholder {
+  color: #444 !important;
+  opacity: 1 !important;
+}
