@@ -374,12 +374,22 @@ fd.append("file", file);
     if (error) throw error;
 
     setMessages([]);
+
+    // Re-fetch to confirm deletion from DB
+    const { data, error: refetchError } = await supabase
+      .from("messages")
+      .select("id, role, text, created_at")
+      .eq("case_id", parseInt(activeCaseId))
+      .order("created_at", { ascending: true });
+
+    if (refetchError) throw refetchError;
+
+    setMessages([]);
   } catch (e: any) {
     console.error(e);
     alert("Αποτυχία καθαρισμού συνομιλίας. " + (e?.message ? `(${e.message})` : ""));
   }
 };
-
 const exportWord = async () => {    if (!activeCaseId) {
       alert("Δεν υπάρχει ενεργό case.");
       return;
