@@ -51,7 +51,28 @@ export async function POST(req: Request) {
       return NextResponse.json({ reply: creatorReply });
     }
 
-    const client = new OpenAI({ apiKey });
+   const client = new OpenAI({ apiKey });
+
+    // Triage: check if question is app-related, case-related, or medical
+    const triageResp = await client.responses.create({
+      model: "gpt-6.1-sol",
+      input: [
+        {
+          role: "system",
+          content:
+            "Είσαι ένας ταξινομητής. Απάντησε ΜΟΝΟ με 'ALLOWED' ή 'BLOCKED'. Απάντησε 'ALLOWED' αν η ερώτηση είναι: (1) σχετική με τη χρήση της εφαρμογής (π.χ. 'πώς κάνω εξαγωγή;', 'ποιος είσαι;', 'πώς λειτουργείς;'), (2) σχετική με ασθενή/case (π.χ. ονόματα ασθενών, ημερομηνίες, υπενθυμίσεις), ή (3) ιατρική (γνωματεύσεις, κλινικά ευρήματα, διάγνωση, θεραπεία, συμπτώματα). Απάντησε 'BLOCKED' αν είναι ιστορία, πολιτικά, αθλητικά, τραγούδια, ή άλλα άσχετα.",
+        },
+        { role: "user", content: message },
+      ],
+    });
+
+    const triageResult = (triageResp.output_text?.trim() || "").toUpperCase();
+
+    if (triageResult.includes("BLOCKED")) {
+      const blockedReply =
+        "Το ClinicScribe έχει σχεδιαστεί αποκλειστικά για ιατρικές γνωματεύσεις και βοήθεια στη σύνταξη ιατρικών κειμένων. Δεν μπορώ να απαντήσω σε ερωτήσεις εκτός του σκοπού της εφαρμογής. Παρακαλώ θέσε μια ιατρική ερώτηση, ρώτησε κάτι σχετικό με τη χρήση της εφαρμογής, ή περιέγραψε τα κλινικά ευρήματα.";
+      return NextResponse.json({ reply: blockedReply });
+    }
 
     const resp = await client.responses.create({
       model: "gpt-6.1-sol",
