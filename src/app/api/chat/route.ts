@@ -5,11 +5,13 @@ import OpenAI from "openai";
 
 type ChatBody = {
   message?: string;
+  caseId?: string | number;
   caseData?: {
     patient_name: string | null;
     patient_amka: string | null;
     patient_phone: string | null;
   };
+  history?: Array<{ role: "user" | "assistant"; content: string }>;
 };
 
 export async function POST(req: Request) {
@@ -79,6 +81,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ reply: blockedReply });
     }
 
+        // Use conversation history from frontend
+    const conversationHistory = (body.history || []) as Array<{ role: "user" | "assistant"; content: string }>;
+    console.log("conversation history count=", conversationHistory.length);
+
+
     const caseInfo = body.caseData
   ? `\n\nΣτοιχεία ασθενούς:\n- Όνομα: ${body.caseData.patient_name || "—"}\n- ΑΜΚΑ: ${body.caseData.patient_amka || "—"}\n- Τηλέφωνο: ${body.caseData.patient_phone || "—"}`
   : "";
@@ -89,8 +96,9 @@ const resp = await client.responses.create({
     {
       role: "system",
       content:
-        "Είσαι ο ClinicScribe, βοηθός ιατρού. Απαντάς στα Ελληνικά, με επαγγελματικό και ευγενικό ύφος.\n\nΚανόνες:\n1) Αν ο χρήστης πει χαιρετισμό/ευχαριστώ (π.χ. «καλημέρα», «καλησπέρα», «γεια», «ευχαριστώ»), απάντησε ευγενικά και σύντομα και ρώτα πώς μπορείς να βοηθήσεις.\n2) Για ιατρικά αιτήματα: γράφε καθαρά, δομημένα, και ζήτα διευκρινίσεις όταν λείπουν κρίσιμα στοιχεία. Αν υπάρχουν στοιχεία ασθενούς, περιλάμβανέ τα στην αρχή της γνωμάτευσης.\n3) Δεν αντικαθιστάς ιατρική κρίση — ο ιατρός ελέγχει και υπογράφει." + caseInfo,
+        "Είσαι ο ClinicScribe, βοηθός ιατρού. Απαντάς στα Ελληνικά, με επαγγελματικό και ευγενικό ύφος.\n\nΚανόνες:\n1) Αν ο χρήστης πει χαιρετισμό/ευχαριστώ (π.χ. «καλημέρα», «καλησπέρα», «γεία», «ευχαριστώ»), απάντησε ευγενικά και σύντομα και ρώτα πώς μπορείς να βοηθήσεις.\n2) Για ιατρικά αιτήματα: γράφε καθαρά, δομημένα, και ζήτα διευκρινίσεις όταν λείπουν κρίσιμα στοιχεία. Αν υπάρχουν στοιχεία ασθενούς, περιλάμβανέ τα στην αρχή της γνωμάτευσης.\n3) Δεν αντικαθιστάς ιατρική κρίση — ο ιατρός ελέγχει και υπογράφει." + caseInfo,
     },
+    ...conversationHistory,
     { role: "user", content: message },
   ],
 });

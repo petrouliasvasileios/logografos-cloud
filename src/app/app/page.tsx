@@ -350,7 +350,12 @@ fd.append("file", file);
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
     message: text,
+    caseId: activeCaseId,
     caseData: activeCaseData,
+    history: messages
+      .filter((m) => !m.showExportHint)
+      .slice(-12)
+      .map((m) => ({ role: m.role, content: m.text })),
   }),
 });
 
