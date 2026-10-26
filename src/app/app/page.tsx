@@ -170,7 +170,27 @@ if (formatted.length > 0) {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
       chunksRef.current = [];
-      const mr = new MediaRecorder(stream);
+      
+      // ✅ NEW: Try supported mimeTypes in order
+      let mimeType = "audio/webm";
+      const supportedMimeTypes = [
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/mp4",
+        "audio/wav",
+        "audio/ogg",
+      ];
+      
+      for (const mime of supportedMimeTypes) {
+        if (MediaRecorder.isTypeSupported(mime)) {
+          mimeType = mime;
+          break;
+        }
+      }
+      
+      console.log("[startRecording] Using mimeType:", mimeType);
+      
+      const mr = new MediaRecorder(stream, { mimeType });
       mediaRecorderRef.current = mr;
 
       mr.ondataavailable = (e) => {
