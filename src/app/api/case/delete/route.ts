@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { createSupabaseServerClient } from "../../../../lib/supabase/server";
 import { NextResponse } from "next/server";
 
 type DeleteCaseBody = {
@@ -7,22 +7,7 @@ type DeleteCaseBody = {
 
 export async function POST(req: Request) {
   try {
-    const authHeader = req.headers.get("authorization");
-    if (!authHeader?.startsWith("Bearer ")) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
-    }
-
-    const token = authHeader.substring(7);
-
-    // Create Supabase client with auth token
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
-      { global: { headers: { Authorization: `Bearer ${token}` } } }
-    );
+    const supabase = await createSupabaseServerClient();
 
     // Verify user session
     const { data: userData, error: userError } = await supabase.auth.getUser();
@@ -45,7 +30,33 @@ export async function POST(req: Request) {
 
     const caseIdNum = parseInt(String(caseId));
 
-    // First, delete all messages associated with this case
+    if (!Number.isFinite(caseIdNum)) {
+      return NextResponse.json({ error: "Invalid caseId" }, { status: 400 });
+    }
+
+    // Verify ownership before deleting anything
+    const { data: existing, error: lookupError } = await supabase
+      .from("cases")
+      .select("id")
+      .eq("id", caseIdNum)
+      .eq("user_id", userData.user.id)
+      .maybeSingle();
+
+    if (lookupError) {
+      console.error("Error looking up case:", lookupError);
+      return NextResponse.json(
+        { error: "Failed to delete case" },
+        { status: 500 }
+      );
+    }
+
+    if (!existing) {
+      return NextResponse.json(
+        { error: "Case not found or access denied" },
+        { status: 404 }
+      );
+    }
+
     const { error: messagesError } = await supabase
       .from("messages")
       .delete()
@@ -66,7 +77,7 @@ export async function POST(req: Request) {
       .eq("id", caseIdNum)
       .eq("user_id", userData.user.id) // Ensure ownership
       .select("id")
-      .single();
+      .maybeSingle();
 
     if (error) {
       console.error("Error deleting case:", error);
@@ -90,7 +101,7 @@ export async function POST(req: Request) {
   } catch (e: any) {
     console.error("Error in delete-case:", e);
     return NextResponse.json(
-      { error: e?.message || "Internal server error" },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }

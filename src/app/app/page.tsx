@@ -552,10 +552,8 @@ const handleRenameCase = async (caseId: string, newTitle: string) => {
       }),
     });
 
-    const result = await res.json();
-
     if (!res.ok) {
-      throw new Error(result?.error || "Αποτυχία ενημέρωσης");
+      throw new Error(caseApiErrorMessage(res.status, "μετονομασίας"));
     }
 
     // Update local state
@@ -569,10 +567,16 @@ const handleRenameCase = async (caseId: string, newTitle: string) => {
     setRenameInputValue("");
   } catch (e: any) {
     console.error("Error renaming case:", e);
-    alert("Αποτυχία μετονομασίας: " + (e?.message ? e.message : "Προσπάθησε ξανά"));
+    alert(e?.message || "Αποτυχία μετονομασίας. Προσπάθησε ξανά αργότερα.");
   } finally {
     setIsRenamingLoading(false);
   }
+};
+
+const caseApiErrorMessage = (status: number, action: string) => {
+  if (status === 401) return "Η συνεδρία έληξε. Συνδέσου ξανά.";
+  if (status === 404) return "Το case δεν βρέθηκε ή δεν έχεις πρόσβαση.";
+  return `Αποτυχία ${action}. Προσπάθησε ξανά αργότερα.`;
 };
 
 // Delete case handler
@@ -600,10 +604,8 @@ const handleDeleteCase = async (caseId: string) => {
       body: JSON.stringify({ caseId: parseInt(caseId) }),
     });
 
-    const result = await res.json();
-
     if (!res.ok) {
-      throw new Error(result?.error || "Αποτυχία διαγραφής");
+      throw new Error(caseApiErrorMessage(res.status, "διαγραφής"));
     }
 
     // Update local state
@@ -625,7 +627,7 @@ const handleDeleteCase = async (caseId: string) => {
     setDeleteConfirmCaseId(null);
   } catch (e: any) {
     console.error("Error deleting case:", e);
-    alert("Αποτυχία διαγραφής: " + (e?.message ? e.message : "Προσπάθησε ξανά"));
+    alert(e?.message || "Αποτυχία διαγραφής. Προσπάθησε ξανά αργότερα.");
   } finally {
     setIsDeletingLoading(false);
   }

@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { createSupabaseServerClient } from "../../../../lib/supabase/server";
 import { NextResponse } from "next/server";
 
 type UpdateTitleBody = {
@@ -8,22 +8,7 @@ type UpdateTitleBody = {
 
 export async function POST(req: Request) {
   try {
-    const authHeader = req.headers.get("authorization");
-    if (!authHeader?.startsWith("Bearer ")) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
-    }
-
-    const token = authHeader.substring(7);
-
-    // Create Supabase client with auth token
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
-      { global: { headers: { Authorization: `Bearer ${token}` } } }
-    );
+    const supabase = await createSupabaseServerClient();
 
     // Verify user session
     const { data: userData, error: userError } = await supabase.auth.getUser();
@@ -53,7 +38,7 @@ export async function POST(req: Request) {
       .eq("id", parseInt(String(caseId)))
       .eq("user_id", userData.user.id) // Ensure ownership
       .select("id, title, patient_name, created_at")
-      .single();
+      .maybeSingle();
 
     if (error) {
       console.error("Error updating case:", error);
@@ -77,7 +62,7 @@ export async function POST(req: Request) {
   } catch (e: any) {
     console.error("Error in update-title:", e);
     return NextResponse.json(
-      { error: e?.message || "Internal server error" },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }
