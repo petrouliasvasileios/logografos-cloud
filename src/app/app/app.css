@@ -18,6 +18,7 @@
   gap: 12px;
   overflow: hidden;
   height: 100%;
+  min-height: 0;
 }
 
 .cs-app__brand{
@@ -27,6 +28,7 @@
   padding: 8px 6px;
   min-height: 64px;
   overflow: visible;
+  flex: 0 0 auto;
 }
 
 @media (max-width: 420px){
@@ -51,6 +53,7 @@
   color: #0b3f52;
   font-weight: 700;
   cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .cs-app__newBtn:hover{
@@ -64,15 +67,18 @@
   padding: 6px 6px 0;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  flex: 0 0 auto;
 }
 
 .cs-app__caseList{
   display: grid;
   gap: 8px;
-  padding: 0 4px;
+  padding: 0 4px 8px 4px;
   overflow-y: auto;
   min-height: 0;
-  flex: 1;
+  flex: 1 1 auto;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
 }
 
 .cs-app__caseItem{
@@ -198,8 +204,10 @@
 
 .cs-app__main{
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .cs-app__topbar{
@@ -267,7 +275,8 @@
 }
 
 .cs-app__chat{
-  overflow: auto;
+  overflow-y: auto;
+  min-height: 0;
   background:
     radial-gradient(circle at 20% 20%, rgba(14, 90, 115, 0.06), transparent 45%),
     radial-gradient(circle at 80% 70%, rgba(14, 90, 115, 0.04), transparent 50%);
@@ -276,7 +285,7 @@
 .cs-app__chatInner{
   max-width: 920px;
   margin: 0 auto;
-  padding: 22px 16px 240px;
+  padding: 22px 16px 22px;
   display: grid;
   gap: 12px;
 }
@@ -321,13 +330,8 @@
   border-top: 1px solid rgba(15, 23, 42, 0.10);
   background: #ffffff;
   padding: 12px 12px 10px;
-
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 60;
-
+  flex: 0 0 auto;
+  overflow: visible;
   /* iOS safe area */
   padding-bottom: calc(10px + env(safe-area-inset-bottom));
 }
