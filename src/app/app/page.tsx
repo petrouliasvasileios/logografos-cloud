@@ -136,6 +136,13 @@ if (formatted.length > 0) {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isSending, setIsSending] = useState<boolean>(false);
 
+  // Case action states
+  const [caseActionMenuId, setCaseActionMenuId] = useState<string | null>(null);
+  const [renameModalCaseId, setRenameModalCaseId] = useState<string | null>(null);
+  const [renameInputValue, setRenameInputValue] = useState<string>("");
+  const [isRenamingLoading, setIsRenamingLoading] = useState<boolean>(false);
+  const [deleteConfirmCaseId, setDeleteConfirmCaseId] = useState<string | null>(null);
+  const [isDeletingLoading, setIsDeletingLoading] = useState<boolean>(false);
 
   const [isRecording, setIsRecording] = useState<boolean>(false);
   const [isTranscribing, setIsTranscribing] = useState<boolean>(false);
@@ -144,6 +151,24 @@ if (formatted.length > 0) {
 
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const lastAssistantRef = useRef<HTMLDivElement | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  // Auto-resize textarea based on content
+  const resizeTextarea = () => {
+    const ta = textareaRef.current;
+    if (!ta) return;
+    // Reset height to auto to get the correct scrollHeight
+    ta.style.height = "auto";
+    // Set height to scrollHeight, capped at max-height
+    const maxHeight = 260; // max-height in px
+    const newHeight = Math.min(ta.scrollHeight, maxHeight);
+    ta.style.height = newHeight + "px";
+  };
+
+  // Trigger resize when input changes
+  useEffect(() => {
+    resizeTextarea();
+  }, [input]);
 
   const scrollToBottom = (
   behavior: ScrollBehavior = "smooth",
@@ -293,6 +318,37 @@ fd.append("file", file);
 
     loadMessages();
   }, [activeCaseId, supabase]);
+
+  // Load case data when active case changes
+  useEffect(() => {
+    if (!activeCaseId) {
+      setActiveCaseData(null);
+      return;
+    }
+
+    const caseFromList = cases.find((c) => c.id === activeCaseId);
+    if (!caseFromList) return;
+
+    // Find the full case data from loaded cases
+    const loadCaseData = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("cases")
+          .select("id, case_type, patient_name, patient_amka, patient_phone, title, created_at")
+          .eq("id", parseInt(activeCaseId))
+          .single();
+
+        if (error) throw error;
+        if (data) {
+          setActiveCaseData(data as DbCase);
+        }
+      } catch (e: any) {
+        console.error("Error loading case data:", e);
+      }
+    };
+
+    loadCaseData();
+  }, [activeCaseId, supabase, cases]);
 
   useEffect(() => {
   const last = messages[messages.length - 1];
@@ -456,6 +512,125 @@ fd.append("file", file);
     alert("Αποτυχία καθαρισμού συνομιλίας. " + (e?.message ? `(${e.message})` : ""));
   }
 };
+
+// Rename case handler
+const handleRenameCase = async (caseId: string, newTitle: string) => {
+  const trimmed = newTitle.trim();
+  if (!trimmed) {
+    alert("Το όνομα δεν μπορεί να είναι κενό.");
+    return;
+  }
+
+  if (trimmed.length > 80) {
+    alert("Το όνομα δεν πρέπει να ξεπερνά 80 χαρακτήρες.");
+    return;
+  }
+
+  setIsRenamingLoading(true);
+  try {
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData?.user?.id) {
+      alert("Σφάλμα αυθεντικοποίησης.");
+      return;
+    }
+
+    const authToken = (await supabase.auth.getSession())?.data?.session?.access_token;
+    if (!authToken) {
+      alert("Σφάλμα αυθεντικοποίησης.");
+      return;
+    }
+
+    const res = await fetch("/api/case/update-title", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${authToken}`,
+      },
+      body: JSON.stringify({
+        caseId: parseInt(caseId),
+        newTitle: trimmed,
+      }),
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) {
+      throw new Error(result?.error || "Αποτυχία ενημέρωσης");
+    }
+
+    // Update local state
+    setCases((prev) =>
+      prev.map((c) =>
+        c.id === caseId ? { ...c, patientName: trimmed } : c
+      )
+    );
+
+    setRenameModalCaseId(null);
+    setRenameInputValue("");
+  } catch (e: any) {
+    console.error("Error renaming case:", e);
+    alert("Αποτυχία μετονομασίας: " + (e?.message ? e.message : "Προσπάθησε ξανά"));
+  } finally {
+    setIsRenamingLoading(false);
+  }
+};
+
+// Delete case handler
+const handleDeleteCase = async (caseId: string) => {
+  setIsDeletingLoading(true);
+  try {
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData?.user?.id) {
+      alert("Σφάλμα αυθεντικοποίησης.");
+      return;
+    }
+
+    const authToken = (await supabase.auth.getSession())?.data?.session?.access_token;
+    if (!authToken) {
+      alert("Σφάλμα αυθεντικοποίησης.");
+      return;
+    }
+
+    const res = await fetch("/api/case/delete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${authToken}`,
+      },
+      body: JSON.stringify({ caseId: parseInt(caseId) }),
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) {
+      throw new Error(result?.error || "Αποτυχία διαγραφής");
+    }
+
+    // Update local state
+    const newCases = cases.filter((c) => c.id !== caseId);
+    setCases(newCases);
+
+    // If the deleted case was active, switch to next available
+    if (activeCaseId === caseId) {
+      if (newCases.length > 0) {
+        setActiveCaseId(newCases[0].id);
+        // Load the new case data (simplified, actual case data fetch would happen)
+      } else {
+        setActiveCaseId(null);
+        setActiveCaseData(null);
+        setMessages([]);
+      }
+    }
+
+    setDeleteConfirmCaseId(null);
+  } catch (e: any) {
+    console.error("Error deleting case:", e);
+    alert("Αποτυχία διαγραφής: " + (e?.message ? e.message : "Προσπάθησε ξανά"));
+  } finally {
+    setIsDeletingLoading(false);
+  }
+};
+
 const exportWord = async () => {    if (!activeCaseId) {
       alert("Δεν υπάρχει ενεργό case.");
       return;
@@ -545,20 +720,62 @@ const exportWord = async () => {    if (!activeCaseId) {
 
         <nav className="cs-app__caseList" aria-label="Ιστορικό γνωματεύσεων">
           {cases.map((c) => (
-            <button
+            <div
               key={c.id}
-              type="button"
-              className={
-                "cs-app__caseItem" + (c.id === activeCaseId ? " is-active" : "")
-              }
-              onClick={() => {
-                setActiveCaseId(c.id);
-                setIsSidebarOpen(false);
-              }}
+              className="cs-app__caseItemWrapper"
+              onMouseLeave={() => setCaseActionMenuId(null)}
             >
-              <div className="cs-app__caseName">{c.patientName}</div>
-              <div className="cs-app__caseMeta">{c.dateLabel}</div>
-            </button>
+              <button
+                type="button"
+                className={
+                  "cs-app__caseItem" + (c.id === activeCaseId ? " is-active" : "")
+                }
+                onClick={() => {
+                  setActiveCaseId(c.id);
+                  setIsSidebarOpen(false);
+                }}
+              >
+                <div className="cs-app__caseName">{c.patientName}</div>
+                <div className="cs-app__caseMeta">{c.dateLabel}</div>
+              </button>
+
+              <button
+                type="button"
+                className="cs-app__caseActionBtn"
+                aria-label={`Μενού ενεργειών για ${c.patientName}`}
+                onClick={() => setCaseActionMenuId(caseActionMenuId === c.id ? null : c.id)}
+              >
+                ⋯
+              </button>
+
+              {caseActionMenuId === c.id && (
+                <div className="cs-app__caseActionMenu" role="menu">
+                  <button
+                    type="button"
+                    className="cs-app__caseActionItem"
+                    role="menuitem"
+                    onClick={() => {
+                      setRenameModalCaseId(c.id);
+                      setRenameInputValue(c.patientName);
+                      setCaseActionMenuId(null);
+                    }}
+                  >
+                    ✎ Μετονομασία
+                  </button>
+                  <button
+                    type="button"
+                    className="cs-app__caseActionItem cs-app__caseActionItem--danger"
+                    role="menuitem"
+                    onClick={() => {
+                      setDeleteConfirmCaseId(c.id);
+                      setCaseActionMenuId(null);
+                    }}
+                  >
+                    🗑 Διαγραφή
+                  </button>
+                </div>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -771,6 +988,7 @@ const exportWord = async () => {    if (!activeCaseId) {
               </div>
             ) : (
               <textarea
+                ref={textareaRef}
                 className="cs-app__input"
                 placeholder="Γράψε ή υπαγόρευσε…"
                 value={input}
@@ -781,7 +999,8 @@ const exportWord = async () => {    if (!activeCaseId) {
                     handleSend();
                   }
                 }}
-                rows={1}
+                aria-label="Περιοχή εισαγωγής μηνύματος"
+                disabled={isSending || isTranscribing}
               />
             )}
 
@@ -802,6 +1021,80 @@ const exportWord = async () => {    if (!activeCaseId) {
           </div>
         </div>
       </section>
+
+      {/* Rename Modal */}
+      {renameModalCaseId && (
+        <div className="cs-app__dialogOverlay" onClick={() => setRenameModalCaseId(null)}>
+          <div className="cs-app__dialog" onClick={(e) => e.stopPropagation()}>
+            <h2 className="cs-app__dialogTitle">Μετονομασία γνωμάτευσης</h2>
+            <input
+              type="text"
+              className="cs-app__dialogInput"
+              value={renameInputValue}
+              onChange={(e) => setRenameInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleRenameCase(renameModalCaseId, renameInputValue);
+                } else if (e.key === "Escape") {
+                  setRenameModalCaseId(null);
+                }
+              }}
+              autoFocus
+              disabled={isRenamingLoading}
+              maxLength={80}
+            />
+            <div className="cs-app__dialogActions">
+              <button
+                type="button"
+                className="cs-app__dialogBtn cs-app__dialogBtn--cancel"
+                onClick={() => setRenameModalCaseId(null)}
+                disabled={isRenamingLoading}
+              >
+                Ακύρωση
+              </button>
+              <button
+                type="button"
+                className="cs-app__dialogBtn cs-app__dialogBtn--confirm"
+                onClick={() => handleRenameCase(renameModalCaseId, renameInputValue)}
+                disabled={isRenamingLoading}
+              >
+                {isRenamingLoading ? "…" : "Αποθήκευση"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {deleteConfirmCaseId && (
+        <div className="cs-app__dialogOverlay" onClick={() => setDeleteConfirmCaseId(null)}>
+          <div className="cs-app__dialog" onClick={(e) => e.stopPropagation()}>
+            <h2 className="cs-app__dialogTitle">Διαγραφή γνωμάτευσης;</h2>
+            <p className="cs-app__dialogMessage">
+              Η γνωμάτευση και το ιστορικό συνομιλίας της θα διαγραφούν οριστικά.
+              Η ενέργεια δεν μπορεί να αναιρεθεί.
+            </p>
+            <div className="cs-app__dialogActions">
+              <button
+                type="button"
+                className="cs-app__dialogBtn cs-app__dialogBtn--cancel"
+                onClick={() => setDeleteConfirmCaseId(null)}
+                disabled={isDeletingLoading}
+              >
+                Ακύρωση
+              </button>
+              <button
+                type="button"
+                className="cs-app__dialogBtn cs-app__dialogBtn--danger"
+                onClick={() => handleDeleteCase(deleteConfirmCaseId)}
+                disabled={isDeletingLoading}
+              >
+                {isDeletingLoading ? "…" : "Διαγραφή"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </main>
   );

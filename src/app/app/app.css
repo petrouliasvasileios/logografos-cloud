@@ -1,10 +1,12 @@
 /* ClinicScribe App UI (scoped) */
 .cs-app{
-  min-height: 100vh;
+  height: 100dvh;
+  height: 100vh;
   display: grid;
   grid-template-columns: 300px 1fr;
   background: #ffffff;
   color: #0f172a;
+  overflow: hidden;
 }
 
 .cs-app__sidebar{
@@ -14,6 +16,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  overflow: hidden;
+  height: 100%;
 }
 
 .cs-app__brand{
@@ -66,7 +70,9 @@
   display: grid;
   gap: 8px;
   padding: 0 4px;
-  overflow: auto;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1;
 }
 
 .cs-app__caseItem{
@@ -99,6 +105,81 @@
   margin-top: 2px;
   font-size: 12px;
   color: rgba(15, 23, 42, 0.60);
+}
+
+/* Case item action menu */
+.cs-app__caseItemWrapper{
+  position: relative;
+}
+
+.cs-app__caseActionBtn{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: rgba(15, 23, 42, 0.50);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.cs-app__caseItemWrapper:hover .cs-app__caseActionBtn{
+  opacity: 1;
+}
+
+.cs-app__caseActionBtn:hover{
+  background: rgba(15, 23, 42, 0.10);
+  color: rgba(15, 23, 42, 0.70);
+}
+
+.cs-app__caseActionBtn:active{
+  transform: translateY(1px);
+}
+
+.cs-app__caseActionMenu{
+  position: absolute;
+  top: 32px;
+  right: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(2, 6, 23, 0.15);
+  overflow: hidden;
+  min-width: 140px;
+}
+
+.cs-app__caseActionItem{
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 13px;
+  color: #0f172a;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cs-app__caseActionItem:hover{
+  background: rgba(14, 90, 115, 0.08);
+}
+
+.cs-app__caseActionItem--danger{
+  color: #dc2626;
+}
+
+.cs-app__caseActionItem--danger:hover{
+  background: rgba(220, 38, 38, 0.10);
 }
 
 .cs-app__sidebarFooter{
@@ -257,7 +338,7 @@
   display: grid;
   grid-template-columns: 44px 1fr 44px;
   gap: 10px;
-  align-items: center;
+  align-items: flex-start;
   border: 1px solid rgba(15, 23, 42, 0.12);
   border-radius: 16px;
   padding: 10px;
@@ -288,9 +369,35 @@
   font-size: 16px;
   line-height: 1.45;
 
-  padding: 10px 10px;
+  padding: 12px 10px;
   background: transparent;
   color: #0f172a;
+
+  /* Multiline textarea - initial 3-4 lines, auto-expand up to max-height */
+  min-height: 108px;
+  max-height: 260px;
+  overflow-y: auto;
+
+  /* Better scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+
+  /* Placeholder styling */
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.cs-app__input::placeholder {
+  color: rgba(15, 23, 42, 0.50);
+}
+
+.cs-app__input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cs-app__input:focus {
+  /* Optional: subtle focus indicator */
+  background: rgba(14, 90, 115, 0.02);
 }
 
 .cs-app__sendBtn{
@@ -1004,4 +1111,151 @@
     display: block !important;
     object-fit: contain !important;
   }
+}
+
+/* ================================ */
+/* Rename & Delete Dialogs */
+/* ================================ */
+
+.cs-app__dialogOverlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 6, 23, 0.50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cs-app__dialog{
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.20);
+  max-width: 420px;
+  width: 90%;
+  padding: 24px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cs-app__dialogTitle{
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px;
+}
+
+.cs-app__dialogMessage{
+  font-size: 14px;
+  color: rgba(15, 23, 42, 0.75);
+  margin: 0 0 20px;
+  line-height: 1.45;
+}
+
+.cs-app__dialogInput{
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+.cs-app__dialogInput:focus{
+  outline: none;
+  border-color: rgba(14, 90, 115, 0.40);
+  box-shadow: 0 0 0 3px rgba(14, 90, 115, 0.10);
+}
+
+.cs-app__dialogActions{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.cs-app__dialogBtn{
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.cs-app__dialogBtn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cs-app__dialogBtn--cancel{
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
+.cs-app__dialogBtn--cancel:hover:not(:disabled){
+  background: rgba(15, 23, 42, 0.12);
+}
+
+.cs-app__dialogBtn--confirm{
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+}
+
+.cs-app__dialogBtn--confirm:hover:not(:disabled){
+  opacity: 0.9;
+}
+
+.cs-app__dialogBtn--danger{
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.cs-app__dialogBtn--danger:hover:not(:disabled){
+  opacity: 0.9;
+}
+
+/* Inline rename input wrapper */
+.cs-app__caseItemRenameInput{
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  border: 1px solid rgba(14, 90, 115, 0.40);
+  border-radius: 6px;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 700;
+  font-family: inherit;
+  margin: 0;
+}
+
+.cs-app__caseItemRenameInput:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(14, 90, 115, 0.20);
 }
