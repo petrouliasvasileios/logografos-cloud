@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Local database backups - never commit
 backups/
+
+# repomix output
+repomix-output.xml
