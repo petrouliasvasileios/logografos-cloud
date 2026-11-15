@@ -1,0 +1,6209 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  ClinicScribe-logo.png
+  ClinicScribe-logo.svg
+  file.svg
+  globe.svg
+  logo-2026-netwind.svg
+  next.svg
+  og.png
+  vercel.svg
+  window.svg
+src/
+  app/
+    account/
+      account.css
+      page.tsx
+    api/
+      case/
+        delete/
+          route.ts
+        update-title/
+          route.ts
+      chat/
+        route.ts
+      export-docx/
+        route.ts
+      transcribe/
+        route.ts
+    app/
+      app.css
+      layout.tsx
+      page.tsx
+    auth/
+      callback/
+        route.ts
+    forgot-password/
+      sent/
+        page.tsx
+      page.tsx
+    legal/
+      disclaimer/
+        page.tsx
+      ip/
+        page.tsx
+      privacy/
+        page.tsx
+      terms/
+        page.tsx
+      legal.css
+    new-case/
+      new-case.css
+      page.tsx
+    pending/
+      page.tsx
+      pending.css
+    reset-password/
+      page.tsx
+    signin/
+      page.tsx
+      signin.css
+    signup/
+      page.tsx
+    favicon.ico
+    globals.css
+    layout.tsx
+    LegalBar.tsx
+    page.tsx
+  lib/
+    supabase/
+      client.ts
+      server.ts
+  middleware.ts
+.gitignore
+AGENTS.md
+clinicscribe_2026-10-19_full.backup
+eslint.config.mjs
+next.config.ts
+package.json
+README.md
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/logo-2026-netwind.svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 595.28 287.48">
+  <!-- Generator: Adobe Illustrator 29.8.3, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        fill: #123b59;
+      }
+
+      .st2 {
+        fill: #125582;
+      }
+
+      .st3 {
+        fill: #fff;
+      }
+
+      .st4 {
+        fill: #72ccd6;
+      }
+
+      .st5 {
+        fill: #0394cb;
+        fill-rule: evenodd;
+      }
+
+      .st6 {
+        fill: #417d9e;
+      }
+
+      .st7 {
+        fill: #f7f9f9;
+      }
+    </style>
+  </defs>
+  <path class="st1" d="M169.87,193.04v24.78h-3.1v-24.78h3.1Z"/>
+  <path class="st1" d="M191.69,216.98c-1.97.84-4.11,1.25-6.23,1.17-6.68,0-11.67-4.43-11.67-12.55s4.99-13,12.35-13c1.93-.08,3.87.28,5.63,1.09l-.77,2.61c-1.49-.68-3.1-1.05-4.75-1-5.55,0-9.21,3.74-9.21,10.22,0,6.07,3.34,9.94,9.05,9.94,1.73.04,3.42-.32,5.03-1l.56,2.54h0v-.02Z"/>
+  <path class="st1" d="M201.02,195.73h-7.21v-2.73h17.5v2.73h-7.24v22.09h-3.06v-22.09h.01Z"/>
+  <path class="st1" d="M220.97,213.88c1.61,1.05,3.5,1.61,5.43,1.61,3.14,0,4.95-1.69,4.95-4.22,0-2.29-1.37-3.66-4.46-4.91-3.86-1.37-6.23-3.58-6.23-7,0-3.86,3.06-6.72,7.68-6.72,1.81-.04,3.62.36,5.23,1.21l-.84,2.61c-1.37-.8-2.9-1.21-4.46-1.17-3.26,0-4.46,2.01-4.46,3.71,0,2.29,1.45,3.46,4.71,4.75,4.06,1.65,6.04,3.66,6.04,7.28s-2.73,7.12-8.29,7.12c-2.13,0-4.18-.56-6.04-1.61l.77-2.66h-.03Z"/>
+  <path class="st1" d="M254.17,208.72c0,6.6-4.39,9.54-8.45,9.54-4.62,0-8.17-3.5-8.17-9.13,0-5.95,3.74-9.42,8.45-9.42,4.71-.04,8.17,3.62,8.17,9.01h0ZM240.73,208.93c0,3.9,2.13,6.8,5.15,6.8s5.19-2.9,5.19-6.92c0-3.01-1.45-6.8-5.11-6.8s-5.23,3.58-5.23,6.92Z"/>
+  <path class="st1" d="M258.07,191.71h3.06v26.11h-3.06v-26.11Z"/>
+  <path class="st1" d="M280.57,212.91c0,1.85,0,3.46.16,4.87h-2.73l-.16-2.9h-.08c-1.12,2.05-3.3,3.34-5.63,3.3-2.73,0-5.83-1.57-5.83-7.77v-10.38h3.06v9.82c0,3.38,1,5.67,3.78,5.67,1.85-.08,3.46-1.25,4.06-2.98.16-.52.28-1.09.28-1.65v-10.87h3.06v12.88h.04-.01Z"/>
+  <path class="st1" d="M289.42,194.88v5.11h4.43v2.45h-4.43v9.54c0,2.21.6,3.46,2.33,3.46.6,0,1.21-.08,1.77-.24l.16,2.45c-.89.32-1.81.49-2.73.44-1.25.08-2.5-.44-3.34-1.37-.93-1.37-1.37-2.98-1.21-4.62v-9.7h-2.66v-2.45h2.66v-4.27l3.01-.8h.01Z"/>
+  <path class="st1" d="M300.81,195c.04,1.05-.77,1.97-1.81,2.01h-.16c-1.05,0-1.89-.89-1.85-1.93v-.08c-.04-1.05.77-1.97,1.85-2.01h.08c1.05,0,1.93.84,1.93,1.89-.04.04-.04.08-.04.12h0ZM297.35,217.82v-17.78h3.1v17.78h-3.1Z"/>
+  <path class="st1" d="M320.92,208.72c0,6.6-4.39,9.54-8.45,9.54-4.59,0-8.17-3.5-8.17-9.13,0-5.95,3.74-9.42,8.45-9.42,4.67-.04,8.17,3.62,8.17,9.01h0ZM307.45,208.93c0,3.9,2.13,6.8,5.15,6.8s5.15-2.9,5.15-6.92c0-3.01-1.45-6.8-5.11-6.8s-5.19,3.58-5.19,6.92h0Z"/>
+  <path class="st1" d="M324.83,204.82c0-1.85,0-3.3-.12-4.79h2.73l.16,2.9h.04c1.09-2.05,3.26-3.34,5.63-3.3,2.33,0,6,1.49,6,7.56v10.62h-3.01v-10.26c0-2.9-1.05-5.27-3.9-5.27-1.97.08-3.66,1.4-4.15,3.3-.16.49-.24,1-.2,1.53v10.71h-3.06v-13h-.12Z"/>
+  <path class="st1" d="M343.86,214.48c1.21.77,2.61,1.21,4.06,1.25,2.26,0,3.3-1.17,3.3-2.66s-.89-2.38-3.14-3.26c-3.06-1.17-4.51-2.9-4.51-5.03,0-2.86,2.21-5.19,5.88-5.19,1.45-.04,2.9.36,4.15,1.09l-.77,2.33c-1.05-.68-2.26-1.05-3.5-1.05-1.37-.16-2.61.8-2.78,2.17v.28c0,1.49,1,2.13,3.22,3.01,2.94,1.12,4.46,2.73,4.46,5.35,0,3.14-2.33,5.35-6.36,5.35-1.69.04-3.34-.4-4.79-1.25l.77-2.41h0v.02Z"/>
+  <path class="st1" d="M380.56,217.82c-.68-.72-1.37-1.37-2.21-2.41-1.81,1.85-4.31,2.86-6.92,2.82-3.74.28-7-2.57-7.24-6.32v-.65c.04-3.1,1.81-5.88,4.62-7.24v-.12c-1.21-1.45-1.89-3.26-1.97-5.15-.12-3.26,2.41-6,5.67-6.11h.36c2.78-.12,5.11,2.01,5.23,4.79v.44c0,2.61-1.45,4.67-5.19,6.6v.12c2.01,2.45,4.27,5.11,5.79,6.88,1.25-2.21,2.01-4.67,2.26-7.21h2.82c-.32,3.3-1.49,6.44-3.42,9.13l3.94,4.39h-3.74v.04h0ZM376.86,213.55c-1.37-1.61-4.06-4.67-6.64-7.81-1.81,1.05-2.98,2.94-3.06,5.03-.12,2.61,1.89,4.87,4.51,4.99h.32c1.85,0,3.62-.8,4.87-2.21h0ZM369.66,198.43c.08,1.65.72,3.22,1.81,4.46,2.38-1.45,3.94-2.73,3.94-4.87.16-1.57-.96-3.01-2.54-3.18h-.16c-2.05,0-3.06,1.69-3.06,3.58h.01Z"/>
+  <path class="st1" d="M394.04,213.88c1.61,1.05,3.5,1.61,5.43,1.61,3.14,0,4.95-1.69,4.95-4.22,0-2.29-1.29-3.66-4.46-4.91-3.86-1.37-6.23-3.58-6.23-7,0-3.86,3.06-6.72,7.68-6.72,1.81-.08,3.62.36,5.23,1.21l-.84,2.61c-1.37-.8-2.9-1.21-4.46-1.17-3.26,0-4.46,2.01-4.46,3.71,0,2.29,1.45,3.46,4.71,4.75,4.02,1.65,6.04,3.66,6.04,7.28s-2.73,7.12-8.29,7.12c-2.13.04-4.22-.52-6.04-1.61l.77-2.66h-.03Z"/>
+  <path class="st1" d="M413.59,209.49c.08,4.39,2.73,6.16,5.79,6.16,1.61.04,3.22-.28,4.71-.93l.56,2.29c-1.77.8-3.71,1.17-5.67,1.12-5.23,0-8.37-3.62-8.37-8.98s3.01-9.54,8.01-9.54c5.55,0,7,5.07,7,8.37,0,.52-.04,1-.12,1.53l-11.91-.04h0v.02ZM422.65,207.16c0-2.05-.8-5.23-4.27-5.23-3.14,0-4.51,2.98-4.75,5.23h9.02Z"/>
+  <path class="st1" d="M429.45,205.59c0-2.1,0-3.86-.12-5.51h2.73l.12,3.5h.12c.56-2.17,2.5-3.74,4.75-3.9.28,0,.56.04.84.08v3.01c-.36-.08-.68-.12-1.05-.08-2.17,0-3.71,1.73-4.06,4.06-.08.49-.12,1-.12,1.53v9.54h-3.06l-.16-12.23h0Z"/>
+  <path class="st1" d="M443.01,200.04l3.34,9.94c.56,1.65,1,3.1,1.37,4.59h.08c.4-1.49.89-2.94,1.37-4.59l3.3-9.94h3.22l-6.6,17.78h-2.94l-6.48-17.75,3.34-.04h0Z"/>
+  <path class="st1" d="M462.16,195c.08,1.05-.68,1.97-1.73,2.1s-1.97-.68-2.1-1.73v-.32c-.04-1.05.77-1.97,1.85-2.01h.08c1.05,0,1.89.84,1.89,1.89,0-.04,0,0,0,.08h.01ZM458.71,217.82v-17.78h3.06v17.78h-3.06Z"/>
+  <path class="st1" d="M479.03,217.14c-1.53.72-3.18,1.05-4.87,1.05-5.11,0-8.49-3.66-8.49-9.05s3.58-9.54,9.1-9.54c1.49,0,2.98.32,4.31.96l-.68,2.5c-1.12-.6-2.38-.89-3.62-.84-3.86,0-6,3.06-6,6.72,0,4.06,2.54,6.64,5.92,6.64,1.29,0,2.57-.28,3.78-.84l.56,2.41h-.01Z"/>
+  <path class="st1" d="M484.17,209.49c0,4.39,2.73,6.16,5.79,6.16,1.61.04,3.22-.28,4.71-.93l.56,2.29c-1.77.8-3.71,1.17-5.67,1.12-5.23,0-8.37-3.62-8.37-8.98s3.01-9.54,7.97-9.54c5.55,0,7,5.07,7,8.37,0,.52-.04,1-.12,1.53l-11.87-.04h0v.02ZM493.19,207.16c0-2.05-.8-5.23-4.27-5.23-3.14,0-4.51,2.98-4.75,5.23h9.02Z"/>
+  <path class="st1" d="M499.58,214.48c1.21.77,2.61,1.21,4.06,1.25,2.26,0,3.3-1.17,3.3-2.66s-.89-2.38-3.14-3.26c-3.06-1.17-4.51-2.9-4.51-5.03,0-2.86,2.21-5.19,5.88-5.19,1.45-.04,2.9.36,4.15,1.09l-.77,2.33c-1.05-.68-2.26-1.05-3.5-1.05-1.37-.16-2.61.8-2.78,2.17v.28c0,1.49,1,2.13,3.22,3.01,2.94,1.12,4.46,2.73,4.46,5.35,0,3.14-2.33,5.35-6.36,5.35-1.65.04-3.3-.4-4.75-1.25l.72-2.41h0l.02.02Z"/>
+  <path class="st1" d="M521.07,213.88c1.61,1.05,3.5,1.61,5.43,1.61,3.14,0,4.95-1.69,4.95-4.22,0-2.29-1.29-3.66-4.46-4.91-3.86-1.37-6.23-3.58-6.23-7,0-3.86,3.06-6.72,7.68-6.72,1.81-.08,3.62.36,5.23,1.21l-.84,2.61c-1.37-.8-2.9-1.21-4.46-1.17-3.26,0-4.51,2.01-4.51,3.71,0,2.29,1.45,3.46,4.71,4.75,4.02,1.65,6.04,3.66,6.04,7.28s-2.73,7.12-8.29,7.12c-2.13.04-4.22-.52-6.04-1.61l.8-2.66h0Z"/>
+  <path class="st1" d="M537.93,215.89c-.12-1.17.77-2.21,1.93-2.33h.16c1.29-.12,2.41.8,2.54,2.1s-.8,2.41-2.1,2.54-2.41-.8-2.54-2.1v-.2h.01Z"/>
+  <path class="st1" d="M549.88,209.98l-2.45,7.81h-3.18l8.05-24.78h3.66l8.09,24.78h-3.26l-2.54-7.81h-8.37ZM557.65,207.52l-2.33-7.12c-.52-1.61-.89-3.1-1.21-4.51h-.08c-.32,1.45-.72,2.94-1.17,4.46l-2.33,7.16h7.12Z"/>
+  <g>
+    <path class="st1" d="M31.24,112.94h5.19l43.21,57.7v-57.7h4.75v64.86h-4.75l-43.66-58.26v58.26h-4.75v-64.86h.01Z"/>
+    <path class="st1" d="M109.98,170.4c4.67,3.22,10.22,4.87,15.89,4.71,6.07.16,12.03-1.77,16.86-5.43.6-.44,1.17-.93,1.69-1.37l4.99,1.37c-.96,1-2.01,1.89-3.1,2.73-5.88,4.43-13.08,6.72-20.4,6.52-7.37.2-14.53-2.1-20.4-6.52-5.63-4.34-8.45-9.58-8.45-15.77s2.82-11.43,8.45-15.73c5.88-4.43,13.08-6.72,20.4-6.52,6.28-.12,12.48,1.53,17.87,4.75.84.52,1.69,1.12,2.54,1.77.32.24.6.49.89.72l-3.58,2.73-33.64,26.04h-.01ZM140.2,141.95c-4.34-2.5-9.29-3.74-14.32-3.66-6.07-.12-11.99,1.77-16.82,5.43-4.67,3.58-7,7.89-7,13,.04,4.15,1.73,8.09,4.75,10.9l33.4-25.67h0Z"/>
+    <path class="st1" d="M169.41,137.97v-16.94h4.75v16.94h10.5v3.66h-10.5v36.17h-4.75v-36.17h-10.5v-3.66h10.5Z"/>
+    <path class="st1" d="M306.99,124.93c1.4.93,1.81,2.82.89,4.27-.24.36-.52.68-.89.89-2.01,1.4-4.67,1.4-6.68,0-1.4-.93-1.81-2.86-.89-4.27.24-.36.52-.65.89-.89,2.01-1.4,4.67-1.4,6.68,0ZM306.01,137.97v39.8h-4.75v-39.8h4.75Z"/>
+    <path class="st1" d="M327.59,146.86v30.94h-4.75v-39.8h4.75v2.57c4.31-3.3,9.58-5.03,14.97-4.95,6.11,0,11.06,1.49,14.89,4.43,3.62,2.57,5.79,6.72,5.88,11.15v26.64h-4.67v-26.36c-.04-3.5-1.85-6.72-4.75-8.65-6.76-4.75-15.77-4.75-22.54,0-1.53,1.09-2.82,2.45-3.78,4.02h0Z"/>
+    <path class="st1" d="M434.9,177.8h-4.75v-8.17c-.93.96-1.93,1.89-3.01,2.73-12.23,8.69-28.57,8.69-40.8,0-5.63-4.34-8.45-9.58-8.45-15.73s2.82-11.39,8.45-15.77c12.23-8.69,28.57-8.69,40.8,0,1.05.84,2.05,1.73,3.01,2.73v-30.66h4.75v64.86h0ZM430.15,160.25v-7.21c-1.05-3.78-3.38-7.12-6.56-9.42-10.1-7.16-23.66-7.16-33.76,0-4.67,3.62-7,7.97-7,13s2.33,9.38,7,13c10.1,7.16,23.66,7.16,33.76,0,3.22-2.26,5.55-5.55,6.56-9.38h0Z"/>
+    <polygon class="st2" points="219.99 178.93 241.68 141.14 262.96 178.93 272.58 162.02 241.68 105.05 210.82 160.98 219.99 178.93"/>
+    <polygon class="st4" points="220.19 138.45 208.72 158.24 183.05 103.6 204.78 103.6 220.19 138.45"/>
+    <polygon class="st6" points="263.2 138.45 274.67 158.24 300.34 103.6 278.62 103.6 263.2 138.45"/>
+    <polygon class="st6" points="220.19 138.45 208.72 158.24 183.05 103.6 204.78 103.6 220.19 138.45"/>
+    <rect class="st4" x="186.95" y="85.05" width="3.06" height="3.06"/>
+    <rect class="st4" x="184.01" y="92.13" width="3.66" height="3.66"/>
+    <rect class="st4" x="193.88" y="94.22" width="4.67" height="4.67"/>
+    <rect class="st3" x="187.04" y="111.04" width="5.88" height="5.88"/>
+    <rect class="st3" x="196.65" y="108.47" width="5.23" height="5.23"/>
+    <rect class="st3" x="195.49" y="118.44" width="6.92" height="6.92"/>
+    <rect class="st7" x="190.5" y="103.6" width="4.83" height="3.06"/>
+  </g>
+  <rect class="st0" x="111.25" y="88.71" width="243.64" height="85.81"/>
+  <path class="st5" d="M314.17,104.56c-16.7-29.38-48.28-49.2-84.49-49.2-24,0-45.96,8.71-62.91,23.13,19.41-20.15,46.66-32.68,76.84-32.68,41.68,0,77.77,23.91,95.33,58.75h-24.77Z"/>
+  <path class="st6" d="M230.87,28.3c47.96,0,89.57,27.19,110.26,66.99-19.64-33.41-55.96-55.85-97.52-55.85-48.1,0-89.18,30.04-105.51,72.39l-2.78-2.5c-2.25-2.07-4.88-4.02-7.81-5-2.2-.73-4.49-1.14-6.81-1.14-1.35,0-2.68.12-4,.35,19-44.25,62.96-75.25,114.18-75.25h-.01Z"/>
+  <path class="st6" d="M142.79,200.43c16.7,29.38,48.28,49.2,84.5,49.2,24,0,45.96-8.71,62.91-23.13-19.41,20.15-46.66,32.68-76.84,32.68-41.68,0-77.77-23.91-95.33-58.75h24.76Z"/>
+</svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path="src/app/app/layout.tsx">
+export default function AppLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div style={{ paddingBottom: 0, height: "100dvh", overflow: "hidden" }}>
+      {children}
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/forgot-password/sent/page.tsx">
+"use client";
+
+import "../../signin/signin.css";
+
+export default function Page() {
+  return (
+    <main className="lgc-signin">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        <section className="lgc-signin__card" aria-label="Επιβεβαίωση αποστολής">
+          <div className="lgc-signin__logoWrap">
+            <img
+              className="lgc-signin__brandLogo"
+              src="/ClinicScribe-logo.svg"
+              alt="ClinicScribe"
+              loading="eager"
+            />
+          </div>
+
+          <h1 className="lgc-signin__title">Ελέγξτε το email σας</h1>
+
+          <div className="lgc-signin__note">
+            Αν το email υπάρχει στο σύστημά μας, σας στείλαμε σύνδεσμο επαναφοράς
+            κωδικού. Παρακαλούμε ελέγξτε και τον φάκελο ανεπιθύμητης αλληλογραφίας
+            (spam).
+          </div>
+
+          <div className="lgc-signin__links lgc-signin__links--center">
+            <a className="lgc-signin__link" href="/signin">
+              Πίσω στη σύνδεση
+            </a>
+          </div>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind">
+          <img
+            className="lgc-signin__footerLogo"
+            src="/logo-2026-netwind.svg"
+            alt="NetWind"
+            loading="lazy"
+          />
+        </footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/forgot-password/page.tsx">
+"use client";
+
+import "../signin/signin.css";
+
+export default function Page() {
+  return (
+    <main className="lgc-signin">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        <section className="lgc-signin__card" aria-label="Επαναφορά κωδικού">
+          <div className="lgc-signin__logoWrap">
+            <img
+              className="lgc-signin__brandLogo"
+              src="/ClinicScribe-logo.svg"
+              alt="ClinicScribe"
+              loading="eager"
+            />
+          </div>
+
+          <h1 className="lgc-signin__title">Επαναφορά κωδικού</h1>
+
+          <form className="lgc-signin__form" onSubmit={(e) => e.preventDefault()}>
+            <label className="lgc-signin__field">
+              <input
+                className="lgc-signin__input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                autoComplete="email"
+              />
+            </label>
+
+            <button className="lgc-signin__btn" type="submit">
+              Αποστολή συνδέσμου
+            </button>
+
+            <div className="lgc-signin__links">
+              <a className="lgc-signin__link" href="/signin">
+                Πίσω στη σύνδεση
+              </a>
+              <span />
+            </div>
+          </form>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind">
+          <img
+            className="lgc-signin__footerLogo"
+            src="/logo-2026-netwind.svg"
+            alt="NetWind"
+            loading="lazy"
+          />
+        </footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/legal/disclaimer/page.tsx">
+import "../legal.css";
+
+export const metadata = {
+  title: "Αποποίηση Ευθύνης | ClinicScribe",
+};
+
+export default function DisclaimerPage() {
+  return (
+    <main className="lgc-signin lgc-legal">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        <section className="lgc-signin__card" aria-label="Αποποίηση Ευθύνης">
+          <div className="lgc-signin__logoWrap">
+  <img
+    className="lgc-signin__brandLogo"
+    src="/ClinicScribe-logo.svg"
+    alt="ClinicScribe"
+    loading="eager"
+  />
+</div>
+
+<h1 className="lgc-legal__title">Αποποίηση Ευθύνης</h1>
+          <p className="lgc-legal__meta">Τελευταία ενημέρωση: 16/10/2026</p>
+
+          <div className="lgc-legal__content">
+            <p>
+              Το ClinicScribe είναι εργαλείο υποβοήθησης. Δεν παρέχει ιατρική συμβουλή,
+              διάγνωση ή θεραπεία και δεν υποκαθιστά την επαγγελματική κρίση.
+            </p>
+
+            <h2>1. Ευθύνη χρήστη</h2>
+            <p>
+              Ο χρήστης (επαγγελματίας υγείας) είναι αποκλειστικά υπεύθυνος για:
+            </p>
+            <ul>
+              <li>την ακρίβεια των δεδομένων που εισάγει,</li>
+              <li>τον έλεγχο του παραγόμενου κειμένου,</li>
+              <li>την τελική υπογραφή/σφράγιση και χρήση του εγγράφου.</li>
+            </ul>
+
+            <h2>2. Περιορισμοί AI</h2>
+            <p>
+              Τα αποτελέσματα μπορεί να περιέχουν σφάλματα ή παραλείψεις. Απαιτείται
+              πάντα ανθρώπινος έλεγχος.
+            </p>
+
+            <h2>3. Επείγοντα περιστατικά</h2>
+            <p>
+              Σε επείγουσες καταστάσεις, ακολουθήστε τα καθιερωμένα ιατρικά πρωτόκολλα
+              και τις αρμόδιες υπηρεσίες. Μην βασίζεστε στην εφαρμογή.
+            </p>
+          </div>
+
+          <div className="lgc-legal__actions">
+            <a className="lgc-legal__backLink" href="/signin">
+              Επιστροφή στη σύνδεση
+            </a>
+          </div>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind">
+  <img
+    className="lgc-signin__footerLogo"
+    src="/logo-2026-netwind.svg"
+    alt="NetWind"
+    loading="lazy"
+  />
+</footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/legal/ip/page.tsx">
+import "../legal.css";
+
+export const metadata = {
+  title: "Πνευματική Ιδιοκτησία | ClinicScribe",
+};
+
+export default function IpPage() {
+  return (
+    <main className="lgc-signin lgc-legal">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        <section className="lgc-signin__card" aria-label="Πνευματική Ιδιοκτησία">
+          <div className="lgc-signin__logoWrap">
+  <img
+    className="lgc-signin__brandLogo"
+    src="/ClinicScribe-logo.svg"
+    alt="ClinicScribe"
+    loading="eager"
+  />
+</div>
+
+<h1 className="lgc-legal__title">Πνευματική Ιδιοκτησία</h1>
+          <p className="lgc-legal__meta">Τελευταία ενημέρωση: 16/10/2026</p>
+
+          <div className="lgc-legal__content">
+            <p>
+              Όλο το λογισμικό, ο σχεδιασμός, τα λογότυπα και το περιεχόμενο που
+              παρέχεται από το ClinicScribe προστατεύονται από δικαιώματα πνευματικής
+              ιδιοκτησίας.
+            </p>
+
+            <h2>1. Δικαιώματα</h2>
+            <ul>
+              <li>Δεν μεταβιβάζονται δικαιώματα χρήσης πέραν των απολύτως αναγκαίων για την υπηρεσία.</li>
+              <li>Απαγορεύεται η αντιγραφή, αναπαραγωγή ή μεταπώληση χωρίς άδεια.</li>
+            </ul>
+
+            <h2>2. Περιεχόμενο χρήστη</h2>
+            <p>
+              Το περιεχόμενο που εισάγετε παραμένει δικό σας. Μας παρέχετε μόνο την
+              αναγκαία άδεια επεξεργασίας για να λειτουργεί η υπηρεσία.
+            </p>
+
+            <h2>3. Παραβιάσεις</h2>
+            <p>
+              Αν θεωρείτε ότι παραβιάζονται δικαιώματα, επικοινωνήστε μέσω των στοιχείων της εφαρμογής.
+            </p>
+          </div>
+
+          <div className="lgc-legal__actions">
+            <a className="lgc-legal__backLink" href="/signin">
+              Επιστροφή στη σύνδεση
+            </a>
+          </div>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind">
+  <img
+    className="lgc-signin__footerLogo"
+    src="/logo-2026-netwind.svg"
+    alt="NetWind"
+    loading="lazy"
+  />
+</footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/legal/privacy/page.tsx">
+import "../legal.css";
+
+export const metadata = {
+  title: "Πολιτική Απορρήτου | ClinicScribe",
+};
+
+export default function PrivacyPage() {
+  return (
+    <main className="lgc-signin lgc-legal">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        {/* Προαιρετικά: βάλε εδώ το ίδιο brand logo component/img που έχεις στο /signin */}
+        {/* <img className="lgc-signin__brandLogo" src="/clinicscribe-logo.svg" alt="ClinicScribe" /> */}
+
+        <section className="lgc-signin__card" aria-label="Πολιτική Απορρήτου">
+          <div className="lgc-signin__logoWrap">
+  <img
+    className="lgc-signin__brandLogo"
+    src="/ClinicScribe-logo.svg"
+    alt="ClinicScribe"
+    loading="eager"
+  />
+</div>
+
+<h1 className="lgc-legal__title">Πολιτική Απορρήτου</h1>
+          <p className="lgc-legal__meta">Τελευταία ενημέρωση: 16/10/2026</p>
+
+          <div className="lgc-legal__content">
+            <p>
+              Η παρούσα Πολιτική Απορρήτου περιγράφει πώς το ClinicScribe συλλέγει,
+              χρησιμοποιεί και προστατεύει τα προσωπικά δεδομένα όταν χρησιμοποιείτε
+              την υπηρεσία.
+            </p>
+
+            <h2>1. Υπεύθυνος Επεξεργασίας</h2>
+            <p>
+              Υπεύθυνος επεξεργασίας: ClinicScribe (στοιχεία επικοινωνίας όπως
+              εμφανίζονται στην εφαρμογή/σελίδα αναμονής).
+            </p>
+
+            <h2>2. Δεδομένα που συλλέγουμε</h2>
+            <ul>
+              <li>Στοιχεία λογαριασμού (π.χ. email, όνομα, ειδικότητα, τηλέφωνο).</li>
+              <li>Δεδομένα χρήσης (τεχνικά logs για ασφάλεια/λειτουργία).</li>
+              <li>
+                Περιεχόμενο που εισάγετε στην εφαρμογή (π.χ. κείμενα για παραγωγή
+                εγγράφων), στο βαθμό που απαιτείται για την παροχή της υπηρεσίας.
+              </li>
+            </ul>
+
+            <h2>3. Σκοποί επεξεργασίας</h2>
+            <ul>
+              <li>Παροχή και λειτουργία της υπηρεσίας.</li>
+              <li>Ασφάλεια, πρόληψη κατάχρησης και τεχνική υποστήριξη.</li>
+              <li>Βελτίωση εμπειρίας χρήσης και ποιότητας υπηρεσίας.</li>
+            </ul>
+
+            <h2>4. Νομική βάση</h2>
+            <ul>
+              <li>Εκτέλεση σύμβασης (παροχή υπηρεσίας).</li>
+              <li>Έννομο συμφέρον (ασφάλεια, πρόληψη απάτης, βελτιστοποίηση).</li>
+              <li>Συμμόρφωση με νομικές υποχρεώσεις όπου απαιτείται.</li>
+            </ul>
+
+            <h2>5. Διαβιβάσεις & τρίτοι πάροχοι</h2>
+            <p>
+              Ενδέχεται να χρησιμοποιούνται τρίτοι πάροχοι υποδομών (π.χ. hosting,
+              authentication, email) αποκλειστικά για την παροχή της υπηρεσίας.
+            </p>
+
+            <h2>6. Ασφάλεια</h2>
+            <p>
+              Λαμβάνουμε τεχνικά και οργανωτικά μέτρα για την προστασία των δεδομένων.
+              Παρόλα αυτά, καμία μέθοδος μετάδοσης/αποθήκευσης δεν είναι 100% ασφαλής.
+            </p>
+
+            <h2>7. Δικαιώματα υποκειμένων</h2>
+            <ul>
+              <li>Πρόσβαση, διόρθωση, διαγραφή, περιορισμός.</li>
+              <li>Εναντίωση όπου εφαρμόζεται.</li>
+              <li>Φορητότητα δεδομένων όπου εφαρμόζεται.</li>
+            </ul>
+
+            <h2>8. Επικοινωνία</h2>
+            <p>
+              Για αιτήματα σχετικά με προσωπικά δεδομένα, επικοινωνήστε μέσω των
+              στοιχείων επικοινωνίας που παρέχονται στην εφαρμογή.
+            </p>
+          </div>
+
+          <div className="lgc-legal__actions">
+            <a className="lgc-legal__backLink" href="/signin">
+              Επιστροφή στη σύνδεση
+            </a>
+          </div>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind">
+  <img
+    className="lgc-signin__footerLogo"
+    src="/logo-2026-netwind.svg"
+    alt="NetWind"
+    loading="lazy"
+  />
+         
+        </footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/legal/terms/page.tsx">
+import "../legal.css";
+
+export const metadata = {
+  title: "Όροι Χρήσης | ClinicScribe",
+};
+
+export default function TermsPage() {
+  return (
+    <main className="lgc-signin lgc-legal">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        <section className="lgc-signin__card" aria-label="Όροι Χρήσης">
+          <div className="lgc-signin__logoWrap">
+  <img
+    className="lgc-signin__brandLogo"
+    src="/ClinicScribe-logo.svg"
+    alt="ClinicScribe"
+    loading="eager"
+  />
+</div>
+
+<h1 className="lgc-legal__title">Όροι Χρήσης</h1>
+          <p className="lgc-legal__meta">Τελευταία ενημέρωση: 16/10/2026</p>
+
+          <div className="lgc-legal__content">
+            <p>
+              Με τη χρήση του ClinicScribe αποδέχεστε τους παρόντες Όρους Χρήσης.
+              Αν δεν συμφωνείτε, παρακαλούμε μην χρησιμοποιείτε την υπηρεσία.
+            </p>
+
+            <h2>1. Περιγραφή υπηρεσίας</h2>
+            <p>
+              Το ClinicScribe παρέχει εργαλεία υποβοήθησης σύνταξης κειμένων/εγγράφων.
+              Ο χρήστης φέρει την αποκλειστική ευθύνη ελέγχου, τελικής διαμόρφωσης και
+              υπογραφής οποιουδήποτε εγγράφου.
+            </p>
+
+            <h2>2. Επιλεξιμότητα & λογαριασμός</h2>
+            <ul>
+              <li>Είστε υπεύθυνοι για τη διατήρηση της ασφάλειας των στοιχείων σύνδεσης.</li>
+              <li>Απαγορεύεται η μη εξουσιοδοτημένη πρόσβαση ή χρήση.</li>
+            </ul>
+
+            <h2>3. Αποδεκτή χρήση</h2>
+            <ul>
+              <li>Μην ανεβάζετε/εισάγετε παράνομο ή κακόβουλο περιεχόμενο.</li>
+              <li>Μην επιχειρείτε να παρακάμψετε μέτρα ασφαλείας.</li>
+              <li>Μην χρησιμοποιείτε την υπηρεσία για παραπλανητικούς σκοπούς.</li>
+            </ul>
+
+            <h2>4. Περιορισμός ευθύνης</h2>
+            <p>
+              Η υπηρεσία παρέχεται “ως έχει”. Δεν εγγυόμαστε ότι το παραγόμενο περιεχόμενο
+              είναι ακριβές, πλήρες ή κατάλληλο για συγκεκριμένη χρήση. Η τελική ευθύνη
+              παραμένει στον χρήστη.
+            </p>
+
+            <h2>5. Τροποποιήσεις</h2>
+            <p>
+              Ενδέχεται να τροποποιούμε την υπηρεσία ή/και τους όρους. Η συνέχιση χρήσης
+              μετά από αλλαγές συνιστά αποδοχή.
+            </p>
+
+            <h2>6. Επικοινωνία</h2>
+            <p>
+              Για ερωτήσεις σχετικά με τους όρους, επικοινωνήστε μέσω των στοιχείων της εφαρμογής.
+            </p>
+          </div>
+
+          <div className="lgc-legal__actions">
+            <a className="lgc-legal__backLink" href="/signin">
+              Επιστροφή στη σύνδεση
+            </a>
+          </div>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind" />
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/new-case/new-case.css">
+.nc-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.nc-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.nc-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+}
+
+.nc-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  color: #1a1a1a;
+}
+
+.nc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.nc-formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nc-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.nc-input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.nc-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.nc-input:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.nc-hint {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.nc-footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.nc-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.nc-btn--primary {
+  background-color: #667eea;
+  color: white;
+}
+
+.nc-btn--primary:hover:not(:disabled) {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.nc-btn--primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.nc-btn--secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.nc-btn--secondary:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.nc-btn--secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .nc-card {
+    padding: 1.5rem;
+  }
+
+  .nc-title {
+    font-size: 1.5rem;
+  }
+
+  .nc-footer {
+    flex-direction: column;
+  }
+
+  .nc-btn {
+    width: 100%;
+  }
+}
+.nc-page .nc-input {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important; /* Chrome autofill / weird cases */
+}
+
+.nc-page .nc-input::placeholder {
+  color: #444 !important;
+  opacity: 1 !important;
+}
+</file>
+
+<file path="src/app/new-case/page.tsx">
+"use client";
+
+import "./new-case.css";
+import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+
+export default function NewCasePage() {
+  const router = useRouter();
+  const supabase = useMemo(() => createSupabaseBrowserClient(), []);
+  
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [amka, setAmka] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const extractBirthDateFromAmka = (amkaStr: string): string | null => {
+    const cleaned = amkaStr.replace(/\D/g, "");
+    if (cleaned.length < 6) return null;
+    const dd = cleaned.substring(0, 2);
+    const mm = cleaned.substring(2, 4);
+    const yy = parseInt(cleaned.substring(4, 6), 10);
+    const currentYear = new Date().getFullYear();
+    const cutoff = currentYear % 100;
+    const yyyy = yy > cutoff ? 1900 + yy : 2000 + yy;
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
+  const handleCreate = async () => {
+    const fName = firstName.trim();
+    const lName = lastName.trim();
+    const amkaVal = amka.trim();
+
+    if (!fName || !lName || !amkaVal) {
+      alert("Παρακαλώ συμπλήρωσε όνομα, επώνυμο και ΑΜΚΑ.");
+      return;
+    }
+
+    const birthDate = extractBirthDateFromAmka(amkaVal);
+    if (!birthDate) {
+      alert("Μη έγκυρο ΑΜΚΑ. Πρέπει να έχει τουλάχιστον 6 ψηφία.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const { data: userData, error: userError } = await supabase.auth.getUser();
+      if (userError || !userData.user) throw new Error("Δεν είσαι συνδεδεμένος.");
+
+      const { data: newCase, error } = await supabase
+        .from("cases")
+        .insert([
+          {
+            user_id: userData.user.id,
+            case_type: "general",
+            patient_name: `${fName} ${lName}`,
+            patient_amka: amkaVal,
+            title: `${fName} ${lName}`,
+          },
+        ])
+        .select("id")
+        .single();
+
+      if (error) throw error;
+
+      router.push(`/app?case=${newCase.id}`);
+    } catch (e: any) {
+      console.error(e);
+      alert("Αποτυχία δημιουργίας γνωμάτευσης. " + (e?.message ? `(${e.message})` : ""));
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="nc-page">
+      <div className="nc-container">
+        <div className="nc-card">
+          <h1 className="nc-title">Νέα Γνωμάτευση</h1>
+
+          <div className="nc-form">
+            <div className="nc-formGroup">
+              <label className="nc-label">Όνομα</label>
+              <input
+                type="text"
+                className="nc-input"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="π.χ. Γιάννης"
+                disabled={isLoading}
+              />
+            </div>
+
+            <div className="nc-formGroup">
+              <label className="nc-label">Επώνυμο</label>
+              <input
+                type="text"
+                className="nc-input"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="π.χ. Παπαδόπουλος"
+                disabled={isLoading}
+              />
+            </div>
+
+            <div className="nc-formGroup">
+              <label className="nc-label">ΑΜΚΑ</label>
+              <input
+                type="text"
+                className="nc-input"
+                value={amka}
+                onChange={(e) => setAmka(e.target.value)}
+                placeholder="π.χ. 05037804696"
+                disabled={isLoading}
+              />
+              <div className="nc-hint">
+                Η ημερομηνία γέννησης θα υπολογιστεί αυτόματα από το ΑΜΚΑ.
+              </div>
+            </div>
+          </div>
+
+          <div className="nc-footer">
+            <button
+              type="button"
+              className="nc-btn nc-btn--secondary"
+              onClick={() => router.back()}
+              disabled={isLoading}
+            >
+              Ακύρωση
+            </button>
+            <button
+              type="button"
+              className="nc-btn nc-btn--primary"
+              onClick={handleCreate}
+              disabled={isLoading}
+            >
+              {isLoading ? "Δημιουργία..." : "Δημιουργία"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/pending/page.tsx">
+import "./pending.css";
+
+export default function Page() {
+  return (
+    <main className="lgc-pending">
+      <div className="lgc-pending__bg" />
+
+      <div className="lgc-pending__wrap">
+        <section className="lgc-pending__card" aria-label="Αναμονή έγκρισης">
+          <div className="lgc-pending__logoWrap">
+            <img
+              className="lgc-pending__brandLogo"
+              src="/ClinicScribe-logo.svg"
+              alt="ClinicScribe"
+              loading="eager"
+            />
+          </div>
+
+          <h1 className="lgc-pending__title">Αναμονή έγκρισης</h1>
+
+          <p className="lgc-pending__lead">
+            Ο λογαριασμός σου είναι σε αναμονή έγκρισης άδειας χρήσης.
+            <br />
+            Μόλις ενεργοποιηθεί, θα έχεις πρόσβαση στο ClinicScribe.
+          </p>
+
+          <div className="lgc-pending__contact" aria-label="Στοιχεία επικοινωνίας">
+            <p className="lgc-pending__person">
+              Vassilis Petroulias
+            </p>
+            <p className="lgc-pending__role">
+              Creative &amp; Digital Solutions Specialist
+            </p>
+
+            <div className="lgc-pending__lines">
+              <div>
+                M: <a href="tel:+306947930375">+30 694 7930375</a> &nbsp;|&nbsp; E:{" "}
+                <a href="mailto:v.petroulias@netwind.gr">v.petroulias@netwind.gr</a>
+              </div>
+
+              <div>
+                T: <a href="tel:+302110011070">+30 211 0011070</a> &nbsp;|&nbsp;{" "}
+                <a href="tel:+302110011071">+30 211 0011071</a>
+              </div>
+
+              <div>
+                W: <a href="https://www.netwind.gr">www.netwind.gr</a>
+              </div>
+
+              <div>
+                A: 59-61 Konstantinou Tsaldari Ave, 113 63 Athens, Greece
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <footer className="lgc-pending__footer" aria-label="NetWind">
+          <img
+            className="lgc-pending__footerLogo"
+            src="/logo-2026-netwind.svg"
+            alt="NetWind"
+            loading="lazy"
+          />
+        </footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/pending/pending.css">
+.lgc-pending{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.lgc-pending__bg{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(14, 90, 115, 0.08), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(14, 90, 115, 0.06), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lgc-pending__wrap{
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.lgc-pending__card{
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.18);
+  padding: 28px 26px 22px;
+  backdrop-filter: blur(6px);
+}
+
+.lgc-pending__logoWrap{
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+
+.lgc-pending__brandLogo{
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lgc-pending__title{
+  text-align: center;
+  margin: 8px 0 10px;
+  font-size: 26px;
+  line-height: 1.15;
+  color: #0b3f52;
+}
+
+.lgc-pending__lead{
+  margin: 0 0 14px;
+  text-align: center;
+  color: rgba(15, 23, 42, 0.78);
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.lgc-pending__contact{
+  margin-top: 14px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  padding-top: 14px;
+}
+
+.lgc-pending__person{
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.92);
+  margin: 0 0 4px;
+  text-align: center;
+}
+
+.lgc-pending__role{
+  margin: 0 0 10px;
+  text-align: center;
+  color: rgba(15, 23, 42, 0.72);
+  font-size: 13px;
+}
+
+.lgc-pending__lines{
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.78);
+}
+
+.lgc-pending__lines a{
+  color: rgba(11, 63, 82, 0.95);
+  text-decoration: none;
+}
+
+.lgc-pending__lines a:hover{
+  text-decoration: underline;
+}
+
+.lgc-pending__footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.lgc-pending__footerLogo{
+  width: 120px;
+  max-width: 50vw;
+  height: auto;
+  display: block;
+  opacity: 0.65;
+}
+
+@media (max-width: 520px){
+  .lgc-pending{
+    padding: 18px;
+  }
+  .lgc-pending__card{
+    padding: 22px 18px 18px;
+    border-radius: 16px;
+  }
+  .lgc-pending__brandLogo{
+    width: 300px;
+  }
+  .lgc-pending__title{
+    font-size: 22px;
+  }
+}
+</file>
+
+<file path="src/app/reset-password/page.tsx">
+"use client";
+
+import "../signin/signin.css";
+import { useState } from "react";
+
+export default function Page() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  return (
+    <main className="lgc-signin">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        <section className="lgc-signin__card" aria-label="Ορισμός νέου κωδικού">
+          <div className="lgc-signin__logoWrap">
+            <img
+              className="lgc-signin__brandLogo"
+              src="/ClinicScribe-logo.svg"
+              alt="ClinicScribe"
+              loading="eager"
+            />
+          </div>
+
+          <h1 className="lgc-signin__title">Νέος κωδικός</h1>
+
+          <form className="lgc-signin__form" onSubmit={(e) => e.preventDefault()}>
+            <label className="lgc-signin__field">
+              <div className="lgc-signin__passwordRow">
+                <input
+                  className="lgc-signin__input lgc-signin__input--password"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Νέος κωδικός"
+                  autoComplete="new-password"
+                />
+                <button
+                  type="button"
+                  className="lgc-signin__eyeBtn"
+                  aria-label={showPassword ? "Απόκρυψη κωδικού" : "Εμφάνιση κωδικού"}
+                  onClick={() => setShowPassword((v) => !v)}
+                >
+                  {showPassword ? "🙈" : "👁"}
+                </button>
+              </div>
+            </label>
+
+            <label className="lgc-signin__field">
+              <div className="lgc-signin__passwordRow">
+                <input
+                  className="lgc-signin__input lgc-signin__input--password"
+                  type={showConfirmPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  placeholder="Επιβεβαίωση νέου κωδικού"
+                  autoComplete="new-password"
+                />
+                <button
+                  type="button"
+                  className="lgc-signin__eyeBtn"
+                  aria-label={
+                    showConfirmPassword ? "Απόκρυψη κωδικού" : "Εμφάνιση κωδικού"
+                  }
+                  onClick={() => setShowConfirmPassword((v) => !v)}
+                >
+                  {showConfirmPassword ? "🙈" : "👁"}
+                </button>
+              </div>
+            </label>
+
+            <button className="lgc-signin__btn" type="submit">
+              Αποθήκευση κωδικού
+            </button>
+
+            <div className="lgc-signin__links">
+              <a className="lgc-signin__link" href="/signin">
+                Πίσω στη σύνδεση
+              </a>
+              <span />
+            </div>
+          </form>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind">
+          <img
+            className="lgc-signin__footerLogo"
+            src="/logo-2026-netwind.svg"
+            alt="NetWind"
+            loading="lazy"
+          />
+        </footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/LegalBar.tsx">
+"use client";
+
+import { usePathname } from "next/navigation";
+
+export default function LegalBar() {
+  const pathname = usePathname() || "";
+
+  // ΜΗΝ εμφανίζεται μέσα στο /app
+  if (pathname === "/app" || pathname.startsWith("/app/")) return null;
+
+  return (
+    <footer className="lgc-legalbar" aria-label="Νομικές πληροφορίες">
+      <nav className="lgc-legalbar__nav" aria-label="Σύνδεσμοι νομικών κειμένων">
+        <a className="lgc-legalbar__link" href="/legal/terms" target="_blank" rel="noreferrer">
+          Όροι
+        </a>
+        <span className="lgc-legalbar__sep">•</span>
+        <a className="lgc-legalbar__link" href="/legal/privacy" target="_blank" rel="noreferrer">
+          Απόρρητο
+        </a>
+        <span className="lgc-legalbar__sep">•</span>
+        <a className="lgc-legalbar__link" href="/legal/disclaimer" target="_blank" rel="noreferrer">
+          Αποποίηση
+        </a>
+        <span className="lgc-legalbar__sep">•</span>
+        <a className="lgc-legalbar__link" href="/legal/ip" target="_blank" rel="noreferrer">
+          Πνευματική Ιδιοκτησία
+        </a>
+      </nav>
+    </footer>
+  );
+}
+</file>
+
+<file path="src/app/page.tsx">
+import { redirect } from "next/navigation";
+
+export default function Home() {
+  redirect("/signin");
+}
+</file>
+
+<file path="AGENTS.md">
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
+</file>
+
+<file path="clinicscribe_2026-10-19_full.backup">
+
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  experimental: {
+    agentFeedback: true,
+  },
+  cacheComponents: true,
+  partialPrefetching: true,
+  turbopack: {
+    rules: {
+      "*.css": {
+        loaders: ["@tailwindcss/turbopack"],
+        as: "*.css",
+      },
+    },
+  },
+};
+
+export default nextConfig;
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path="src/app/account/page.tsx">
+"use client";
+
+import "./account.css";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+
+type ProfileRow = {
+  user_id: string;
+  access_level: string;
+  full_name: string | null;
+  specialty: string | null;
+  phone: string | null;
+};
+
+export default function Page() {
+  const router = useRouter();
+  const supabase = useMemo(() => createSupabaseBrowserClient(), []);
+
+  const [email, setEmail] = useState<string>("");
+  const [fullName, setFullName] = useState<string>("");
+  const [specialty, setSpecialty] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+
+  const [status, setStatus] = useState<"idle" | "loading" | "saving" | "saved" | "error">("loading");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    (async () => {
+      setStatus("loading");
+
+      const { data: userData } = await supabase.auth.getUser();
+      const user = userData.user;
+
+      if (!user) {
+        router.push("/signin");
+        return;
+      }
+
+      const meta: any = user.user_metadata ?? {};
+      const googleName = (meta?.full_name ?? meta?.name ?? "").toString();
+
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("user_id, access_level, full_name, specialty, phone")
+        .eq("user_id", user.id)
+        .maybeSingle<ProfileRow>();
+
+      if (!isMounted) return;
+
+      setEmail(user.email ?? "");
+
+      // Prefer saved profile values; fallback to Google name
+      setFullName((profile?.full_name ?? googleName ?? "").toString());
+      setSpecialty((profile?.specialty ?? "").toString());
+      setPhone((profile?.phone ?? "").toString());
+
+      setStatus("idle");
+    })();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [router, supabase]);
+
+  const onSave = async () => {
+    setStatus("saving");
+
+    const { data: userData } = await supabase.auth.getUser();
+    const user = userData.user;
+
+    if (!user) {
+      router.push("/signin");
+      return;
+    }
+
+    const { error } = await supabase
+      .from("profiles")
+      .update({
+        full_name: fullName.trim() || null,
+        specialty: specialty.trim() || null,
+        phone: phone.trim() || null,
+      })
+      .eq("user_id", user.id);
+
+    if (error) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("saved");
+    setTimeout(() => setStatus("idle"), 1200);
+  };
+
+  const onLogout = async () => {
+    await supabase.auth.signOut();
+    router.push("/signin");
+    router.refresh();
+  };
+
+  return (
+    <main className="cs-account">
+      <section className="cs-account__card" aria-label="Λογαριασμός">
+        <div className="cs-account__top">
+          <h1 className="cs-account__title">Λογαριασμός</h1>
+
+          <div className="cs-account__actions">
+            <button className="cs-account__btn cs-account__btn--ghost" type="button" onClick={() => router.push("/app")}>
+              Πίσω
+            </button>
+            <button className="cs-account__btn" type="button" onClick={onSave} disabled={status === "saving" || status === "loading"}>
+              {status === "saving" ? "Αποθήκευση…" : "Αποθήκευση"}
+            </button>
+            <button className="cs-account__btn cs-account__btn--danger" type="button" onClick={onLogout}>
+              Αποσύνδεση
+            </button>
+          </div>
+        </div>
+
+        <div className="cs-account__grid">
+          <div className="cs-account__field">
+            <label>Email (μόνο ανάγνωση)</label>
+            <input className="cs-account__input" value={email} readOnly />
+          </div>
+
+          <div className="cs-account__field">
+            <label>Ονοματεπώνυμο</label>
+            <input className="cs-account__input" value={fullName} onChange={(e) => setFullName(e.target.value)} />
+          </div>
+
+          <div className="cs-account__field">
+            <label>Ειδικότητα</label>
+            <input className="cs-account__input" value={specialty} onChange={(e) => setSpecialty(e.target.value)} placeholder="π.χ. Ορθοπαιδικός" />
+          </div>
+
+          <div className="cs-account__field">
+            <label>Τηλέφωνο</label>
+            <input className="cs-account__input" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="π.χ. +30 69…" />
+          </div>
+        </div>
+
+        <div className="cs-account__hint">
+          Τα στοιχεία αυτά χρησιμοποιούνται για την εξατομίκευση της εφαρμογής και (αργότερα) για πρότυπα/εξαγωγές εγγράφων.
+        </div>
+      </section>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/api/case/delete/route.ts">
+import { createSupabaseServerClient } from "../../../../lib/supabase/server";
+import { NextResponse } from "next/server";
+
+type DeleteCaseBody = {
+  caseId: number | string;
+};
+
+export async function POST(req: Request) {
+  try {
+    const supabase = await createSupabaseServerClient();
+
+    // Verify user session
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    if (userError || !userData?.user) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
+    const body = (await req.json()) as DeleteCaseBody;
+    const { caseId } = body;
+
+    if (!caseId) {
+      return NextResponse.json(
+        { error: "Missing caseId" },
+        { status: 400 }
+      );
+    }
+
+    const caseIdNum = parseInt(String(caseId));
+
+    if (!Number.isFinite(caseIdNum)) {
+      return NextResponse.json({ error: "Invalid caseId" }, { status: 400 });
+    }
+
+    // Verify ownership before deleting anything
+    const { data: existing, error: lookupError } = await supabase
+      .from("cases")
+      .select("id")
+      .eq("id", caseIdNum)
+      .eq("user_id", userData.user.id)
+      .maybeSingle();
+
+    if (lookupError) {
+      console.error("Error looking up case:", lookupError);
+      return NextResponse.json(
+        { error: "Failed to delete case" },
+        { status: 500 }
+      );
+    }
+
+    if (!existing) {
+      return NextResponse.json(
+        { error: "Case not found or access denied" },
+        { status: 404 }
+      );
+    }
+
+    const { error: messagesError } = await supabase
+      .from("messages")
+      .delete()
+      .eq("case_id", caseIdNum);
+
+    if (messagesError) {
+      console.error("Error deleting messages:", messagesError);
+      return NextResponse.json(
+        { error: "Failed to delete case messages" },
+        { status: 500 }
+      );
+    }
+
+    // Then delete the case itself (verify ownership)
+    const { data, error } = await supabase
+      .from("cases")
+      .delete()
+      .eq("id", caseIdNum)
+      .eq("user_id", userData.user.id) // Ensure ownership
+      .select("id")
+      .maybeSingle();
+
+    if (error) {
+      console.error("Error deleting case:", error);
+      return NextResponse.json(
+        { error: "Failed to delete case" },
+        { status: 500 }
+      );
+    }
+
+    if (!data) {
+      return NextResponse.json(
+        { error: "Case not found or access denied" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      deletedCaseId: data.id,
+    });
+  } catch (e: any) {
+    console.error("Error in delete-case:", e);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
+}
+</file>
+
+<file path="src/app/api/case/update-title/route.ts">
+import { createSupabaseServerClient } from "../../../../lib/supabase/server";
+import { NextResponse } from "next/server";
+
+type UpdateTitleBody = {
+  caseId: number | string;
+  newTitle: string;
+};
+
+export async function POST(req: Request) {
+  try {
+    const supabase = await createSupabaseServerClient();
+
+    // Verify user session
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    if (userError || !userData?.user) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
+    const body = (await req.json()) as UpdateTitleBody;
+    const { caseId, newTitle } = body;
+
+    if (!caseId || !newTitle?.trim()) {
+      return NextResponse.json(
+        { error: "Missing caseId or newTitle" },
+        { status: 400 }
+      );
+    }
+
+    const trimmedTitle = newTitle.trim().substring(0, 80);
+
+    // Update case title (verify ownership by checking user_id)
+    const { data, error } = await supabase
+      .from("cases")
+      .update({ title: trimmedTitle })
+      .eq("id", parseInt(String(caseId)))
+      .eq("user_id", userData.user.id) // Ensure ownership
+      .select("id, title, patient_name, created_at")
+      .maybeSingle();
+
+    if (error) {
+      console.error("Error updating case:", error);
+      return NextResponse.json(
+        { error: "Failed to update case" },
+        { status: 500 }
+      );
+    }
+
+    if (!data) {
+      return NextResponse.json(
+        { error: "Case not found or access denied" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      case: data,
+    });
+  } catch (e: any) {
+    console.error("Error in update-title:", e);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
+}
+</file>
+
+<file path="src/app/api/export-docx/route.ts">
+import { NextResponse } from "next/server";
+import { Document, Packer, Paragraph, TextRun } from "docx";
+
+type Body = {
+  text?: string;
+  fileName?: string;
+};
+
+export async function POST(req: Request) {
+  try {
+    const body = (await req.json()) as Body;
+    const text = (body?.text || "").trim();
+
+    if (!text) {
+      return NextResponse.json(
+        { error: "Missing 'text' in request body." },
+        { status: 400 }
+      );
+    }
+
+    const lines = text
+      .split(/\r?\n/)
+      .map((l) => l.trim())
+      .filter(Boolean);
+
+    const doc = new Document({
+      sections: [
+        {
+          properties: {},
+          children: lines.length
+            ? lines.map((line) => new Paragraph({ children: [new TextRun(line)] }))
+            : [new Paragraph({ children: [new TextRun(text)] })],
+        },
+      ],
+    });
+
+    const buf = await Packer.toBuffer(doc);
+    const uint8 = new Uint8Array(buf);
+
+
+    const safeName = (body?.fileName || "gnomatefsi")
+      .replace(/[^\w\-]+/g, "_")
+      .slice(0, 60);
+
+    return new NextResponse(uint8, {
+      status: 200,
+      headers: {
+        "Content-Type":
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "Content-Disposition": `attachment; filename="${safeName}.docx"`,
+      },
+    });
+  } catch (err: any) {
+    const msg = typeof err?.message === "string" ? err.message : "Unknown error";
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
+}
+</file>
+
+<file path="src/app/api/transcribe/route.ts">
+import { NextResponse } from "next/server";
+import OpenAI from "openai";
+
+
+export async function POST(req: Request) {
+  try {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Missing OPENAI_API_KEY on server." },
+        { status: 500 }
+      );
+    }
+
+    const form = await req.formData();
+    const file = form.get("file");
+
+    if (!file || !(file instanceof File)) {
+      return NextResponse.json(
+        { error: "Missing audio file (field name: 'file')." },
+        { status: 400 }
+      );
+    }
+
+    const client = new OpenAI({ apiKey });
+
+    const tr = await client.audio.transcriptions.create({
+      file,
+      model: "gpt-4o-mini-transcribe",
+      language: "el",
+    });
+
+    const text = (tr.text || "").trim();
+    return NextResponse.json({ text });
+  } catch (err: any) {
+    const msg =
+      typeof err?.message === "string" ? err.message : "Unknown error";
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
+}
+</file>
+
+<file path="src/app/globals.css">
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* =========================
+   ClinicScribe Legal Bar
+   ========================= */
+
+.lgc-legalbar{
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+
+  pointer-events: none; /* so it doesn't block UI except links */
+}
+
+.lgc-legalbar__nav{
+  pointer-events: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 10px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  font-size: 11px;
+  line-height: 1;
+  color: rgba(0,0,0,0.65);
+}
+
+.lgc-legalbar__link{
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lgc-legalbar__link:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lgc-legalbar__sep{
+  opacity: 0.45;
+}
+
+/* Mobile: ακόμα μικρότερο */
+@media (max-width: 480px){
+  .lgc-legalbar{
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .lgc-legalbar__nav{
+    font-size: 10px;
+    padding: 7px 9px;
+    gap: 6px;
+  }
+}
+
+/* Προστασία: να μην “πατάει” το footer πάνω σε content */
+body{
+  padding-bottom: 64px;
+}
+</file>
+
+<file path="src/middleware.ts">
+import { NextResponse, type NextRequest } from "next/server";
+import { createServerClient } from "@supabase/ssr";
+
+export async function middleware(request: NextRequest) {
+  const response = NextResponse.next();
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "";
+
+  // During setup, don't crash if env vars are missing
+  if (!supabaseUrl || !supabaseKey) {
+    return response;
+  }
+
+  const supabase = createServerClient(supabaseUrl, supabaseKey, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
+      },
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value, options }) => {
+          response.cookies.set(name, value, options);
+        });
+      },
+    },
+  });
+
+  const pathname = request.nextUrl.pathname;
+
+  const { data } = await supabase.auth.getUser();
+  const user = data.user ?? null;
+  const isLoggedIn = !!user;
+
+  // Helper: redirect
+  const redirectTo = (toPath: string) => {
+    const url = request.nextUrl.clone();
+    url.pathname = toPath;
+    return NextResponse.redirect(url);
+  };
+
+  // If not logged in: protect /app and /pending
+  if (!isLoggedIn) {
+    if (pathname.startsWith("/app") || pathname === "/pending") {
+      return redirectTo("/signin");
+    }
+    return response;
+  }
+
+  // Logged in: fetch access_level from profiles
+  const { data: profile, error: profileError } = await supabase
+    .from("profiles")
+    .select("access_level")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+  // If profile missing (edge case), treat as pending (safe default)
+  const accessLevel = profile?.access_level ?? "pending";
+  const isActive = accessLevel === "active";
+
+  // If user is pending/blocked: keep them out of /app
+  if (!isActive) {
+    // allow them to see /pending
+    if (pathname.startsWith("/app")) return redirectTo("/pending");
+    if (pathname === "/signin") return redirectTo("/pending");
+    return response;
+  }
+
+  // If user is active:
+  // - if they try to go to /signin or /pending, send them to /app
+  if (pathname === "/signin" || pathname === "/pending") {
+    return redirectTo("/app");
+  }
+
+  return response;
+}
+
+export const config = {
+  matcher: ["/app/:path*", "/signin", "/pending"],
+};
+</file>
+
+<file path="src/app/account/account.css">
+.cs-account{
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(14, 90, 115, 0.06), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(14, 90, 115, 0.04), transparent 50%);
+  padding: 24px;
+  display: grid;
+  place-items: start center;
+}
+
+.cs-account__card{
+  width: 100%;
+  max-width: 720px;
+  background: rgba(255,255,255,0.94);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.18);
+  padding: 22px;
+}
+
+.cs-account__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cs-account__title{
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0b3f52;
+}
+
+.cs-account__actions{
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cs-account__btn{
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cs-account__btn--ghost{
+  background: #ffffff;
+  color: #0b3f52;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.cs-account__btn--danger{
+  background: #ffffff;
+  color: rgba(185, 28, 28, 0.92);
+  border: 1px solid rgba(185, 28, 28, 0.22);
+}
+
+.cs-account__grid{
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.cs-account__field label{
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.70);
+  margin-bottom: 6px;
+}
+
+.cs-account__input{
+  width: 100%;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 0 12px;
+  outline: none;
+  background: #ffffff;
+}
+
+.cs-account__input:focus{
+  border-color: rgba(14, 90, 115, 0.45);
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.10);
+}
+
+.cs-account__hint{
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.60);
+  line-height: 1.5;
+}
+/* ================================
+   Mobile fixes (Account)
+================================ */
+@media (max-width: 720px){
+  .cs-account{
+    padding: 14px;
+    overflow-x: hidden;
+  }
+
+  .cs-account__card{
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .cs-account__top{
+    flex-wrap: wrap;      /* κρίσιμο: να μη σπρώχνει δεξιά */
+    align-items: flex-start;
+  }
+
+  .cs-account__actions{
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;      /* να σπάνε σε 2η γραμμή */
+    gap: 8px;
+  }
+
+  .cs-account__btn{
+    height: 38px;
+    padding: 0 10px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .cs-account__title{
+    width: 100%;
+    font-size: 18px;
+  }
+}
+/* Mic icon color: black like sample */
+.cs-app .cs-app__micBtn{
+  color:#111111 !important;
+}
+</file>
+
+<file path="src/app/auth/callback/route.ts">
+import { NextResponse } from "next/server";
+import { createSupabaseServerClient } from "../../../lib/supabase/server";
+
+export async function GET(request: Request) {
+  const { searchParams, origin } = new URL(request.url);
+  const code = searchParams.get("code");
+
+  if (code) {
+    const supabase = await createSupabaseServerClient();
+    await supabase.auth.exchangeCodeForSession(code);
+  }
+
+  return NextResponse.redirect(`${origin}/app`);
+}
+</file>
+
+<file path="src/app/legal/legal.css">
+/* Legal pages: centered card layout, independent from signin.css
+   Applies ONLY when main has both classes: .lgc-legal.lgc-signin
+*/
+
+.lgc-legal.lgc-signin{
+  /* override signin page grid centering */
+  display: block !important;
+  place-items: initial !important;
+  min-height: 100vh !important;
+  padding: 28px 16px 28px !important;
+  background: #ffffff !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* wrapper must NOT be capped to 520px */
+.lgc-legal.lgc-signin .lgc-signin__wrap{
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 18px !important;
+
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* card must NOT be capped to 420px */
+.lgc-legal.lgc-signin .lgc-signin__card{
+  width: 100% !important;
+  max-width: none !important;
+
+  padding: 28px 30px 22px !important;
+  border-radius: 18px !important;
+
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.10) !important;
+  box-shadow: 0 18px 55px rgba(2, 6, 23, 0.10) !important;
+
+  backdrop-filter: none !important;
+  position: relative !important;
+  z-index: 6 !important;
+}
+
+/* Logo alignment + sizing ONLY on legal */
+.lgc-legal.lgc-signin .lgc-signin__logoWrap{
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 8px !important;
+}
+
+.lgc-legal.lgc-signin .lgc-signin__brandLogo{
+  width: auto !important;
+  max-width: 320px !important;
+  max-height: 72px !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* Titles / meta */
+.lgc-legal.lgc-signin .lgc-legal__title{
+  text-align: center;
+  margin: 10px 0 8px;
+  font-size: 28px;
+  line-height: 1.15;
+  color: #0b3f52;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__meta{
+  text-align: center;
+  margin: 0 0 16px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.60);
+}
+
+/* Content */
+.lgc-legal.lgc-signin .lgc-legal__content{
+  display: grid;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(15, 23, 42, 0.88);
+}
+
+.lgc-legal.lgc-signin .lgc-legal__content h2{
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.35;
+  color: rgba(11, 63, 82, 0.98);
+}
+
+.lgc-legal.lgc-signin .lgc-legal__content p{
+  margin: 0;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__content ul{
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+}
+
+/* Actions */
+.lgc-legal.lgc-signin .lgc-legal__actions{
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__backLink{
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.75);
+  text-decoration: none;
+}
+
+.lgc-legal.lgc-signin .lgc-legal__backLink:hover{
+  color: rgba(11, 63, 82, 0.95);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* NetWind footer: subtle */
+.lgc-legal.lgc-signin .lgc-signin__footer{
+  margin-top: 14px;
+  padding-bottom: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+.lgc-legal.lgc-signin .lgc-signin__footerLogo{
+  max-height: 34px;
+  width: auto;
+  opacity: 0.55;
+}
+
+/* Mobile */
+@media (max-width: 520px){
+  .lgc-legal.lgc-signin{
+    padding: 18px !important;
+  }
+
+  .lgc-legal.lgc-signin .lgc-signin__card{
+    padding: 20px 16px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .lgc-legal.lgc-signin .lgc-signin__brandLogo{
+    max-width: 260px !important;
+    max-height: 56px !important;
+  }
+
+  .lgc-legal.lgc-signin .lgc-legal__title{
+    font-size: 22px;
+  }
+
+  .lgc-legal.lgc-signin .lgc-legal__content{
+    font-size: 13px;
+    line-height: 1.75;
+  }
+}
+</file>
+
+<file path="src/app/signup/page.tsx">
+"use client";
+
+import "../signin/signin.css";
+import { useState } from "react";
+import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+
+export default function Page() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [specialty, setSpecialty] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  async function handleGoogleSignUp() {
+    if (!acceptedTerms) {
+      alert("Για να συνεχίσεις, πρέπει να αποδεχτείς τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+      return;
+    }
+    const supabase = createSupabaseBrowserClient();
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      console.error("Google sign-up error:", error.message);
+      alert("Σφάλμα εγγραφής με Google. Δες Console για λεπτομέρειες.");
+    }
+  }
+
+  async function handleEmailSignUp(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!acceptedTerms) {
+      alert("Για να συνεχίσεις, πρέπει να αποδεχτείς τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+      return;
+    }
+
+    if (!firstName.trim() || !lastName.trim() || !specialty.trim() || !email.trim()) {
+      alert("Συμπλήρωσε όλα τα πεδία (Όνομα, Επώνυμο, Ειδικότητα, Email).");
+      return;
+    }
+
+    if (!password || !confirmPassword) {
+      alert("Συμπλήρωσε κωδικό και επιβεβαίωση κωδικού.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Ο κωδικός πρέπει να έχει τουλάχιστον 6 χαρακτήρες.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Οι κωδικοί δεν ταιριάζουν.");
+      return;
+    }
+
+    const supabase = createSupabaseBrowserClient();
+
+    const { error } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: {
+        data: {
+          full_name: `${firstName.trim()} ${lastName.trim()}`.trim(),
+          specialty: specialty.trim(),
+        },
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      console.error("Email sign-up error:", error.message);
+      alert(`Σφάλμα εγγραφής. ${error.message}`);
+      return;
+    }
+
+    alert("Έγινε εγγραφή. Έλεγξε το email σου για επιβεβαίωση.");
+  }
+
+  return (
+    <main className="lgc-signin">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        <section className="lgc-signin__card" aria-label="Εγγραφή">
+          <div className="lgc-signin__logoWrap">
+            <img
+              className="lgc-signin__brandLogo"
+              src="/ClinicScribe-logo.svg"
+              alt="ClinicScribe"
+              loading="eager"
+            />
+          </div>
+
+          <h1 className="lgc-signin__title">Εγγραφή</h1>
+
+          <form className="lgc-signin__form" onSubmit={handleEmailSignUp}>
+            <label className="lgc-signin__field">
+              <input
+                className="lgc-signin__input"
+                type="text"
+                name="firstName"
+                placeholder="Όνομα"
+                autoComplete="given-name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+            </label>
+
+            <label className="lgc-signin__field">
+              <input
+                className="lgc-signin__input"
+                type="text"
+                name="lastName"
+                placeholder="Επώνυμο"
+                autoComplete="family-name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+            </label>
+
+            <label className="lgc-signin__field">
+              <input
+                className="lgc-signin__input"
+                type="text"
+                name="specialty"
+                placeholder="Ειδικότητα"
+                autoComplete="organization-title"
+                value={specialty}
+                onChange={(e) => setSpecialty(e.target.value)}
+                required
+              />
+            </label>
+
+            <label className="lgc-signin__field">
+              <input
+                className="lgc-signin__input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+
+            <label className="lgc-signin__field">
+              <div className="lgc-signin__passwordRow">
+                <input
+                  className="lgc-signin__input lgc-signin__input--password"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Κωδικός"
+                  autoComplete="new-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  className="lgc-signin__eyeBtn"
+                  aria-label={showPassword ? "Απόκρυψη κωδικού" : "Εμφάνιση κωδικού"}
+                  onClick={() => setShowPassword((v) => !v)}
+                >
+                  {showPassword ? "🙈" : "👁"}
+                </button>
+              </div>
+            </label>
+
+            <label className="lgc-signin__field">
+              <div className="lgc-signin__passwordRow">
+                <input
+                  className="lgc-signin__input lgc-signin__input--password"
+                  type={showConfirmPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  placeholder="Επιβεβαίωση κωδικού"
+                  autoComplete="new-password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  className="lgc-signin__eyeBtn"
+                  aria-label={
+                    showConfirmPassword ? "Απόκρυψη κωδικού" : "Εμφάνιση κωδικού"
+                  }
+                  onClick={() => setShowConfirmPassword((v) => !v)}
+                >
+                  {showConfirmPassword ? "🙈" : "👁"}
+                </button>
+              </div>
+            </label>
+
+            <label className="lgc-signin__consent">
+              <input
+                className="lgc-signin__checkbox"
+                type="checkbox"
+                name="consent"
+                checked={acceptedTerms}
+                onChange={(e) => setAcceptedTerms(e.target.checked)}
+              />
+              <span className="lgc-signin__consentText">
+                Αποδέχομαι τους{" "}
+                <a className="lgc-signin__link" href="/legal/terms" target="_blank" rel="noreferrer">
+                  Όρους Χρήσης
+                </a>{" "}
+                και την{" "}
+                <a className="lgc-signin__link" href="/legal/privacy" target="_blank" rel="noreferrer">
+                  Πολιτική Απορρήτου
+                </a>
+              </span>
+            </label>
+
+            <button className="lgc-signin__btn" type="submit" disabled={!acceptedTerms}>
+              Εγγραφή
+            </button>
+
+            <button
+              className="lgc-signin__googleBtn"
+              type="button"
+              onClick={handleGoogleSignUp}
+            >
+              <span className="lgc-signin__googleIcon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="18" height="18">
+                  <path
+                    fill="#EA4335"
+                    d="M24 9.5c3.54 0 6.72 1.22 9.22 3.22l6.9-6.9C35.9 2.34 30.3 0 24 0 14.62 0 6.51 5.38 2.56 13.22l8.02 6.22C12.5 13.02 17.77 9.5 24 9.5z"
+                  />
+                  <path
+                    fill="#4285F4"
+                    d="M46.5 24.5c0-1.64-.15-3.22-.43-4.75H24v9h12.7c-.55 2.96-2.2 5.47-4.7 7.16l7.2 5.58C43.6 37.34 46.5 31.4 46.5 24.5z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M10.58 28.56c-.5-1.5-.78-3.1-.78-4.76s.28-3.26.78-4.76l-8.02-6.22C.92 16.36 0 20.07 0 23.8c0 3.73.92 7.44 2.56 10.98l8.02-6.22z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M24 48c6.3 0 11.6-2.08 15.47-5.66l-7.2-5.58c-2 1.35-4.56 2.14-8.27 2.14-6.23 0-11.5-3.52-13.42-8.44l-8.02 6.22C6.51 42.62 14.62 48 24 48z"
+                  />
+                  <path fill="none" d="M0 0h48v48H0z" />
+                </svg>
+              </span>
+
+              <span className="lgc-signin__googleText">Εγγραφή με Google</span>
+            </button>
+
+            <div className="lgc-signin__links">
+              <a className="lgc-signin__link" href="/signin">
+                Έχεις ήδη λογαριασμό; Σύνδεση
+              </a>
+              <span />
+            </div>
+          </form>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind">
+          <img
+            className="lgc-signin__footerLogo"
+            src="/logo-2026-netwind.svg"
+            alt="NetWind"
+            loading="lazy"
+          />
+        </footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/lib/supabase/client.ts">
+"use client";
+
+import { createBrowserClient } from "@supabase/ssr";
+
+export function createSupabaseBrowserClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+  if (!url || !key) {
+    throw new Error("Missing Supabase environment variables");
+  }
+
+  return createBrowserClient(url, key);
+}
+</file>
+
+<file path="src/lib/supabase/server.ts">
+import { cookies } from "next/headers";
+import { createServerClient } from "@supabase/ssr";
+
+export async function createSupabaseServerClient() {
+  const cookieStore = await cookies();
+
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
+
+  return createServerClient(url, key, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll();
+      },
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            cookieStore.set(name, value, options);
+          });
+        } catch {
+          // Server Components: set can fail; middleware/route handlers handle refresh
+        }
+      },
+    },
+  });
+}
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Local database backups - never commit
+backups/
+</file>
+
+<file path="package.json">
+{
+  "name": "logografos-cloud",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.3",
+    "docx": "^9.11.0",
+    "next": "16.4.0",
+    "openai": "^7.34.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="public/ClinicScribe-logo.svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 962.26 372.71">
+  <!-- Generator: Adobe Illustrator 30.8.2, SVG Export Plug-In . SVG Version: 2.1.4 Build 7)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        fill: #9b9b9a;
+      }
+
+      .st2 {
+        fill: #9c9c9c;
+      }
+
+      .st3 {
+        fill: #959594;
+      }
+
+      .st4 {
+        fill: #939392;
+      }
+
+      .st5 {
+        fill: #92918f;
+      }
+
+      .st6 {
+        fill: #a1a2a1;
+      }
+
+      .st7 {
+        fill: #919191;
+      }
+
+      .st8 {
+        fill: #273741;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 13.34px;
+      }
+
+      .st9 {
+        fill: #123b59;
+      }
+
+      .st10 {
+        fill: #91918f;
+      }
+
+      .st11 {
+        fill: #929290;
+      }
+
+      .st12 {
+        fill: #125582;
+      }
+
+      .st13 {
+        fill: #929392;
+      }
+
+      .st14 {
+        fill: #fff;
+      }
+
+      .st15 {
+        fill: #929190;
+      }
+
+      .st16 {
+        fill: #919190;
+      }
+
+      .st17 {
+        fill: #939391;
+      }
+
+      .st18 {
+        fill: #72ccd6;
+      }
+
+      .st19 {
+        fill: #90908f;
+      }
+
+      .st20 {
+        fill: #bfbfbf;
+      }
+
+      .st21 {
+        fill: #0394cb;
+        fill-rule: evenodd;
+      }
+
+      .st22 {
+        fill: #949492;
+      }
+
+      .st23 {
+        fill: #959695;
+      }
+
+      .st24 {
+        fill: #417d9e;
+      }
+
+      .st25 {
+        fill: #23908f;
+      }
+
+      .st26 {
+        font-family: Helvetica-Light, Helvetica;
+        font-size: 92.71px;
+        font-weight: 300;
+        letter-spacing: .02em;
+      }
+
+      .st27 {
+        fill: #f7f9f9;
+      }
+    </style>
+  </defs>
+  <path class="st8" d="M257.22,85.16l19.21-11.73c3.6-.92,11.12,3.5,12.03,7.79l.02,96.33c0,19-4.96,37.08-13.69,53.67-8.62,16.39-20.43,29.84-34.66,41.65-18.4,15.27-38.54,27.37-60,37.79-3.29,1.6-7.02,1.89-10.45.23-24.66-11.88-47.72-26.35-67.86-44.85-25.3-23.25-40.82-53.83-40.91-88.53l-.25-94.01c0-2.87,1.61-5.65,4.01-6.87,54.96-27.73,127.19-30.47,186.47-13.57l.13,20.53c-54.87-17.13-118.15-16.3-171.21,6.89l.19,86.16c.06,27.12,11.14,51.49,29.85,70.62,18.37,19.35,41.1,32.63,64.73,44.91,24.91-13.25,49.09-27.62,67.57-48.13,16.77-18.61,26.59-41.09,26.68-66.52l.32-86.5-12.19-5.87Z"/>
+  <polygon class="st20" points="283.56 64.91 255.57 81.13 255.27 53.17 283.56 64.91"/>
+  <path class="st19" d="M364.89,207.62c.27-1.03,3.52-.94,3.91-.06l-7.24,26.34c-.24.86-3.57.87-4.02.09l-6.66-21.43-6.35,21.12c-.32,1.05-3.28,1.04-4.48.36l-7.37-26.44c.91-.81,2.63-.8,4.03-.45l5.57,21.35,6.55-21.28c1.47-.32,2.68-.33,4.21,0l6.23,21.66,5.61-21.25Z"/>
+  <path class="st15" d="M828.41,214.94c.29-.93,2.78-.84,3.43-.14l-6.11,19.11c-.23.71-3.02.89-3.61.34l-4.47-13.89-4.12,13.47c-.29.97-3.66.93-4.02-.22l-5.92-18.92c1.03-.55,2.88-.53,3.58-.06l4.33,14.36,4.38-14.15c.25-.81,3.59-.81,3.83,0l4.33,14.16,4.36-14.07Z"/>
+  <path class="st16" d="M700.09,214.38c1.35-.11,2.08-.2,3.63.4l-6.14,19.02c-.36,1.13-3.72.93-4.05-.15l-4.08-13.63-4.37,14.04c-.25.8-3.4.63-3.69-.33l-5.81-19c.99-.78,3.4-.56,3.59.08l4.35,14.83,3.86-14.5c.26-.97,3.44-1.3,3.67-.5l4.36,15.05,4.69-15.31Z"/>
+  <path class="st16" d="M480.89,215.14c.35-1.11,2.95-1.24,3.73-.27l-6.07,19.02c-.34,1.05-3.58.9-3.84.02l-4.12-14.24-4.18,14.19c-.24.83-3.54,1.02-3.81.16l-6.07-19.24c.76-.59,3.03-.68,3.54-.15l4.28,14.39,4.29-14.17c.19-.62,2.32-.74,2.87-.47s1.13,1.08,1.4,2.07l3.57,12.84,4.41-14.13Z"/>
+  <path class="st4" d="M416.22,221.76l7.85,12.14c-1.12.72-3.48.93-4.2-.08l-6.26-8.81c-4.96,1.92-1.64,8.28-3.33,9.32-.61.37-2.82.2-2.83-.64l-.11-26.66c1.15-.21,2.04-.24,3.49,0l.13,15.6,7.82-7.35c1.12-1.06,3.16-1.27,4.92-.35l-7.49,6.84Z"/>
+  <path class="st17" d="M751.48,221.8l8.21,12.52c-1.23.2-2.58.09-4.17-.08l-6.49-9.73c-6.14,3.55.64,11.21-6.25,9.88l-.17-27.37c1.23-.21,2.11-.21,3.52-.04l.2,15.58,7.78-7.35c1.11-1.05,3.18-1.24,4.89-.33l-7.51,6.9Z"/>
+  <path class="st7" d="M522.24,233.97l-.91-14.83c-.15-2.35-3.74-2.73-5.42-2.25-2.29.65-4.12,2.41-4.19,5.09l-.28,11.97c-.13.71-2.55.83-3.36.2l.09-27.22c1.36-.32,2.09-.32,3.46-.06l.09,9.72c2.85-2.03,4.75-2.91,7.33-2.77s5.77,1.45,5.85,4.48l.41,15.69c.02.59-3.01.87-3.07,0Z"/>
+  <path class="st16" d="M441.77,224.81c2.42,1.77,1.94,4.92.95,6.71-1.24,2.24-3.43,3.14-6.29,3.52-4.99.67-9.48-1.72-10.18-6.32.55-.63,2.78-.66,3.08-.17l1.24,2.03c1.1,1.81,3.53,1.65,5.3,1.65,1.51,0,4.84-1.24,4.09-3.67-1.07-3.48-10.16-2.28-12.42-6.12-1.14-1.93-.85-4.35.74-6.02,3.61-3.79,10.72-3.62,13.6.62.65.96.73,1.87.71,2.39-.11,3.48-4.58-2.58-6.98-2.79-1.71-.15-5.04.05-5.32,2.34-.46,3.77,8.13,3.37,11.47,5.81Z"/>
+  <path class="st22" d="M843.38,235.08c-4.94.32-9.23-2.07-9.47-6.42.03-.57,2.66-.67,2.97-.16l1.3,2.14c1.48,2.43,5.93,2.11,8.27.48,1.05-.73,1.22-1.95.94-2.8-.24-.73-1.05-1.51-2.26-1.82l-6.44-1.63c-2-.51-3.48-1.87-3.89-3.07-.65-1.87-.46-3.89.98-5.37,3.71-3.81,10.53-3.6,13.73.53.64.82.87,1.92.77,2.48-.57,3.13-4.67-2.6-7.15-2.86-1.9-.2-4.97.17-5.21,2.7-.37,3.8,8.95,2.95,11.99,6.16,1.69,1.79,1.26,4.4.27,6.06-1.29,2.16-3.22,3.35-6.8,3.58Z"/>
+  <path class="st11" d="M605.87,233.99c-1.05.61-3.56.89-4.28-.07l-4.96-6.62-4.91,6.52c-.83,1.1-3.49.85-4.47.47l7.11-10.11-6.56-9.43c1.51-.88,3.69-.69,4.34.2l4.45,6.08c3.09-2.55,3.85-6.07,5.69-6.57,1.33-.36,2.68-.23,3.22.61l-6.61,9.07,6.98,9.84Z"/>
+  <path class="st13" d="M767.42,233.91c-.03.84-3.14.76-3.16.05l-.37-16.32c-.01-.62-2.02-.89-2.5-.75s-1.3-1.7-.2-2.04l2.26-.71c.81-.25.78-1.81.72-2.89-.17-3.01,1.78-4.61,4.82-4.7,1.03-.03,2.03-.12,2.4.82,1.17,2.92-4.03,1.44-3.88,5.15.08,1.91,6.35,3.7,3.49,4.29-.6.12-2.45.29-3.05.78l-.53,16.32Z"/>
+  <path class="st23" d="M501.26,231.21c1.96.35,2.72.38,3.22.64.59.31.71,1.94.33,2.34-.49.52-1.73.42-2.6.49-2.74.22-4.57-.98-4.61-3.5l-.24-13.64c-.71-.35-1.55-.6-1.95-.57-.67.05-1.45-1.46-.44-2.02.94-.52,2-.7,2.37-1.1,1.01-1.06-.49-4.71.69-5.22.53-.23,2.11-.24,2.65.03.95.47-.29,4.09.64,5.34.35.46,1.55.67,2.83.62.52-.02.8,1.99.47,2.08l-3.21.87c-.76,3.86-.27,9.31-.15,13.65Z"/>
+  <path class="st2" d="M397.33,233.75c-.02.82-2.57,1-3.4.38l-.03-19.66c1.14-.29,2.4-.33,2.68-.03.42.45.61,1.75.91,2.87,1.55-2.22,3.62-3.84,6.73-3.34l.05,3.42c-3.76-.4-6.62,1.61-6.69,5.06l-.24,11.31Z"/>
+  <rect class="st23" x="774.42" y="206.75" width="3.51" height="27.61" transform="translate(-.44 1.54)"/>
+  <path class="st1" d="M732.61,233.77c-.06.71-2.5.95-3.45.32l-.06-19.19c.02-.62,2.44-.92,2.8-.43s.58,1.65.98,2.81c1.42-2.1,3.69-4.11,6.46-3.08.74.27.49,3.1-.41,3.11-3.67.04-6.13,2.01-6.17,5.35l-.14,11.11Z"/>
+  <path class="st3" d="M634.25,233.99c-.68.49-2.1.56-3.36.29l.05-19.52c0-.43,2.25-.7,2.37-.33l.93,2.91c1.32-2.05,3.71-4,6.61-3.16.84.24.54,3.28-.32,3.31-3.43.14-6.07,1.51-6.12,5l-.16,11.49Z"/>
+  <rect class="st7" x="479.76" y="222.55" width="19.98" height="3.7" transform="translate(264.98 713.97) rotate(-89.96)"/>
+  <rect class="st6" x="502.16" y="207.17" width="4.67" height="3.85" transform="translate(289.46 711.09) rotate(-89.32)"/>
+  <path class="st4" d="M563.44,214.26c-.22-3.02-2.13-6.84-6.05-6.93l-15.21-.35-.07,26.94c.79.84,3.32.83,3.98-.01.27-3.52-.77-7.83.59-11.1,5.13.18,8.28.47,11.8-.61,3.77-1.16,5.2-4.59,4.95-7.94ZM559.46,215.73c-.42,2.34-2.29,4-5.28,4.02l-8.2.04.15-9.51c3.32-.27,6.53-.5,9.82.07,2.93.51,3.9,3.14,3.51,5.38Z"/>
+  <path class="st11" d="M583.79,231.46l-.71-13.84c-.17-3.32-4.78-3.74-7.75-3.8-4.27-.09-7.85,2-8.33,6.19,3.77,1.9,3.22-3.15,7.96-3.4,2.01-.11,5.14.58,5.02,3.31-.21,4.6-10.22.72-13.26,6.37-1.56,2.89-.33,5.87,1.3,7.19,5.01,4.08,10.94-1.13,11.99-.48l2.51,1.56c1.4.86,2.83-.04,3.15-1.15.22-.79-1.11-1.57-1.88-1.96ZM573.9,232.19c-2.26.02-3.68-1.14-4.04-2.44-.42-1.5.53-3.55,2.53-3.89l7.43-1.27c.85,4.41-1.31,7.56-5.92,7.6Z"/>
+  <path class="st10" d="M661.09,230.86l-1.04-13.5c-2.51-5.39-12.15-4.48-15.01-.09-.69,1.05-.7,2.3-.43,2.88.22.48,1.49.61,2.16.32.49-.21.58-1,1.27-1.93,1.81-2.44,6.37-2.69,8.5-.53.88.88.79,2.17.52,2.79-.34.77-1.22,1.38-2.46,1.54l-5.7.71c-3.21.4-5.17,2.7-5.49,5.16-.31,2.43.7,5.28,3.79,6.32,3.98,1.34,7.46-.18,9.91-2.45.68,2.68,4.55,3.47,5.62,1.92.96-1.39-1.58-2.48-1.63-3.13ZM655.98,230.17c-1.02,1.29-2.84,1.84-4.89,1.94-2.13.11-3.52-.72-3.94-2.23-.48-1.73.48-3.8,2.7-4.16l7.32-1.19c.1,2.67-.2,4.39-1.19,5.65Z"/>
+  <path class="st16" d="M615.37,231.72c-2.54-.93-4.09-3.61-3.57-6.56l14.7.09c1.12-6.13-2.51-11.38-8.64-11.47-5.42-.08-9.53,3.86-10.03,9.56-.48,5.4,1.93,10.21,7.24,11.48,4.76,1.14,10.1-1.23,11.46-6.29-3.96-2.39-4.61,5.57-11.15,3.19ZM616.92,216.66c3.07-.11,6.02,1.42,6.2,5.65l-11.25.05c-.1-3.22,2.13-5.6,5.06-5.7Z"/>
+  <path class="st4" d="M380.18,213.73c-5.99-.04-9.77,4.52-9.96,10.52-.19,6.04,3.61,10.94,9.91,10.88,5.45-.05,9.63-4.16,9.86-10.45.24-6.53-3.92-10.91-9.81-10.95ZM386.22,224.62c-.2,3.74-1.53,6.69-4.41,7.39-3.3.81-6.69-.9-7.55-4.41-.55-2.23-.56-4.49.14-6.69,1.02-3.2,4.52-4.74,7.24-4.1,3.36.8,4.77,4.09,4.58,7.81Z"/>
+  <path class="st5" d="M791.4,213.69c-5.25.21-8.81,4.44-9.27,9.87-.52,6.12,3.22,11.43,9.2,11.56,6.43.14,10.61-4.48,10.54-11.33-.06-6.44-4.42-10.34-10.47-10.1ZM798.06,225.42c-.33,3.89-2.49,6.71-5.79,6.73-3.49.02-5.9-2.26-6.38-5.83-.5-3.75.46-7.97,4.46-9.5,2.38-.91,4.94.36,6.1,1.7,1.58,1.83,1.86,4.03,1.62,6.9Z"/>
+  <path class="st15" d="M714.57,213.74c-5.69.3-8.95,4.82-9.18,10.51-.24,6.07,3.69,11,10.02,10.85,5.88-.14,9.85-4.69,9.66-11.3-.19-6.45-4.69-10.36-10.5-10.05ZM717.79,231.71c-2.62,1.06-5.94.52-7.48-2.1-1.88-3.18-1.71-7.4.26-10.49,1.58-2.46,4.84-2.92,6.99-2.08,2.92,1.14,3.98,4.02,3.87,7.61-.11,3.36-1.32,6.12-3.64,7.05Z"/>
+  <text class="st26" transform="translate(329.91 175.18)"><tspan x="0" y="0">ClinicScribe</tspan></text>
+  <path class="st9" d="M836.33,324.56v5.18h-.64v-5.18h.64Z"/>
+  <path class="st9" d="M840.87,329.56c-.41.18-.85.26-1.3.24-1.39,0-2.43-.93-2.43-2.62s1.04-2.72,2.57-2.72c.4-.02.8.06,1.17.23l-.16.55c-.31-.14-.64-.22-.99-.21-1.15,0-1.91.78-1.91,2.14,0,1.27.69,2.08,1.88,2.08.36,0,.71-.07,1.05-.21l.12.53h0s0,0,0,0Z"/>
+  <path class="st9" d="M842.81,325.12h-1.5v-.57h3.64v.57h-1.5v4.62h-.64v-4.62h0Z"/>
+  <path class="st9" d="M846.96,328.91c.33.22.73.34,1.13.34.65,0,1.03-.35,1.03-.88,0-.48-.28-.76-.93-1.03-.8-.29-1.3-.75-1.3-1.46,0-.81.64-1.4,1.6-1.4.38,0,.75.08,1.09.25l-.17.55c-.28-.17-.6-.25-.93-.24-.68,0-.93.42-.93.78,0,.48.3.72.98.99.84.34,1.26.76,1.26,1.52s-.57,1.49-1.72,1.49c-.44,0-.87-.12-1.26-.34l.16-.56h0,0Z"/>
+  <path class="st9" d="M853.86,327.84c0,1.38-.91,1.99-1.76,1.99-.96,0-1.7-.73-1.7-1.91,0-1.24.78-1.97,1.76-1.97.98,0,1.7.76,1.7,1.88h0ZM851.06,327.88c0,.81.44,1.42,1.07,1.42s1.08-.61,1.08-1.45c0-.63-.3-1.42-1.06-1.42s-1.09.75-1.09,1.45Z"/>
+  <path class="st9" d="M854.67,324.28h.64v5.46h-.64v-5.46Z"/>
+  <path class="st9" d="M859.35,328.71c0,.39,0,.72.03,1.02h-.57l-.03-.61h-.02c-.23.43-.69.7-1.17.69-.57,0-1.21-.33-1.21-1.62v-2.17h.64v2.05c0,.71.21,1.18.79,1.18.38-.02.72-.26.84-.62.03-.11.06-.23.06-.34v-2.27h.64v2.69h0,0Z"/>
+  <path class="st9" d="M861.19,324.94v1.07h.92v.51h-.92v1.99c0,.46.12.72.48.72.12,0,.25-.02.37-.05l.03.51c-.19.07-.38.1-.57.09-.26.02-.52-.09-.69-.29-.19-.29-.28-.62-.25-.97v-2.03h-.55v-.51h.55v-.89l.63-.17h0Z"/>
+  <path class="st9" d="M863.55,324.97c0,.22-.16.41-.38.42h-.03c-.22,0-.39-.19-.38-.4v-.02c0-.22.16-.41.38-.42h.02c.22,0,.4.18.4.39,0,0,0,.02,0,.03h0ZM862.83,329.74v-3.72h.64v3.72h-.64Z"/>
+  <path class="st9" d="M867.73,327.84c0,1.38-.91,1.99-1.76,1.99-.95,0-1.7-.73-1.7-1.91,0-1.24.78-1.97,1.76-1.97.97,0,1.7.76,1.7,1.88h0ZM864.93,327.88c0,.81.44,1.42,1.07,1.42s1.07-.61,1.07-1.45c0-.63-.3-1.42-1.06-1.42s-1.08.75-1.08,1.45h0Z"/>
+  <path class="st9" d="M868.55,327.02c0-.39,0-.69-.02-1h.57l.03.61h0c.23-.43.68-.7,1.17-.69.48,0,1.25.31,1.25,1.58v2.22h-.63v-2.14c0-.61-.22-1.1-.81-1.1-.41.02-.76.29-.86.69-.03.1-.05.21-.04.32v2.24h-.64v-2.72h-.02Z"/>
+  <path class="st9" d="M872.5,329.04c.25.16.54.25.84.26.47,0,.69-.24.69-.56s-.19-.5-.65-.68c-.64-.24-.94-.61-.94-1.05,0-.6.46-1.08,1.22-1.08.3,0,.6.08.86.23l-.16.49c-.22-.14-.47-.22-.73-.22-.28-.03-.54.17-.58.45v.06c0,.31.21.45.67.63.61.23.93.57.93,1.12,0,.66-.48,1.12-1.32,1.12-.35,0-.69-.08-1-.26l.16-.5h0s0,0,0,0Z"/>
+  <path class="st9" d="M880.13,329.74c-.14-.15-.28-.29-.46-.5-.38.39-.9.6-1.44.59-.78.06-1.46-.54-1.5-1.32v-.14c0-.65.38-1.23.96-1.51v-.03c-.25-.3-.39-.68-.41-1.08-.02-.68.5-1.25,1.18-1.28h.07c.58-.03,1.06.42,1.09,1v.09c0,.55-.3.98-1.08,1.38v.03c.42.51.89,1.07,1.2,1.44.26-.46.42-.98.47-1.51h.59c-.07.69-.31,1.35-.71,1.91l.82.92h-.78s0,0,0,0ZM879.36,328.85c-.28-.34-.84-.98-1.38-1.63-.38.22-.62.61-.64,1.05-.02.55.39,1.02.94,1.04h.07c.38,0,.75-.17,1.01-.46h0ZM877.87,325.69c.02.34.15.67.38.93.49-.3.82-.57.82-1.02.03-.33-.2-.63-.53-.66h-.03c-.43,0-.64.35-.64.75h0Z"/>
+  <path class="st9" d="M882.93,328.91c.33.22.73.34,1.13.34.65,0,1.03-.35,1.03-.88,0-.48-.27-.76-.93-1.03-.8-.29-1.3-.75-1.3-1.46,0-.81.64-1.4,1.6-1.4.38-.02.75.08,1.09.25l-.17.55c-.28-.17-.6-.25-.93-.24-.68,0-.93.42-.93.78,0,.48.3.72.98.99.84.34,1.26.76,1.26,1.52s-.57,1.49-1.72,1.49c-.44,0-.88-.11-1.26-.34l.16-.56h0Z"/>
+  <path class="st9" d="M887,328c.02.92.57,1.29,1.2,1.29.33,0,.67-.06.98-.19l.12.48c-.37.17-.77.24-1.18.23-1.09,0-1.74-.76-1.74-1.88s.63-1.99,1.67-1.99c1.15,0,1.46,1.06,1.46,1.75,0,.11,0,.21-.02.32h-2.48s0,0,0,0h0ZM888.88,327.51c0-.43-.17-1.09-.89-1.09-.65,0-.94.62-.99,1.09h1.87Z"/>
+  <path class="st9" d="M890.29,327.18c0-.44,0-.81-.02-1.15h.57l.02.73h.02c.12-.45.52-.78.99-.81.06,0,.12,0,.17.02v.63c-.07-.02-.14-.03-.22-.02-.45,0-.77.36-.84.85-.02.1-.02.21-.02.32v1.99h-.64l-.03-2.56h0Z"/>
+  <path class="st9" d="M893.11,326.02l.69,2.08c.12.34.21.65.28.96h.02c.08-.31.19-.61.28-.96l.69-2.08h.67l-1.37,3.72h-.61l-1.35-3.71h.69s0,0,0,0Z"/>
+  <path class="st9" d="M897.09,324.97c.02.22-.14.41-.36.44s-.41-.14-.44-.36v-.07c0-.22.16-.41.38-.42h.02c.22,0,.39.18.39.39,0,0,0,0,0,.02h0ZM896.38,329.74v-3.72h.64v3.72h-.64Z"/>
+  <path class="st9" d="M900.6,329.6c-.32.15-.66.22-1.01.22-1.06,0-1.76-.76-1.76-1.89s.74-1.99,1.89-1.99c.31,0,.62.07.9.2l-.14.52c-.23-.13-.49-.19-.75-.18-.8,0-1.25.64-1.25,1.4,0,.85.53,1.39,1.23,1.39.27,0,.53-.06.79-.18l.12.5h0Z"/>
+  <path class="st9" d="M901.67,328c0,.92.57,1.29,1.2,1.29.33,0,.67-.06.98-.19l.12.48c-.37.17-.77.24-1.18.23-1.09,0-1.74-.76-1.74-1.88s.63-1.99,1.66-1.99c1.15,0,1.46,1.06,1.46,1.75,0,.11,0,.21-.02.32h-2.47s0,0,0,0h0ZM903.54,327.51c0-.43-.17-1.09-.89-1.09-.65,0-.94.62-.99,1.09h1.87Z"/>
+  <path class="st9" d="M904.87,329.04c.25.16.54.25.84.26.47,0,.69-.24.69-.56s-.19-.5-.65-.68c-.64-.24-.94-.61-.94-1.05,0-.6.46-1.08,1.22-1.08.3,0,.6.08.86.23l-.16.49c-.22-.14-.47-.22-.73-.22-.28-.03-.54.17-.58.45v.06c0,.31.21.45.67.63.61.23.93.57.93,1.12,0,.66-.48,1.12-1.32,1.12-.34,0-.69-.08-.99-.26l.15-.5h0s0,0,0,0Z"/>
+  <path class="st9" d="M909.34,328.91c.33.22.73.34,1.13.34.65,0,1.03-.35,1.03-.88,0-.48-.27-.76-.93-1.03-.8-.29-1.3-.75-1.3-1.46,0-.81.64-1.4,1.6-1.4.38-.02.75.08,1.09.25l-.17.55c-.28-.17-.6-.25-.93-.24-.68,0-.94.42-.94.78,0,.48.3.72.98.99.84.34,1.26.76,1.26,1.52s-.57,1.49-1.72,1.49c-.44,0-.88-.11-1.26-.34l.17-.56h0Z"/>
+  <path class="st9" d="M912.84,329.33c-.02-.24.16-.46.4-.49h.03c.27-.03.5.17.53.44s-.17.5-.44.53-.5-.17-.53-.44v-.04h0Z"/>
+  <path class="st9" d="M915.33,328.1l-.51,1.63h-.66l1.67-5.18h.76l1.68,5.18h-.68l-.53-1.63h-1.74ZM916.94,327.59l-.48-1.49c-.11-.34-.19-.65-.25-.94h-.02c-.07.3-.15.61-.24.93l-.48,1.5h1.48Z"/>
+  <g>
+    <path class="st9" d="M807.52,307.82h1.08l8.98,12.06v-12.06h.99v13.55h-.99l-9.08-12.17v12.17h-.99v-13.55h0Z"/>
+    <path class="st9" d="M823.89,319.83c.97.67,2.12,1.02,3.3.98,1.26.03,2.5-.37,3.5-1.13.12-.09.24-.19.35-.29l1.04.29c-.2.21-.42.39-.64.57-1.22.93-2.72,1.4-4.24,1.36-1.53.04-3.02-.44-4.24-1.36-1.17-.91-1.76-2-1.76-3.3s.59-2.39,1.76-3.29c1.22-.93,2.72-1.4,4.24-1.36,1.31-.03,2.59.32,3.71.99.17.11.35.23.53.37.07.05.12.1.19.15l-.74.57-6.99,5.44h0ZM830.17,313.88c-.9-.52-1.93-.78-2.98-.76-1.26-.03-2.49.37-3.5,1.13-.97.75-1.46,1.65-1.46,2.72,0,.87.36,1.69.99,2.28l6.94-5.36h0Z"/>
+    <path class="st9" d="M836.24,313.05v-3.54h.99v3.54h2.18v.76h-2.18v7.56h-.99v-7.56h-2.18v-.76h2.18Z"/>
+    <path class="st9" d="M864.84,310.33c.29.19.38.59.19.89-.05.08-.11.14-.19.19-.42.29-.97.29-1.39,0-.29-.19-.38-.6-.19-.89.05-.08.11-.14.19-.19.42-.29.97-.29,1.39,0ZM864.63,313.05v8.32h-.99v-8.32h.99Z"/>
+    <path class="st9" d="M869.12,314.91v6.47h-.99v-8.32h.99v.54c.9-.69,1.99-1.05,3.11-1.03,1.27,0,2.3.31,3.1.93.75.54,1.2,1.4,1.22,2.33v5.57h-.97v-5.51c0-.73-.38-1.4-.99-1.81-1.41-.99-3.28-.99-4.69,0-.32.23-.59.51-.79.84h0Z"/>
+    <path class="st9" d="M891.43,321.38h-.99v-1.71c-.19.2-.4.39-.63.57-2.54,1.82-5.94,1.82-8.48,0-1.17-.91-1.76-2-1.76-3.29s.59-2.38,1.76-3.3c2.54-1.82,5.94-1.82,8.48,0,.22.18.43.36.63.57v-6.41h.99v13.55h0ZM890.44,317.71v-1.51c-.22-.79-.7-1.49-1.36-1.97-2.1-1.5-4.92-1.5-7.02,0-.97.76-1.46,1.67-1.46,2.72s.48,1.96,1.46,2.72c2.1,1.5,4.92,1.5,7.02,0,.67-.47,1.15-1.16,1.36-1.96h0Z"/>
+    <polygon class="st12" points="846.75 321.61 851.26 313.71 855.69 321.61 857.69 318.08 851.26 306.17 844.85 317.86 846.75 321.61"/>
+    <polygon class="st18" points="846.8 313.15 844.41 317.29 839.07 305.87 843.59 305.87 846.8 313.15"/>
+    <polygon class="st24" points="855.74 313.15 858.12 317.29 863.46 305.87 858.94 305.87 855.74 313.15"/>
+    <polygon class="st24" points="846.8 313.15 844.41 317.29 839.07 305.87 843.59 305.87 846.8 313.15"/>
+    <rect class="st18" x="839.89" y="301.99" width=".64" height=".64"/>
+    <rect class="st18" x="839.27" y="303.47" width=".76" height=".76"/>
+    <rect class="st18" x="841.33" y="303.91" width=".97" height=".98"/>
+    <rect class="st14" x="839.9" y="307.43" width="1.22" height="1.23"/>
+    <rect class="st14" x="841.9" y="306.89" width="1.09" height="1.09"/>
+    <rect class="st14" x="841.66" y="308.97" width="1.44" height="1.45"/>
+    <rect class="st27" x="840.62" y="305.87" width="1" height=".64"/>
+  </g>
+  <rect class="st0" x="824.15" y="302.76" width="50.65" height="17.93"/>
+  <path class="st21" d="M866.33,306.07c-3.47-6.14-10.04-10.28-17.56-10.28-4.99,0-9.55,1.82-13.08,4.83,4.03-4.21,9.7-6.83,15.97-6.83,8.66,0,16.17,5,19.82,12.28h-5.15Z"/>
+  <path class="st24" d="M849.02,290.14c9.97,0,18.62,5.68,22.92,14-4.08-6.98-11.63-11.67-20.27-11.67-10,0-18.54,6.28-21.93,15.13l-.58-.52c-.47-.43-1.01-.84-1.62-1.04-.46-.15-.93-.24-1.42-.24-.28,0-.56.03-.83.07,3.95-9.25,13.09-15.72,23.73-15.72h0Z"/>
+  <path class="st24" d="M830.71,326.1c3.47,6.14,10.04,10.28,17.57,10.28,4.99,0,9.55-1.82,13.08-4.83-4.03,4.21-9.7,6.83-15.97,6.83-8.66,0-16.17-5-19.82-12.28h5.15Z"/>
+  <path class="st25" d="M178.14,191.48l-6.72,3.24-.06-6.23-.14-3.03-.27-10.15-.32-12.11-.15-7.43-.14-4.01-.14-7.85-.11-3.35-.07-1.98c2.11-.59,4.05-1.12,6.19-1.24l3.38-.19-.1,4.23-.16,3.69-.15,8.86-.14,3.58-.15,6.84-.14,3.49-.16,8.53-.29,10.68-.17,4.43Z"/>
+  <polygon class="st25" points="172.78 246.77 172.69 244.45 172.63 243.51 172.51 235.66 172.38 231.15 172.09 219.47 171.83 207.15 172.88 206.65 177.84 204.41 177.72 208.03 177.59 211.62 177.44 219.74 177.15 231.17 176.91 244.8 172.78 246.77"/>
+  <path class="st25" d="M176.39,271.4c0,.82,0,1.7-.39,2.32-.51.81-1.97.8-2.46-.01-.15-.42-.35-1.08-.35-1.54l-.19-16.31,3.68-1.44-.11,4.09-.12,4.65-.05,8.23Z"/>
+  <circle class="st25" cx="174.8" cy="94.67" r="9.59"/>
+  <path class="st25" d="M179.85,121.56l-2.19.15-3.9.31-1.89.26-2.18.41-.07-5.49-.08-4.3-.09-1.32,2.24.69,1.48.24c1.14.19,2.19.16,3.33,0l1.25-.19,2.41-.71-.12,4.43-.2,5.52Z"/>
+  <path class="st25" d="M178.72,106.34c3.04-.66,5.52-2.07,7.83-3.99-.67,1.88-1.84,3.23-3.11,4.49l-1.37,1.06c-5.54,3.83-13.08,2.72-17.25-2.55-.74-.94-1.43-1.85-1.82-3.07,2.3,2.04,4.71,3.46,7.66,4.03l1.66.32c1.7.15,3.32.12,5.03,0l1.36-.3Z"/>
+  <path class="st25" d="M169.81,219.45l.05,7,.07.35c.02.1-.3.03-.4-.01l-1.39-.62c-2.51-1.12-4.8-2.36-6.95-4.04-3.35-2.62-5.31-6.54-4.65-10.82.6-3.84,2.66-6.73,5.61-9.17,2.19-1.81,4.56-3.21,7.14-4.43l7.86-3.72c2.25-1.06,4.34-2.27,6.23-3.87,3.57-3.03,4.91-7.54,1.63-11.21-.99-1.1-2.11-1.99-3.34-2.72-.8-.28-.61-.82-.61-1.45l.12-9.36c3.02,1.53,5.68,3.11,8.11,5.18l2.53,2.54c2.42,2.43,4.09,7.43,3.66,11.02l-.25,2.1c-.52,2.3-1.39,4.42-2.8,6.32-2.69,3.64-6.85,6.38-10.97,8.26l-9.23,4.21c-2,.91-3.8,1.96-5.55,3.27-1.85,1.39-3.3,3.54-2.86,5.94.4,2.26,3.62,4.01,5.98,5.24Z"/>
+  <path class="st25" d="M162.27,261.76c-.15-.7-.13-1.69,0-2.36.82-4.21,4.27-6.94,7.83-9.1,2.92-1.77,5.97-3.08,9.06-4.53,1.78-.83,3.44-1.74,4.78-3.16,1.06-1.12,1.88-2.68,1.72-4.26-.22-2.18-1.69-3.96-3.32-5.26l-2.76-1.81.06-1.78.07-5.01c4.75,2.51,10.09,6.4,11,11.87.23,1.38.2,2.96-.02,4.33-.91,5.82-5.98,8.67-11.13,10.7l-7.06,2.77c-3.38,1.33-7.43,3.75-9.05,7l-.92,1.85-.27-1.26Z"/>
+  <path class="st25" d="M210.3,141.54c1.25.24,2.11,1.26,1.91,2.56-.82-1.03-1.91-1.44-3.2-1.3-1.73-.42-3.11-1.86-3.2-3.73l.85.65c1.02,1.02,2.2,1.55,3.64,1.83Z"/>
+  <path class="st25" d="M205.67,136.66c-.16-.72-.39-1.51-.73-2.15-1.87-3.58-4.51-6.63-7.78-8.98-2.14-1.54-5.08-2.27-7.56-1.81l-1.5.28c-1.02.19-1.91.24-2.96.1-2.84-.38-5.66-.19-8.5.06l-2.92.26-2.03.31c-6.41.97-13.53,3.81-17.63,8.99-1.81,2.29-3.09,4.79-3.71,7.61l-.29,1.33-.29,1.99c-.22,1.49-.22,2.87,0,4.35l.31,2.03c.88,4.1,2.89,7.73,5.72,10.79l2.27,2.08,1.63,1.28c2.71,1.92,5.63,3.37,8.7,4.74l-.04-6.51-.15-1.9-.13-2.9c-3.69-2.45-6.97-5.23-7.63-9.69-.63-4.29.59-7.87,4.24-10.36,2.08-1.41,4.34-2.36,6.82-2.85l1.7-.33,1.69-.29,2.92-.29c1.5-.15,3.04-.06,4.56-.05,1.1,1.15,2.16,2.29,3.65,2.89,2.24.89,4.6,1.32,7,1.54l3.19.29c2.39.21,6.08,0,8.19-.95.66-.3,1.43-1.06,1.25-1.86ZM196.7,131.18c-.62.65-1.43.58-1.99.02-.64-.64-.53-1.65.28-2.11.34-.19,1.19-.21,1.52.04.74.55.7,1.52.19,2.05Z"/>
+</svg>
+</file>
+
+<file path="src/app/layout.tsx">
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import LegalBar from "./LegalBar";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://clinicscribe.vercel.app"),
+  title: "ClinicScribe v2",
+  description:
+    "ClinicScribe — Medical Documentation Platform. Doctor-reviewed & verified clinical documentation.",
+
+  openGraph: {
+    title: "ClinicScribe v2",
+    description:
+      "Medical Documentation Platform — Specialized Medical Transcription, Clinical Report Generation, Doctor-Reviewed & Verified.",
+    url: "https://clinicscribe.vercel.app",
+    siteName: "ClinicScribe",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "ClinicScribe v2",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "ClinicScribe v2",
+    description:
+      "Medical Documentation Platform — Doctor-reviewed & verified clinical documentation.",
+    images: ["/og.png"],
+  },
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        {children}
+
+        <LegalBar />
+      </body>
+    </html>
+  );
+}
+</file>
+
+<file path="src/app/signin/page.tsx">
+"use client";
+
+import "./signin.css";
+import { useEffect, useState } from "react";
+import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+
+export default function Page() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem("lgc_terms_accepted_v1");
+      if (saved === "1") setAcceptedTerms(true);
+    } catch {}
+  }, []);
+
+  async function handleGoogleSignIn() {
+    if (!acceptedTerms) {
+      alert("Για να συνεχίσεις, πρέπει να αποδεχτείς τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+      return;
+    }
+
+    const supabase = createSupabaseBrowserClient();
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      console.error("Google sign-in error:", error.message);
+      alert("Σφάλμα σύνδεσης με Google. Δες Console για λεπτομέρειες.");
+    }
+  }
+
+  return (
+    <main className="lgc-signin">
+      <div className="lgc-signin__bg" />
+
+      <div className="lgc-signin__wrap">
+        <section className="lgc-signin__card" aria-label="Sign in">
+          <div className="lgc-signin__logoWrap">
+            <img
+              className="lgc-signin__brandLogo"
+              src="/ClinicScribe-logo.svg"
+              alt="ClinicScribe"
+              loading="eager"
+            />
+          </div>
+
+          
+          <form className="lgc-signin__form" onSubmit={(e) => e.preventDefault()}>
+            <button
+              className="lgc-signin__googleBtn"
+              type="button"
+              onClick={handleGoogleSignIn}
+            >
+              <span className="lgc-signin__googleIcon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="18" height="18">
+                  <path
+                    fill="#EA4335"
+                    d="M24 9.5c3.54 0 6.72 1.22 9.22 3.22l6.9-6.9C35.9 2.34 30.3 0 24 0 14.62 0 6.51 5.38 2.56 13.22l8.02 6.22C12.5 13.02 17.77 9.5 24 9.5z"
+                  />
+                  <path
+                    fill="#4285F4"
+                    d="M46.5 24.5c0-1.64-.15-3.22-.43-4.75H24v9h12.7c-.55 2.96-2.2 5.47-4.7 7.16l7.2 5.58C43.6 37.34 46.5 31.4 46.5 24.5z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M10.58 28.56c-.5-1.5-.78-3.1-.78-4.76s.28-3.26.78-4.76l-8.02-6.22C.92 16.36 0 20.07 0 23.8c0 3.73.92 7.44 2.56 10.98l8.02-6.22z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M24 48c6.3 0 11.6-2.08 15.47-5.66l-7.2-5.58c-2 1.35-4.56 2.14-8.27 2.14-6.23 0-11.5-3.52-13.42-8.44l-8.02 6.22C6.51 42.62 14.62 48 24 48z"
+                  />
+                  <path fill="none" d="M0 0h48v48H0z" />
+                </svg>
+              </span>
+
+              <span className="lgc-signin__googleText">Σύνδεση με Google</span>
+            </button>
+
+            <label className="lgc-signin__consent">
+              <input
+                className="lgc-signin__checkbox"
+                type="checkbox"
+                name="consent"
+                checked={acceptedTerms}
+                onChange={(e) => {
+                  const v = e.target.checked;
+                  setAcceptedTerms(v);
+                  try {
+                    window.localStorage.setItem("lgc_terms_accepted_v1", v ? "1" : "0");
+                  } catch {}
+                }}
+              />
+              <span className="lgc-signin__consentText">
+                Αποδέχομαι τους{" "}
+                <a className="lgc-signin__link" href="/legal/terms" target="_blank" rel="noreferrer">
+                  Όρους Χρήσης
+                </a>{" "}
+                και την{" "}
+                <a className="lgc-signin__link" href="/legal/privacy" target="_blank" rel="noreferrer">
+                  Πολιτική Απορρήτου
+                </a>
+              </span>
+            </label>
+
+            <div className="lgc-signin__divider" aria-hidden="true">
+              <span className="lgc-signin__dividerLine" />
+              <span className="lgc-signin__dividerText">ή</span>
+              <span className="lgc-signin__dividerLine" />
+            </div>
+
+            <label className="lgc-signin__field">
+              <input
+                className="lgc-signin__input"
+                type="text"
+                name="username"
+                placeholder="Όνομα χρήστη"
+                autoComplete="username"
+              />
+            </label>
+
+            <label className="lgc-signin__field">
+              <div className="lgc-signin__passwordRow">
+                <input
+                  className="lgc-signin__input lgc-signin__input--password"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Κωδικός"
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  className="lgc-signin__eyeBtn"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  onClick={() => setShowPassword((v) => !v)}
+                >
+                  {showPassword ? "🙈" : "👁"}
+                </button>
+              </div>
+            </label>
+
+            <button className="lgc-signin__btn" type="submit">
+              Σύνδεση
+            </button>
+
+            <div className="lgc-signin__links">
+              <a className="lgc-signin__link" href="/forgot-password">
+                Ξέχασες τον κωδικό;
+              </a>
+              <a className="lgc-signin__link" href="/signup">
+                Δημιουργία λογαριασμού
+              </a>
+            </div>
+          </form>
+        </section>
+
+        <footer className="lgc-signin__footer" aria-label="NetWind">
+          <img
+            className="lgc-signin__footerLogo"
+            src="/logo-2026-netwind.svg"
+            alt="NetWind"
+            loading="lazy"
+          />
+        </footer>
+      </div>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/signin/signin.css">
+/* Force centered card layout for legal pages (do NOT depend on signin.css) */
+.lgc-legal.lgc-signin .lgc-signin__wrap{
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 28px 16px 28px;
+}
+
+.lgc-legal.lgc-signin .lgc-signin__card{
+  width: 100%;
+  max-width: 860px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 18px;
+  box-shadow: 0 18px 55px rgba(2, 6, 23, 0.10);
+}
+
+.lgc-signin {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.lgc-signin__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(14, 90, 115, 0.08), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(14, 90, 115, 0.06), transparent 50%);
+  pointer-events: none;
+}
+
+.lgc-signin__card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.18);
+  padding: 28px 26px 22px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(6px);
+}
+
+.lgc-signin__logoWrap {
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+
+.lgc-signin__logoPlaceholder {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0e5a73;
+  font-size: 14px;
+  border: 1px dashed rgba(14, 90, 115, 0.35);
+  border-radius: 999px;
+  padding: 10px 14px;
+}
+
+.lgc-signin__title {
+  text-align: center;
+  margin: 8px 0 18px;
+  font-size: 28px;
+  line-height: 1.1;
+  color: #0b3f52;
+}
+
+.lgc-signin__form {
+  display: grid;
+  gap: 12px;
+}
+
+.lgc-signin__field {
+  display: grid;
+  gap: 6px;
+}
+
+.lgc-signin__label {
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.65);
+  display: none; /* κρατάμε μόνο placeholder όπως στο mock */
+}
+
+.lgc-signin__input {
+  width: 100%;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+  padding: 0 16px;
+  font-size: 14px;
+  outline: none;
+  color: #0f172a;
+}
+
+.lgc-signin__input:focus {
+  border-color: rgba(14, 90, 115, 0.55);
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.14);
+  background: #ffffff;
+}
+
+.lgc-signin__passwordRow {
+  position: relative;
+}
+
+.lgc-signin__input--password {
+  padding-right: 44px;
+}
+
+.lgc-signin__eyeBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.lgc-signin__btn {
+  margin-top: 6px;
+  height: 46px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(14, 90, 115, 0.22);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+.lgc-signin__btn:hover{
+  filter: brightness(1.03);
+  box-shadow: 0 12px 24px rgba(14, 90, 115, 0.26);
+}
+
+.lgc-signin__btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.18), 0 12px 24px rgba(14, 90, 115, 0.26);
+}
+
+.lgc-signin__btn:active {
+  transform: translateY(1px);
+}
+
+.lgc-signin__links {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.lgc-signin__link {
+  color: rgba(15, 23, 42, 0.75);
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+
+.lgc-signin__link:hover {
+  color: rgba(11, 63, 82, 0.95);
+  text-decoration: underline;
+}
+
+.lgc-signin__link:focus-visible{
+  outline: none;
+  text-decoration: underline;
+  color: rgba(11, 63, 82, 0.95);
+}
+/* --- layout wrapper to allow card + footer logo --- */
+.lgc-signin__wrap{
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+/* replace placeholder with real svg */
+.lgc-signin__logoPlaceholder{
+  display: none;
+}
+
+.lgc-signin__brandLogo{
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 520px){
+  .lgc-signin{
+    padding: 18px;
+  }
+  .lgc-signin__card{
+    max-width: 420px;
+    padding: 22px 18px 18px;
+    border-radius: 16px;
+  }
+  .lgc-signin__brandLogo{
+    width: 300px;
+  }
+  .lgc-signin__title{
+    font-size: 24px;
+    margin: 6px 0 14px;
+  }
+  .lgc-signin__links{
+    font-size: 12px;
+  }
+}
+@media (max-width: 360px){
+  .lgc-signin__brandLogo{
+    width: 260px;
+  }
+  .lgc-signin__footerLogo{
+    width: 120px;
+  }
+}
+
+/* footer netwind logo under the card */
+.lgc-signin__footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.lgc-signin__footerLogo{
+  width: 120px;
+  max-width: 50vw;
+  height: auto;
+  display: block;
+  opacity: 0.65;
+}
+.lgc-signin__wrap{ z-index: 5 !important; }
+.lgc-signin__card{ z-index: 6 !important; }
+.lgc-signin__bg{ z-index: 0 !important; }
+
+.lgc-signin__input::placeholder{
+  color: rgba(15, 23, 42, 0.55);
+}
+.lgc-signin__consent{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.75);
+}
+
+.lgc-signin__checkbox{
+  margin-top: 2px;
+}
+
+.lgc-signin__consentText{
+  line-height: 1.25;
+}
+
+.lgc-signin__btn--ghost{
+  background: #ffffff;
+  color: #0b3f52;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: none;
+}
+.lgc-signin__note{
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(15, 23, 42, 0.75);
+}
+
+.lgc-signin__links--center{
+  justify-content: center;
+}
+
+.lgc-signin__btn--ghost{
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.lgc-signin__btn--ghost:hover{
+  background: rgba(14, 90, 115, 0.06);
+}
+
+.lgc-signin__btn--ghost:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.14);
+}
+
+/* --- Google button (white) --- */
+.lgc-signin .lgc-signin__googleBtn{
+  width: 100%;
+  height: 46px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background: #ffffff;
+  color: rgba(15, 23, 42, 0.92);
+
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  box-shadow: 0 10px 20px rgba(2, 6, 23, 0.08);
+
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, filter 140ms ease;
+}
+
+.lgc-signin .lgc-signin__googleBtn:hover{
+  filter: brightness(1.01);
+  box-shadow: 0 12px 24px rgba(2, 6, 23, 0.10);
+  border-color: rgba(15, 23, 42, 0.18);
+}
+
+.lgc-signin .lgc-signin__googleBtn:active{
+  transform: translateY(1px);
+}
+
+.lgc-signin .lgc-signin__googleBtn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.14), 0 12px 24px rgba(2, 6, 23, 0.10);
+}
+
+.lgc-signin .lgc-signin__googleIcon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lgc-signin .lgc-signin__googleText{
+  display: inline-block;
+}
+
+/* --- Divider "ή" --- */
+.lgc-signin .lgc-signin__divider{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 2px;
+}
+
+.lgc-signin .lgc-signin__dividerLine{
+  flex: 1;
+  height: 1px;
+  background: rgba(15, 23, 42, 0.10);
+}
+
+.lgc-signin .lgc-signin__dividerText{
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.55);
+}
+.lgc-signin__consentText .lgc-signin__link{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.lgc-signin__consentText .lgc-signin__link:hover{
+  opacity: 0.85;
+}
+/* === Signin tweaks (button + title) === */
+.lgc-signin .lgc-signin__btn{
+  background: #23908f !important;
+  font-weight: 400 !important; /* όχι bold */
+}
+
+/* αν έχεις hover state, το κρατάμε στο ίδιο χρώμα */
+.lgc-signin .lgc-signin__btn:hover{
+  background: #23908f !important;
+}
+
+/* Τίτλος "Σύνδεση" (μικρότερο 2-3 στιγμές) */
+.lgc-signin .lgc-signin__title{
+  font-size: calc(1em - 3px) !important;
+  font-weight: 500 !important; /* προαιρετικά λίγο πιο “normal” */
+}
+.lgc-signin .lgc-signin__btn{
+  background: #23908f !important;
+  font-weight: 400 !important;
+  font-size: 1.05em !important; /* +5% μεγαλύτερο */
+}
+</file>
+
+<file path="src/app/api/chat/route.ts">
+import { NextResponse } from "next/server";
+import OpenAI from "openai";
+
+
+
+type ChatBody = {
+  message?: string;
+  caseId?: string | number;
+  caseData?: {
+    patient_name: string | null;
+    patient_amka: string | null;
+    patient_phone: string | null;
+  };
+  history?: Array<{ role: "user" | "assistant"; content: string }>;
+};
+
+export async function POST(req: Request) {
+  try {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Missing OPENAI_API_KEY on server." },
+        { status: 500 }
+      );
+    }
+
+    const body = (await req.json()) as ChatBody;
+    const message = (body?.message || "").trim();
+
+    if (!message) {
+      return NextResponse.json(
+        { error: "Missing 'message' in request body." },
+        { status: 400 }
+      );
+    }
+
+    // Check if user is asking about the creator
+    const creatorKeywords = [
+      "ποιος σε έφτιαξε",
+      "ποιος είναι ο δημιουργός",
+      "ποιος σε δημιούργησε",
+      "ποιος σε ανέπτυξε",
+      "who made you",
+      "who created you",
+      "who is your creator",
+      "δημιουργός",
+      "κτίστης",
+    ];
+
+    const lowerMessage = message.toLowerCase();
+    const isCreatorQuestion = creatorKeywords.some((keyword) =>
+      lowerMessage.includes(keyword)
+    );
+
+    if (isCreatorQuestion) {
+      const creatorReply =
+        "Το ClinicScribe αναπτύχθηκε από τον Βασίλης Πετρούλιας. Όλα τα πνευματικά δικαιώματα ανήκουν στον Βασίλη Πετρούλια. Για περισσότερες πληροφορίες: Τηλ: 6947930375";
+      return NextResponse.json({ reply: creatorReply });
+    }
+
+   const client = new OpenAI({ apiKey });
+
+    // Triage: check if question is app-related, case-related, or medical
+    const triageResp = await client.responses.create({
+      model: "gpt-6.1-sol",
+      input: [
+        {
+          role: "system",
+          content:
+            "Είσαι ένας ταξινομητής. Απάντησε ΜΟΝΟ με 'ALLOWED' ή 'BLOCKED'. Απάντησε 'ALLOWED' αν η ερώτηση είναι: (1) χαιρετισμός/ευχαριστία/ευγένεια (π.χ. 'καλημέρα', 'καλησπέρα', 'γεια', 'ευχαριστώ'), (2) σχετική με τη χρήση της εφαρμογής (π.χ. 'πώς κάνω εξαγωγή;', 'ποιος είσαι;', 'πώς λειτουργείς;'), (3) σχετική με ασθενή/case (π.χ. ονόματα ασθενών, ημερομηνίες, υπενθυμίσεις), ή (4) ιατρική (γνωματεύσεις, κλινικά ευρήματα, διάγνωση, θεραπεία, συμπτώματα). Απάντησε 'BLOCKED' αν είναι ιστορία, πολιτικά, αθλητικά, τραγούδια, ή άλλα άσχετα.",
+        },
+        { role: "user", content: message },
+      ],
+    });
+
+    const triageResult = (triageResp.output_text?.trim() || "").toUpperCase();
+
+    if (triageResult.includes("BLOCKED")) {
+      const blockedReply =
+        "Το ClinicScribe έχει σχεδιαστεί αποκλειστικά για ιατρικές γνωματεύσεις και βοήθεια στη σύνταξη ιατρικών κειμένων. Δεν μπορώ να απαντήσω σε ερωτήσεις εκτός του σκοπού της εφαρμογής. Παρακαλώ θέσε μια ιατρική ερώτηση, ρώτησε κάτι σχετικό με τη χρήση της εφαρμογής, ή περιέγραψε τα κλινικά ευρήματα.";
+      return NextResponse.json({ reply: blockedReply });
+    }
+
+        // Use conversation history from frontend
+    const conversationHistory = (body.history || []) as Array<{ role: "user" | "assistant"; content: string }>;
+    console.log("conversation history count=", conversationHistory.length);
+
+
+    const caseInfo = body.caseData
+  ? `\n\nΣτοιχεία ασθενούς:\n- Όνομα: ${body.caseData.patient_name || "—"}\n- ΑΜΚΑ: ${body.caseData.patient_amka || "—"}\n- Τηλέφωνο: ${body.caseData.patient_phone || "—"}`
+  : "";
+
+const resp = await client.responses.create({
+  model: "gpt-6.1-sol",
+  input: [
+    {
+      role: "system",
+      content:
+        "Είσαι ο ClinicScribe, βοηθός ιατρού. Απαντάς στα Ελληνικά, με επαγγελματικό και ευγενικό ύφος.\n\nΚανόνες:\n1) Αν ο χρήστης πει χαιρετισμό/ευχαριστώ (π.χ. «καλημέρα», «καλησπέρα», «γεία», «ευχαριστώ»), απάντησε ευγενικά και σύντομα και ρώτα πώς μπορείς να βοηθήσεις.\n2) Για ιατρικά αιτήματα: γράφε καθαρά, δομημένα, και ζήτα διευκρινίσεις όταν λείπουν κρίσιμα στοιχεία. Αν υπάρχουν στοιχεία ασθενούς, περιλάμβανέ τα στην αρχή της γνωμάτευσης.\n3) Δεν αντικαθιστάς ιατρική κρίση — ο ιατρός ελέγχει και υπογράφει." + caseInfo,
+    },
+    ...conversationHistory,
+    { role: "user", content: message },
+  ],
+});
+
+
+    const reply =
+      resp.output_text?.trim() ||
+      "Δεν μπόρεσα να δημιουργήσω απάντηση αυτή τη στιγμή.";
+
+    return NextResponse.json({ reply });
+  } catch (err: any) {
+    const msg =
+      typeof err?.message === "string" ? err.message : "Unknown error";
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
+}
+</file>
+
+<file path="src/app/app/page.tsx">
+"use client";
+
+import "./app.css";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+
+type ChatRole = "user" | "assistant";
+
+type ChatMessage = {
+  id: string;
+  role: ChatRole;
+  text: string;
+  time: string;
+  showExportHint?: boolean;
+};
+
+type CaseItem = {
+  id: string;
+  patientName: string;
+  dateLabel: string;
+};
+
+export default function Page() {
+  const router = useRouter();
+  const supabase = useMemo(() => createSupabaseBrowserClient(), []);
+
+  const [userEmail, setUserEmail] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+  const [userAvatarUrl, setUserAvatarUrl] = useState<string>("");
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState<boolean>(false);
+  const userMenuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    (async () => {
+      const { data } = await supabase.auth.getUser();
+      const u = data.user;
+
+      if (!isMounted) return;
+
+      const meta: any = u?.user_metadata ?? {};
+      setUserEmail(u?.email ?? "");
+      setUserName(meta?.full_name ?? meta?.name ?? "");
+      setUserAvatarUrl(meta?.avatar_url ?? meta?.picture ?? "");
+    })();
+
+    const onDocClick = (e: MouseEvent) => {
+      if (!userMenuRef.current) return;
+      if (!userMenuRef.current.contains(e.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", onDocClick);
+    return () => {
+      isMounted = false;
+      document.removeEventListener("mousedown", onDocClick);
+    };
+  }, [supabase]);
+
+  const initials = useMemo(() => {
+    const base = (userName || userEmail || "U").trim();
+    const parts = base.split(/\s+/).filter(Boolean);
+    const a = parts[0]?.[0] ?? "U";
+    const b = parts.length > 1 ? parts[parts.length - 1][0] : "";
+    return (a + b).toUpperCase();
+  }, [userName, userEmail]);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.push("/signin");
+    router.refresh();
+  };
+
+  type DbCase = {
+    id: number;
+    case_type: string;
+    patient_name: string | null;
+    patient_amka: string | null;
+    patient_phone: string | null;
+    title: string;
+    created_at: string;
+  };
+
+  const [cases, setCases] = useState<CaseItem[]>([]);
+  const [loadingCases, setLoadingCases] = useState(true);
+
+  useEffect(() => {
+    const loadCases = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("cases")
+          .select("id, case_type, patient_name, patient_amka, patient_phone, title, created_at")
+          .order("case_type", { ascending: true }) // general πρώτο
+          .order("created_at", { ascending: false }); // μετά ανά ημερομηνία
+
+        if (error) throw error;
+
+        const formatted = (data as DbCase[]).map((c) => ({
+          id: String(c.id),
+          patientName: c.title || c.patient_name || "Χωρίς όνομα",
+          dateLabel: new Date(c.created_at).toLocaleDateString("el-GR"),
+        }));
+
+        setCases(formatted);
+
+// Set active case to general (first one)
+if (formatted.length > 0) {
+  setActiveCaseId(formatted[0].id);
+
+  const activeCase = (data as DbCase[]).find(
+    (c) => String(c.id) === formatted[0].id
+  );
+
+  if (activeCase) {
+    setActiveCaseData(activeCase);
+  }
+}
+      } catch (e: any) {
+        console.error("Error loading cases:", e);
+      } finally {
+        setLoadingCases(false);
+      }
+    };
+
+
+    loadCases();
+  }, [supabase]);
+
+  const [activeCaseId, setActiveCaseId] = useState<string | null>(null);
+  const [activeCaseData, setActiveCaseData] = useState<DbCase | null>(null);
+
+  const [input, setInput] = useState<string>("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isSending, setIsSending] = useState<boolean>(false);
+
+  // Case action states
+  const [caseActionMenuId, setCaseActionMenuId] = useState<string | null>(null);
+  const [renameModalCaseId, setRenameModalCaseId] = useState<string | null>(null);
+  const [renameInputValue, setRenameInputValue] = useState<string>("");
+  const [isRenamingLoading, setIsRenamingLoading] = useState<boolean>(false);
+  const [deleteConfirmCaseId, setDeleteConfirmCaseId] = useState<string | null>(null);
+  const [isDeletingLoading, setIsDeletingLoading] = useState<boolean>(false);
+
+  const [isRecording, setIsRecording] = useState<boolean>(false);
+  const [isTranscribing, setIsTranscribing] = useState<boolean>(false);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<BlobPart[]>([]);
+
+  const chatEndRef = useRef<HTMLDivElement | null>(null);
+  const lastAssistantRef = useRef<HTMLDivElement | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  // Auto-resize textarea based on content
+  const resizeTextarea = () => {
+    const ta = textareaRef.current;
+    if (!ta) return;
+    // Reset height to auto to get the correct scrollHeight
+    ta.style.height = "auto";
+    // Set height to scrollHeight, capped at max-height
+    const maxHeight = 260; // max-height in px
+    const newHeight = Math.min(ta.scrollHeight, maxHeight);
+    ta.style.height = newHeight + "px";
+  };
+
+  // Trigger resize when input changes
+  useEffect(() => {
+    resizeTextarea();
+  }, [input]);
+
+  const scrollToBottom = (
+  behavior: ScrollBehavior = "smooth",
+  block: ScrollLogicalPosition = "end"
+) => {
+  // Προτεραιότητα: τελευταίο assistant bubble
+  if (lastAssistantRef.current) {
+    lastAssistantRef.current.scrollIntoView({ behavior, block });
+    return;
+  }
+  chatEndRef.current?.scrollIntoView({ behavior, block });
+};
+
+
+  const nowTime = () => {
+    const d = new Date();
+    return d.toLocaleTimeString("el-GR", { hour: "2-digit", minute: "2-digit" });
+  };
+
+  const startRecording = async () => {
+    if (isRecording || isTranscribing) return;
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+      chunksRef.current = [];
+      
+      // ✅ NEW: Try supported mimeTypes in order
+      let mimeType = "audio/webm";
+      const supportedMimeTypes = [
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/mp4",
+        "audio/wav",
+        "audio/ogg",
+      ];
+      
+      for (const mime of supportedMimeTypes) {
+        if (MediaRecorder.isTypeSupported(mime)) {
+          mimeType = mime;
+          break;
+        }
+      }
+      
+      console.log("[startRecording] Using mimeType:", mimeType);
+      
+      const mr = new MediaRecorder(stream, { mimeType });
+      mediaRecorderRef.current = mr;
+
+      mr.ondataavailable = (e) => {
+        if (e.data && e.data.size > 0) chunksRef.current.push(e.data);
+      };
+
+      mr.onstop = async () => {
+        // σταμάτα τα tracks για να κλείσει το mic indicator
+        stream.getTracks().forEach((t) => t.stop());
+
+        const blob = new Blob(chunksRef.current, { type: mr.mimeType || "audio/webm" });
+        chunksRef.current = [];
+
+        if (blob.size < 1000) return; // πολύ μικρό/άδειο
+
+        setIsTranscribing(true);
+        try {
+          const fd = new FormData();
+          const mimeType = blob.type || "audio/webm";
+
+const ext =
+  mimeType.includes("mp4") ? "mp4" :
+  mimeType.includes("mpeg") ? "mp3" :
+  mimeType.includes("wav") ? "wav" :
+  mimeType.includes("ogg") ? "ogg" :
+  mimeType.includes("webm") ? "webm" :
+  "webm";
+
+const file = new File([blob], `audio.${ext}`, {
+  type: mimeType,
+});
+fd.append("file", file);
+
+
+          const r = await fetch("/api/transcribe", { method: "POST", body: fd });
+          const data = await r.json();
+
+          if (!r.ok) throw new Error(data?.error || "Σφάλμα μεταγραφής.");
+
+          const t = String(data?.text || "").trim();
+          if (t) {
+            setInput((prev) => {
+              const base = prev.trim();
+              return base ? base + " " + t : t;
+            });
+          }
+        } catch (e: any) {
+          alert("Αποτυχία μεταγραφής. " + (e?.message ? `(${e.message})` : ""));
+        } finally {
+          setIsTranscribing(false);
+        }
+      };
+
+      mr.start();
+      setIsRecording(true);
+    } catch (e: any) {
+      alert("Δεν δόθηκε πρόσβαση στο μικρόφωνο ή δεν υποστηρίζεται. " + (e?.message ? `(${e.message})` : ""));
+    }
+  };
+
+  const stopRecording = () => {
+    if (!mediaRecorderRef.current) return;
+    try {
+      mediaRecorderRef.current.stop();
+    } catch {}
+    setIsRecording(false);
+  };
+
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+
+  // Load messages when active case changes
+  useEffect(() => {
+    if (!activeCaseId) return;
+
+    const loadMessages = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("messages")
+          .select("id, role, text, created_at")
+          .eq("case_id", parseInt(activeCaseId))
+          .order("created_at", { ascending: true });
+
+        if (error) throw error;
+
+        const formatted = (data as any[]).map((m) => ({
+          id: m.id.toString(),
+          role: m.role as ChatRole,
+          text: m.text,
+          time: new Date(m.created_at).toLocaleTimeString("el-GR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        }));
+
+        setMessages(formatted);
+      } catch (e: any) {
+        console.error("Error loading messages:", e);
+      }
+    };
+
+    loadMessages();
+  }, [activeCaseId, supabase]);
+
+  // Load case data when active case changes
+  useEffect(() => {
+    if (!activeCaseId) {
+      setActiveCaseData(null);
+      return;
+    }
+
+    const caseFromList = cases.find((c) => c.id === activeCaseId);
+    if (!caseFromList) return;
+
+    // Find the full case data from loaded cases
+    const loadCaseData = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("cases")
+          .select("id, case_type, patient_name, patient_amka, patient_phone, title, created_at")
+          .eq("id", parseInt(activeCaseId))
+          .single();
+
+        if (error) throw error;
+        if (data) {
+          setActiveCaseData(data as DbCase);
+        }
+      } catch (e: any) {
+        console.error("Error loading case data:", e);
+      }
+    };
+
+    loadCaseData();
+  }, [activeCaseId, supabase, cases]);
+
+  useEffect(() => {
+  const last = messages[messages.length - 1];
+  if (last?.role === "assistant") {
+    // περιμένουμε 1 frame για να έχει γίνει render το ref
+    requestAnimationFrame(() => {
+      scrollToBottom("smooth", "start");
+    });
+  }
+}, [messages]);
+
+
+  const handleSend = async () => {
+    const text = input.trim();
+    if (!text || isSending || !activeCaseId) return;
+
+    // If user asks for export/word, don't call the AI. Just show hint and auto-download.
+    const exportKeywords = ["word", "export", "κατέβασμα", "εξαγωγή", "docx"];
+    const askedForExport = exportKeywords.some((kw) =>
+      text.toLowerCase().includes(kw)
+    );
+
+    if (askedForExport) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `hint-${Date.now()}`,
+          role: "assistant",
+          text: "Η γνωμάτευση έχει κατεβεί. Θα την βρεις στο φάκελο Downloads.",
+          time: nowTime(),
+          showExportHint: true,
+        },
+      ]);
+      setInput("");
+      await exportWord();
+      return;
+    }
+
+    setInput("");
+    setIsSending(true);
+
+    try {
+      // 1) Insert user message to DB
+      const { data: userRow, error: userErr } = await supabase
+        .from("messages")
+        .insert([
+          {
+            case_id: parseInt(activeCaseId),
+            role: "user",
+            text,
+          },
+        ])
+        .select("id, role, text, created_at")
+        .single();
+
+      if (userErr) throw userErr;
+
+      // Update UI immediately
+      setMessages((prev) => [
+        ...prev,
+      
+        {
+          id: userRow.id.toString(),
+          role: "user",
+          text: userRow.text,
+          time: new Date(userRow.created_at).toLocaleTimeString("el-GR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        },
+      ]);
+
+      const r = await fetch("/api/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    message: text,
+    caseId: activeCaseId,
+    caseData: activeCaseData,
+    history: messages
+      .filter((m) => !m.showExportHint)
+      .slice(-12)
+      .map((m) => ({ role: m.role, content: m.text })),
+  }),
+});
+
+
+      const data = await r.json();
+
+      if (!r.ok) {
+        throw new Error(data?.error || "Σφάλμα επικοινωνίας με τον server.");
+      }
+
+      const replyText = String(data?.reply || "").trim();
+
+      // 3) Insert assistant message to DB
+      const { data: aRow, error: aErr } = await supabase
+        .from("messages")
+        .insert([
+          {
+            case_id: parseInt(activeCaseId),
+            role: "assistant",
+            text: replyText || "—",
+          },
+        ])
+        .select("id, role, text, created_at")
+        .single();
+
+      if (aErr) throw aErr;
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: aRow.id.toString(),
+          role: "assistant",
+          text: aRow.text,
+          time: new Date(aRow.created_at).toLocaleTimeString("el-GR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        },
+      ]);
+
+    } catch (e: any) {
+      console.error(e);
+      alert("Σφάλμα αποστολής. " + (e?.message ? `(${e.message})` : ""));
+    } finally {
+      setIsSending(false);
+    }
+  };
+
+
+  const handleClearChat = async () => {
+  if (!activeCaseId) return;
+
+  const ok = confirm("Θέλεις σίγουρα να διαγράψεις ΟΛΑ τα μηνύματα αυτής της συνομιλίας;");
+  if (!ok) return;
+
+  try {
+    const { error } = await supabase
+      .from("messages")
+      .delete()
+      .eq("case_id", parseInt(activeCaseId));
+
+    if (error) throw error;
+
+    setMessages([]);
+
+    // Re-fetch to confirm deletion from DB
+    const { data, error: refetchError } = await supabase
+      .from("messages")
+      .select("id, role, text, created_at")
+      .eq("case_id", parseInt(activeCaseId))
+      .order("created_at", { ascending: true });
+
+    if (refetchError) throw refetchError;
+
+    setMessages([]);
+  } catch (e: any) {
+    console.error(e);
+    alert("Αποτυχία καθαρισμού συνομιλίας. " + (e?.message ? `(${e.message})` : ""));
+  }
+};
+
+// Rename case handler
+const handleRenameCase = async (caseId: string, newTitle: string) => {
+  const trimmed = newTitle.trim();
+  if (!trimmed) {
+    alert("Το όνομα δεν μπορεί να είναι κενό.");
+    return;
+  }
+
+  if (trimmed.length > 80) {
+    alert("Το όνομα δεν πρέπει να ξεπερνά 80 χαρακτήρες.");
+    return;
+  }
+
+  setIsRenamingLoading(true);
+  try {
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData?.user?.id) {
+      alert("Σφάλμα αυθεντικοποίησης.");
+      return;
+    }
+
+    const authToken = (await supabase.auth.getSession())?.data?.session?.access_token;
+    if (!authToken) {
+      alert("Σφάλμα αυθεντικοποίησης.");
+      return;
+    }
+
+    const res = await fetch("/api/case/update-title", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${authToken}`,
+      },
+      body: JSON.stringify({
+        caseId: parseInt(caseId),
+        newTitle: trimmed,
+      }),
+    });
+
+    if (!res.ok) {
+      throw new Error(caseApiErrorMessage(res.status, "μετονομασίας"));
+    }
+
+    // Update local state
+    setCases((prev) =>
+      prev.map((c) =>
+        c.id === caseId ? { ...c, patientName: trimmed } : c
+      )
+    );
+
+    setRenameModalCaseId(null);
+    setRenameInputValue("");
+  } catch (e: any) {
+    console.error("Error renaming case:", e);
+    alert(e?.message || "Αποτυχία μετονομασίας. Προσπάθησε ξανά αργότερα.");
+  } finally {
+    setIsRenamingLoading(false);
+  }
+};
+
+const caseApiErrorMessage = (status: number, action: string) => {
+  if (status === 401) return "Η συνεδρία έληξε. Συνδέσου ξανά.";
+  if (status === 404) return "Το case δεν βρέθηκε ή δεν έχεις πρόσβαση.";
+  return `Αποτυχία ${action}. Προσπάθησε ξανά αργότερα.`;
+};
+
+// Delete case handler
+const handleDeleteCase = async (caseId: string) => {
+  setIsDeletingLoading(true);
+  try {
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData?.user?.id) {
+      alert("Σφάλμα αυθεντικοποίησης.");
+      return;
+    }
+
+    const authToken = (await supabase.auth.getSession())?.data?.session?.access_token;
+    if (!authToken) {
+      alert("Σφάλμα αυθεντικοποίησης.");
+      return;
+    }
+
+    const res = await fetch("/api/case/delete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${authToken}`,
+      },
+      body: JSON.stringify({ caseId: parseInt(caseId) }),
+    });
+
+    if (!res.ok) {
+      throw new Error(caseApiErrorMessage(res.status, "διαγραφής"));
+    }
+
+    // Update local state
+    const newCases = cases.filter((c) => c.id !== caseId);
+    setCases(newCases);
+
+    // If the deleted case was active, switch to next available
+    if (activeCaseId === caseId) {
+      if (newCases.length > 0) {
+        setActiveCaseId(newCases[0].id);
+        // Load the new case data (simplified, actual case data fetch would happen)
+      } else {
+        setActiveCaseId(null);
+        setActiveCaseData(null);
+        setMessages([]);
+      }
+    }
+
+    setDeleteConfirmCaseId(null);
+  } catch (e: any) {
+    console.error("Error deleting case:", e);
+    alert(e?.message || "Αποτυχία διαγραφής. Προσπάθησε ξανά αργότερα.");
+  } finally {
+    setIsDeletingLoading(false);
+  }
+};
+
+const exportWord = async () => {    if (!activeCaseId) {
+      alert("Δεν υπάρχει ενεργό case.");
+      return;
+    }
+
+    const lastAssistant = [...messages]
+  .reverse()
+  .find((m) => m.role === "assistant" && !m.showExportHint);
+    const text = (lastAssistant?.text || "").trim();
+
+    if (!text) {
+      alert("Δεν υπάρχει απάντηση βοηθού για εξαγωγή.");
+      return;
+    }
+
+    try {
+      const r = await fetch("/api/export-docx", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text,
+          fileName: "gnomatefsi",
+        }),
+      });
+
+      if (!r.ok) {
+        const data = await r.json().catch(() => ({}));
+        throw new Error(data?.error || "Αποτυχία δημιουργίας Word.");
+      }
+
+      const blob = await r.blob();
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "gnomatefsi.docx";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      URL.revokeObjectURL(url);
+    } catch (e: any) {
+      alert("Δεν μπόρεσα να κατεβάσω Word. " + (e?.message ? `(${e.message})` : ""));
+    }
+  };
+
+  
+  return (
+    <main className="cs-app">
+      <div
+        className={"cs-app__overlay" + (isSidebarOpen ? " is-open" : "")}
+        onClick={() => setIsSidebarOpen(false)}
+        aria-hidden="true"
+      />
+
+      <aside
+        className={"cs-app__sidebar" + (isSidebarOpen ? " is-open" : "")}
+        aria-label="Πλευρικό μενού"
+      >
+                <button
+          type="button"
+          className="cs-app__drawerClose"
+          aria-label="Κλείσιμο μενού"
+          onClick={() => setIsSidebarOpen(false)}
+        >
+          ×
+        </button>
+
+        <div className="cs-app__brand">
+          <img
+            className="cs-app__brandLogo"
+            src="/ClinicScribe-logo.svg"
+            alt="ClinicScribe"
+            loading="eager"
+          />
+        </div>
+
+        <button
+          className="cs-app__newBtn"
+          type="button"
+          onClick={() => router.push("/new-case")}
+        >
+          + Νέα γνωμάτευση
+        </button>
+
+        <div className="cs-app__sectionTitle">Ιστορικό</div>
+
+        <nav className="cs-app__caseList" aria-label="Ιστορικό γνωματεύσεων">
+          {cases.map((c) => (
+            <div
+              key={c.id}
+              className="cs-app__caseItemWrapper"
+              onMouseLeave={() => setCaseActionMenuId(null)}
+            >
+              <button
+                type="button"
+                className={
+                  "cs-app__caseItem" + (c.id === activeCaseId ? " is-active" : "")
+                }
+                onClick={() => {
+                  setActiveCaseId(c.id);
+                  setIsSidebarOpen(false);
+                }}
+              >
+                <div className="cs-app__caseName">{c.patientName}</div>
+                <div className="cs-app__caseMeta">{c.dateLabel}</div>
+              </button>
+
+              <button
+                type="button"
+                className="cs-app__caseActionBtn"
+                aria-label={`Μενού ενεργειών για ${c.patientName}`}
+                onClick={() => setCaseActionMenuId(caseActionMenuId === c.id ? null : c.id)}
+              >
+                ⋯
+              </button>
+
+              {caseActionMenuId === c.id && (
+                <div className="cs-app__caseActionMenu" role="menu">
+                  <button
+                    type="button"
+                    className="cs-app__caseActionItem"
+                    role="menuitem"
+                    onClick={() => {
+                      setRenameModalCaseId(c.id);
+                      setRenameInputValue(c.patientName);
+                      setCaseActionMenuId(null);
+                    }}
+                  >
+                    ✎ Μετονομασία
+                  </button>
+                  <button
+                    type="button"
+                    className="cs-app__caseActionItem cs-app__caseActionItem--danger"
+                    role="menuitem"
+                    onClick={() => {
+                      setDeleteConfirmCaseId(c.id);
+                      setCaseActionMenuId(null);
+                    }}
+                  >
+                    🗑 Διαγραφή
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </nav>
+
+        <div className="cs-app__sidebarFooter">
+          <img
+            className="cs-app__netwind"
+            src="/logo-2026-netwind.svg"
+            alt="NetWind"
+            loading="lazy"
+          />
+        </div>
+      </aside>
+
+      <section className="cs-app__main" aria-label="Συνομιλία">
+        <header className="cs-app__topbar">
+          <div className="cs-app__topbarLeft">
+            <button
+              className="cs-app__hamburger"
+              type="button"
+              aria-label="Άνοιγμα μενού"
+              onClick={() => setIsSidebarOpen(true)}
+            >
+              ☰
+            </button>
+            <div className="cs-app__topbarTitle">ClinicScribe v2</div>
+          </div>
+
+          <div className="cs-app__topbarActions">
+            <button className="cs-app__topBtn cs-app__topBtn--danger" type="button" onClick={handleClearChat} disabled={!activeCaseId || isSending || isTranscribing || messages.length === 0} title="Διαγραφή όλων των μηνυμάτων της τρέχουσας συνομιλίας">
+              Καθαρισμός
+            </button>
+
+            <button className="cs-app__topBtn" type="button" onClick={exportWord}>
+              Εξαγωγή Word
+            </button>
+
+            <button
+              className="cs-app__topBtn cs-app__topBtn--ghost"
+              type="button"
+              onClick={() => router.push("/account")}
+            >
+              Λογαριασμός
+            </button>
+
+            <div className="cs-app__userMenu" ref={userMenuRef}>
+              <button
+                className="cs-app__avatarBtn"
+                type="button"
+                aria-label="Μενού χρήστη"
+                aria-expanded={isUserMenuOpen ? "true" : "false"}
+                onClick={() => setIsUserMenuOpen((v) => !v)}
+              >
+                {userAvatarUrl ? (
+                  <img
+                    className="cs-app__avatarImg"
+                    src={userAvatarUrl}
+                    alt="Φωτογραφία χρήστη"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <span className="cs-app__avatarFallback" aria-hidden="true">
+                    {initials}
+                  </span>
+                )}
+              </button>
+
+              <div
+                className={
+                  "cs-app__userDropdown" + (isUserMenuOpen ? " is-open" : "")
+                }
+              >
+                <button
+                  className="cs-app__userDropdownItem"
+                  type="button"
+                  onClick={() => {
+                    setIsUserMenuOpen(false);
+                    router.push("/account");
+                  }}
+                >
+                  Λογαριασμός
+                </button>
+
+                <button
+                  className="cs-app__userDropdownItem cs-app__userDropdownItem--danger"
+                  type="button"
+                  onClick={() => {
+                    setIsUserMenuOpen(false);
+                    handleLogout();
+                  }}
+                >
+                  Αποσύνδεση
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className="cs-app__chat">
+          <div className="cs-app__chatInner">
+            {messages.map((m, idx) => {
+              const isLast = idx === messages.length - 1;
+              const isLastAssistant =
+                isLast && m.role === "assistant";
+
+              return (
+                <div
+                  key={m.id}
+                  ref={isLastAssistant ? lastAssistantRef : null}
+                  className={
+                    "cs-app__msgRow " +
+                    (m.role === "user" ? "is-user" : "is-assistant")
+                  }
+                >
+                <div className="cs-app__bubble">
+                  <div className="cs-app__bubbleText">{m.text}</div>
+                  <div className="cs-app__bubbleMeta">{m.time}</div>
+                </div>
+                </div>
+              );
+            })}
+            <div ref={chatEndRef} />
+          </div>
+        </div>
+
+        <div className="cs-app__composer" aria-label="Σύνταξη μηνύματος">
+          <div className="cs-app__composerInner">
+            <button
+  className={
+    "cs-app__iconBtn cs-app__micBtn" +
+    (isRecording ? " is-recording" : "") +
+    (isTranscribing ? " is-transcribing" : "")
+  }
+  type="button"
+  aria-label={
+    isTranscribing
+      ? "Μεταγραφή σε εξέλιξη"
+      : isRecording
+      ? "Διακοπή ηχογράφησης"
+      : "Έναρξη ηχογράφησης"
+  }
+  onClick={() => {
+    if (isTranscribing) return;
+    if (isRecording) stopRecording();
+    else startRecording();
+  }}
+  disabled={isTranscribing}
+>
+  {isRecording ? (
+    <svg
+      className="cs-app__micIcon"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect x="6" y="6" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  ) : (
+    <svg
+      className="cs-app__micIcon"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M19 11a7 7 0 0 1-14 0"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 18v3"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 21h8"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )}
+</button>
+
+
+            {isRecording ? (
+              <div className="cs-app__waveform">
+                <div className="cs-app__waveformBar" />
+                <div className="cs-app__waveformBar" />
+                <div className="cs-app__waveformBar" />
+                <div className="cs-app__waveformBar" />
+                <div className="cs-app__waveformBar" />
+              </div>
+            ) : (
+              <textarea
+                ref={textareaRef}
+                className="cs-app__input"
+                placeholder="Γράψε ή υπαγόρευσε…"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
+                aria-label="Περιοχή εισαγωγής μηνύματος"
+                disabled={isSending || isTranscribing}
+              />
+            )}
+
+            <button
+              className="cs-app__sendBtn"
+              type="button"
+              aria-label="Αποστολή"
+              onClick={handleSend}
+              disabled={isSending || isTranscribing || !input.trim()}
+            >
+              {isSending ? "…" : "➤"}
+            </button>
+          </div>
+
+          <div className="cs-app__hint">
+            Το ClinicScribe βοηθά στη σύνταξη κειμένου. Ο ιατρός ελέγχει και
+            υπογράφει.
+          </div>
+        </div>
+      </section>
+
+      {/* Rename Modal */}
+      {renameModalCaseId && (
+        <div className="cs-app__dialogOverlay" onClick={() => setRenameModalCaseId(null)}>
+          <div className="cs-app__dialog" onClick={(e) => e.stopPropagation()}>
+            <h2 className="cs-app__dialogTitle">Μετονομασία γνωμάτευσης</h2>
+            <input
+              type="text"
+              className="cs-app__dialogInput"
+              value={renameInputValue}
+              onChange={(e) => setRenameInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleRenameCase(renameModalCaseId, renameInputValue);
+                } else if (e.key === "Escape") {
+                  setRenameModalCaseId(null);
+                }
+              }}
+              autoFocus
+              disabled={isRenamingLoading}
+              maxLength={80}
+            />
+            <div className="cs-app__dialogActions">
+              <button
+                type="button"
+                className="cs-app__dialogBtn cs-app__dialogBtn--cancel"
+                onClick={() => setRenameModalCaseId(null)}
+                disabled={isRenamingLoading}
+              >
+                Ακύρωση
+              </button>
+              <button
+                type="button"
+                className="cs-app__dialogBtn cs-app__dialogBtn--confirm"
+                onClick={() => handleRenameCase(renameModalCaseId, renameInputValue)}
+                disabled={isRenamingLoading}
+              >
+                {isRenamingLoading ? "…" : "Αποθήκευση"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {deleteConfirmCaseId && (
+        <div className="cs-app__dialogOverlay" onClick={() => setDeleteConfirmCaseId(null)}>
+          <div className="cs-app__dialog" onClick={(e) => e.stopPropagation()}>
+            <h2 className="cs-app__dialogTitle">Διαγραφή γνωμάτευσης;</h2>
+            <p className="cs-app__dialogMessage">
+              Η γνωμάτευση και το ιστορικό συνομιλίας της θα διαγραφούν οριστικά.
+              Η ενέργεια δεν μπορεί να αναιρεθεί.
+            </p>
+            <div className="cs-app__dialogActions">
+              <button
+                type="button"
+                className="cs-app__dialogBtn cs-app__dialogBtn--cancel"
+                onClick={() => setDeleteConfirmCaseId(null)}
+                disabled={isDeletingLoading}
+              >
+                Ακύρωση
+              </button>
+              <button
+                type="button"
+                className="cs-app__dialogBtn cs-app__dialogBtn--danger"
+                onClick={() => handleDeleteCase(deleteConfirmCaseId)}
+                disabled={isDeletingLoading}
+              >
+                {isDeletingLoading ? "…" : "Διαγραφή"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/app/app.css">
+/* ClinicScribe App UI (scoped) */
+.cs-app{
+  height: 100dvh;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background: #ffffff;
+  color: #0f172a;
+  overflow: hidden;
+}
+
+.cs-app__sidebar{
+  border-right: 1px solid rgba(15, 23, 42, 0.10);
+  background: #f8fafc;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 0;
+}
+
+.cs-app__brand{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 6px;
+  min-height: 64px;
+  overflow: visible;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 420px){
+  .cs-app__brand{
+    min-height: 48px !important;
+    padding: 6px 4px !important;
+  }
+}
+
+.cs-app__brandLogo{
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-app__newBtn{
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  color: #0b3f52;
+  font-weight: 700;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.cs-app__newBtn:hover{
+  background: rgba(14, 90, 115, 0.06);
+}
+
+.cs-app__sectionTitle{
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.60);
+  padding: 6px 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex: 0 0 auto;
+}
+
+.cs-app__caseList{
+  display: grid;
+  gap: 8px;
+  padding: 0 4px 8px 4px;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+}
+
+.cs-app__caseItem{
+  text-align: left;
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.cs-app__caseItem:hover{
+  border-color: rgba(14, 90, 115, 0.28);
+  background: rgba(14, 90, 115, 0.05);
+}
+
+.cs-app__caseItem.is-active{
+  border-color: rgba(14, 90, 115, 0.55);
+  box-shadow: 0 0 0 4px rgba(14, 90, 115, 0.10);
+}
+
+.cs-app__caseName{
+  font-weight: 700;
+  color: #0b3f52;
+  font-size: 14px;
+}
+
+.cs-app__caseMeta{
+  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.60);
+}
+
+/* Case item action menu */
+.cs-app__caseItemWrapper{
+  position: relative;
+}
+
+.cs-app__caseActionBtn{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: rgba(15, 23, 42, 0.50);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.cs-app__caseItemWrapper:hover .cs-app__caseActionBtn{
+  opacity: 1;
+}
+
+.cs-app__caseActionBtn:hover{
+  background: rgba(15, 23, 42, 0.10);
+  color: rgba(15, 23, 42, 0.70);
+}
+
+.cs-app__caseActionBtn:active{
+  transform: translateY(1px);
+}
+
+.cs-app__caseActionMenu{
+  position: absolute;
+  top: 32px;
+  right: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(2, 6, 23, 0.15);
+  overflow: hidden;
+  min-width: 140px;
+}
+
+.cs-app__caseActionItem{
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 13px;
+  color: #0f172a;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cs-app__caseActionItem:hover{
+  background: rgba(14, 90, 115, 0.08);
+}
+
+.cs-app__caseActionItem--danger{
+  color: #dc2626;
+}
+
+.cs-app__caseActionItem--danger:hover{
+  background: rgba(220, 38, 38, 0.10);
+}
+
+.cs-app__sidebarFooter{
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px 6px 6px;
+}
+
+.cs-app__netwind{
+  width: 120px;
+  height: auto;
+  opacity: 0.55;
+  display: block;
+}
+
+.cs-app__main{
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.cs-app__topbar{
+  height: 56px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: #ffffff;
+}
+
+.cs-app__topbarLeft{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-app__hamburger{
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  cursor: pointer;
+  color: #0b3f52;
+  font-weight: 800;
+}
+
+.cs-app__hamburger:hover{
+  background: rgba(14, 90, 115, 0.06);
+}
+
+/* overlay for mobile drawer */
+.cs-app__overlay{
+  display: none;
+}
+
+.cs-app__topbarTitle{
+  font-weight: 800;
+  color: #0b3f52;
+}
+
+.cs-app__topbarActions{
+  display: flex;
+  gap: 10px;
+}
+
+.cs-app__topBtn{
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cs-app__topBtn--ghost{
+  background: #ffffff;
+  color: #0b3f52;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.cs-app__chat{
+  overflow-y: auto;
+  min-height: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(14, 90, 115, 0.06), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(14, 90, 115, 0.04), transparent 50%);
+}
+
+.cs-app__chatInner{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 22px 16px 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.cs-app__msgRow{
+  display: flex;
+}
+
+.cs-app__msgRow.is-user{
+  justify-content: flex-end;
+}
+
+.cs-app__bubble{
+  max-width: min(720px, 92%);
+  border-radius: 16px;
+  padding: 12px 12px 10px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
+}
+
+.cs-app__msgRow.is-user .cs-app__bubble{
+  background: rgba(14, 90, 115, 0.10);
+  border-color: rgba(14, 90, 115, 0.22);
+}
+
+.cs-app__bubbleText{
+  white-space: pre-wrap;
+  line-height: 1.45;
+  font-size: 14px;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.cs-app__bubbleMeta{
+  margin-top: 6px;
+  font-size: 11px;
+  color: rgba(15, 23, 42, 0.55);
+  text-align: right;
+}
+
+.cs-app__composer{
+  border-top: 1px solid rgba(15, 23, 42, 0.10);
+  background: #ffffff;
+  padding: 12px 12px 10px;
+  flex: 0 0 auto;
+  overflow: visible;
+  /* iOS safe area */
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+}
+
+.cs-app__composerInner{
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  gap: 10px;
+  align-items: flex-start;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 16px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.10);
+}
+
+.cs-app__iconBtn{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.cs-app__iconBtn:hover{
+  background: rgba(14, 90, 115, 0.06);
+}
+
+.cs-app__input{
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+
+  /* iOS Safari: prevent auto-zoom on focus (needs >=16px) */
+  font-size: 16px;
+  line-height: 1.45;
+
+  padding: 12px 10px;
+  background: transparent;
+  color: #0f172a;
+
+  /* Multiline textarea - initial 3-4 lines, auto-expand up to max-height */
+  min-height: 108px;
+  max-height: 260px;
+  overflow-y: auto;
+
+  /* Better scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+
+  /* Placeholder styling */
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.cs-app__input::placeholder {
+  color: rgba(15, 23, 42, 0.50);
+}
+
+.cs-app__input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cs-app__input:focus {
+  /* Optional: subtle focus indicator */
+  background: rgba(14, 90, 115, 0.02);
+}
+
+.cs-app__sendBtn{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cs-app__hint{
+  max-width: 920px;
+  margin: 8px auto 0;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.60);
+  text-align: center;
+}
+
+@media (max-width: 920px){
+  .cs-app{
+    grid-template-columns: 1fr;
+  }
+
+  .cs-app__hamburger{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cs-app__overlay{
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 160ms ease;
+    z-index: 40;
+  }
+
+  .cs-app__overlay.is-open{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cs-app__sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(320px, 86vw);
+    transform: translateX(-105%);
+    transition: transform 180ms ease;
+    z-index: 50;
+    box-shadow: 0 18px 45px rgba(2, 6, 23, 0.35);
+  }
+
+  .cs-app__sidebar.is-open{
+    transform: translateX(0);
+  }
+}
+
+/* ================================
+   User menu (avatar + dropdown)
+   APPEND at end of app.css
+================================ */
+
+.cs-app .cs-app__userMenu{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cs-app .cs-app__avatarBtn{
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.14);
+  background:#fff;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  cursor:pointer;
+  overflow:hidden;
+  transition:box-shadow .15s ease,border-color .15s ease,transform .15s ease;
+}
+
+.cs-app .cs-app__avatarBtn:hover{
+  border-color:rgba(15,23,42,.22);
+  box-shadow:0 6px 18px rgba(15,23,42,.10);
+}
+
+.cs-app .cs-app__avatarBtn:active{
+  transform:translateY(1px);
+}
+
+.cs-app .cs-app__avatarBtn:focus-visible{
+  outline:3px solid rgba(37,99,235,.25);
+  outline-offset:2px;
+}
+
+.cs-app .cs-app__avatarImg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.cs-app .cs-app__avatarFallback{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.02em;
+  color:#0f172a;
+  background:linear-gradient(180deg,#f1f5f9 0%,#e2e8f0 100%);
+}
+
+.cs-app .cs-app__userDropdown{
+  position:absolute;
+  top:calc(100% + 10px);
+  right:0;
+  min-width:200px;
+  background:#fff;
+  border:1px solid rgba(15,23,42,.12);
+  border-radius:12px;
+  box-shadow:0 18px 50px rgba(15,23,42,.18);
+  padding:6px;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-6px);
+  transition:opacity .15s ease,transform .15s ease,visibility .15s ease;
+  z-index:50;
+}
+
+.cs-app .cs-app__userDropdown.is-open{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.cs-app .cs-app__userDropdownItem{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  padding:10px 10px;
+  border-radius:10px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:600;
+  color:#0f172a;
+  text-align:left;
+  transition:background-color .12s ease,color .12s ease;
+}
+
+.cs-app .cs-app__userDropdownItem:hover{
+  background:rgba(15,23,42,.06);
+}
+
+.cs-app .cs-app__userDropdownItem:focus-visible{
+  outline:3px solid rgba(37,99,235,.25);
+  outline-offset:2px;
+}
+
+.cs-app .cs-app__userDropdownItem--danger{
+  color:#b91c1c;
+}
+
+.cs-app .cs-app__userDropdownItem--danger:hover{
+  background:rgba(185,28,28,.08);
+}
+
+/* Mobile: make dropdown easier to tap */
+@media (max-width: 720px){
+  .cs-app .cs-app__avatarBtn{
+    width:40px;
+    height:40px;
+  }
+  .cs-app .cs-app__userDropdown{
+    min-width:220px;
+  }
+}
+/* ================================
+   Mobile topbar fix (App)
+   APPEND at very end of app.css
+================================ */
+@media (max-width: 720px){
+  /* μην αφήνεις fixed height όταν τα actions κάνουν wrap */
+  .cs-app .cs-app__topbar{
+    height: auto;
+    min-height: 56px;
+    padding: 10px 12px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .cs-app .cs-app__topbarLeft{
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .cs-app .cs-app__topbarActions{
+    flex: 0 0 auto;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cs-app .cs-app__topBtn{
+    padding: 8px 10px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
+
+/* extra-tight phones */
+@media (max-width: 420px){
+  .cs-app .cs-app__topbarActions{
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 720px){
+  .cs-app{
+    overflow-x: hidden;
+  }
+  .cs-app .cs-app__chatInner{
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* show/hide helpers */
+.cs-app .cs-app__onlyDesktop{ display:inline-flex; }
+@media (max-width: 720px){
+  .cs-app .cs-app__onlyDesktop{ display:none; }
+}
+/* ================================
+   Mobile topbar: force hide title + account button
+   (keep only hamburger + Export Word + avatar)
+================================ */
+@media (max-width: 920px){
+  .cs-app .cs-app__topbarTitle{
+    display:none !important;
+  }
+
+  /* κρύψε το κουμπί "Λογαριασμός" στο topbar */
+  .cs-app .cs-app__topbarActions .cs-app__topBtn--ghost{
+    display:none !important;
+  }
+
+  /* κράτα actions σε 1 γραμμή */
+  .cs-app .cs-app__topbarActions{
+    flex-wrap:nowrap !important;
+    gap:8px !important;
+  }
+
+  .cs-app .cs-app__topbar{
+    align-items:center !important;
+  }
+}
+/* ================================
+   Mobile: bring composer higher + reduce hint footprint
+================================ */
+@media (max-width: 920px){
+  /* λιγότερο padding στο composer */
+  .cs-app .cs-app__composer{
+    padding: 8px 10px 6px !important;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom)) !important;
+  }
+
+  /* κάνε το hint πιο “compact” (ή κρύψ’ το τελείως αν θες) */
+  .cs-app .cs-app__hint{
+    margin: 6px auto 0 !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* λίγο πιο “σφιχτή” η μπάρα */
+  .cs-app .cs-app__composerInner{
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+
+  .cs-app .cs-app__iconBtn,
+  .cs-app .cs-app__sendBtn{
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 12px !important;
+  }
+
+  /* ώστε να μην αφήνουμε υπερβολικό κενό κάτω */
+  .cs-app .cs-app__chatInner{
+    padding-bottom: 88px !important;
+  }
+}
+/* ================================
+   Mic button icon (clean outline)
+================================ */
+.cs-app .cs-app__micBtn{
+  color:#0b3f52;
+}
+
+.cs-app .cs-app__micIcon{
+  display:block;
+}
+
+.cs-app .cs-app__micBtn:hover{
+  background: rgba(14, 90, 115, 0.06);
+  border-color: rgba(5, 18, 23, 0.22);
+}
+
+.cs-app .cs-app__micBtn:active{
+  transform: translateY(1px);
+}
+.cs-app .cs-app__micBtn{
+  color:#111111 !important;
+}
+/* Center mic icon inside the square button */
+.cs-app .cs-app__micBtn{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+}
+
+.cs-app .cs-app__micIcon{
+  display:block !important;
+}
+/* App inline legal menu (scrolls with composer content) */
+.cs-app__legalMenu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(0,0,0,0.62);
+}
+
+.cs-app__legalLink{
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cs-app__legalLink:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cs-app__legalSep{
+  opacity: 0.45;
+}
+
+@media (max-width: 480px){
+  .cs-app__legalMenu{
+    font-size: 11px;
+    gap: 8px;
+    padding: 9px 10px;
+  }
+}
+
+/* iOS Safari: prevent auto-zoom on focus (mobile needs >=16px) */
+@media (max-width: 920px){
+  .cs-app .cs-app__input{
+    font-size: 16px !important;
+  }
+}
+.cs-app .cs-app__micBtn.is-recording{
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  color: rgba(239, 68, 68, 0.95) !important;
+}
+
+.cs-app .cs-app__micBtn.is-transcribing{
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+/* Mobile: αφήνουμε χώρο ώστε το τελευταίο bubble να μην κρύβεται από το composer */
+.cs-app .cs-app__chatInner{
+  padding-bottom: 140px !important;
+}
+
+@media (min-width: 768px){
+  .cs-app .cs-app__chatInner{
+    padding-bottom: 120px !important;
+  }
+}
+/* Waveform animation (recording indicator) */
+.cs-app__waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 12px;
+}
+
+.cs-app__waveformBar {
+  width: 3px;
+  height: 20px;
+  background-color: currentColor;
+  border-radius: 2px;
+  animation: waveformPulse 0.6s ease-in-out infinite;
+}
+
+.cs-app__waveformBar:nth-child(1) { animation-delay: 0s; }
+.cs-app__waveformBar:nth-child(2) { animation-delay: 0.1s; }
+.cs-app__waveformBar:nth-child(3) { animation-delay: 0.2s; }
+.cs-app__waveformBar:nth-child(4) { animation-delay: 0.3s; }
+.cs-app__waveformBar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes waveformPulse {
+  0%, 100% { height: 8px; opacity: 0.4; }
+  50% { height: 24px; opacity: 1; }
+}
+/* Sticky topbar */
+.cs-app .cs-app__topbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 80 !important;
+
+  background: rgba(255,255,255,0.92) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+
+  border-bottom: 1px solid rgba(15, 23, 42, 0.10) !important;
+}
+/* Mobile: force topbar fixed (iOS-safe) */
+@media (max-width: 920px){
+  .cs-app .cs-app__topbar{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 90 !important;
+  }
+
+  /* αφήνουμε χώρο κάτω από την fixed topbar */
+  .cs-app .cs-app__chat{
+    padding-top: 84px !important;
+  }
+}
+/* REPLACE this block */
+.cs-app__brand{
+  display: flex;
+  justify-content: flex-start;
+  padding: 6px 6px 2px;
+}
+
+/* WITH this */
+.cs-app__brand{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 6px;
+  min-height: 64px;
+  overflow: visible;
+}
+/* Logo fix: mobile responsive + builder-proof */
+.cs-app .cs-app__brandLogo{
+  width: 220px !important;
+  max-width: 100% !important;
+  height: 56px !important;
+  max-height: 56px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+@media (max-width: 420px){
+  .cs-app .cs-app__brandLogo{
+    width: 160px !important;
+    height: 48px !important;
+  }
+}
+/* === Mobile drawer brand/logo hard fix === */
+@media (max-width: 920px){
+  .cs-app .cs-app__sidebar{
+    padding-top: 18px !important; /* δίνει “αέρα” πάνω */
+  }
+
+  .cs-app .cs-app__brand{
+    min-height: 72px !important;
+    padding: 10px 8px !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: 200px !important;
+    height: 52px !important;      /* force paint height */
+    max-height: 52px !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+/* extra small phones */
+@media (max-width: 420px){
+  .cs-app .cs-app__brandLogo{
+    width: 170px !important;
+    height: 46px !important;
+    max-height: 46px !important;
+  }
+}
+/* === FINAL OVERRIDE: Mobile drawer logo not clipped (SVG-safe) === */
+@media (max-width: 920px){
+  .cs-app .cs-app__brand{
+    min-height: auto !important;
+    padding: 12px 8px !important;
+    overflow: visible !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: 180px !important;
+    height: auto !important;
+    max-height: 60px !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 420px){
+  .cs-app .cs-app__brandLogo{
+    width: 140px !important;
+    max-height: 50px !important;
+  }
+}
+/* === FINAL: Mobile drawer safe-area + top padding === */
+@media (max-width: 920px){
+  .cs-app .cs-app__sidebar{
+    padding-top: max(20px, env(safe-area-inset-top)) !important;
+    overflow-y: auto !important;
+  }
+}
+/* === Mobile drawer close button === */
+.cs-app .cs-app__drawerClose{
+  display:none;
+  position:absolute;
+  top: max(10px, env(safe-area-inset-top)) !important;
+  right: 12px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(15,23,42,.12) !important;
+  background:#fff !important;
+  color:#0b3f52 !important;
+  font-weight:900 !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+  z-index: 999 !important;
+}
+
+@media (max-width: 920px){
+  .cs-app .cs-app__drawerClose{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+}
+/* === Mobile drawer: safe-area + centered close button === */
+@media (max-width: 920px){
+  .cs-app .cs-app__sidebar{
+    padding-top: max(18px, env(safe-area-inset-top)) !important;
+  }
+
+  .cs-app .cs-app__drawerClose{
+    position: absolute !important;
+    top: max(10px, env(safe-area-inset-top)) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 999px !important;
+
+    border: 1px solid rgba(15,23,42,.14) !important;
+    background: #ffffff !important;
+    color: #0b3f52 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: 26px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+
+    z-index: 999 !important;
+    box-shadow: 0 10px 28px rgba(2,6,23,.14) !important;
+    cursor: pointer !important;
+  }
+
+  .cs-app .cs-app__drawerClose:active{
+    transform: translateX(-50%) translateY(1px) !important;
+  }
+
+  .cs-app .cs-app__drawerClose:hover{
+    background: rgba(14, 90, 115, 0.08) !important;
+  }
+}
+/* === FINAL FIX: Mobile drawer logo VISIBLE === */
+@media (max-width: 920px){
+  .cs-app .cs-app__brand{
+    min-height: 220px !important;
+    padding: 12px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: 220px !important;
+    height: 58px !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 420px){
+  .cs-app .cs-app__brand{
+    min-height: 60px !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: 150px !important;
+    height: 42px !important;
+  }
+}
+
+/* === Drawer brand header: never hide on narrow widths === */
+@media (max-width: 920px){
+  .cs-app .cs-app__sidebar{
+    padding-top: max(64px, env(safe-area-inset-top)) !important; /* χώρος για το X */
+  }
+
+  .cs-app .cs-app__drawerClose{
+    z-index: 2000 !important;
+  }
+
+  .cs-app .cs-app__brand{
+    position: relative !important;
+    z-index: 1500 !important;
+    min-height: 74px !important;
+    padding: 14px 10px 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: min(240px, 72vw) !important;
+    height: 60px !important;
+    max-height: 60px !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+/* extra narrow phones */
+@media (max-width: 480px){
+  .cs-app .cs-app__brand{
+    min-height: 68px !important;
+    padding: 12px 10px 8px !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: min(220px, 78vw) !important;
+    height: 56px !important;
+    max-height: 56px !important;
+  }
+}
+/* === Desktop sidebar logo (always visible) === */
+@media (min-width: 921px){
+  .cs-app .cs-app__brand{
+    min-height: 74px !important;
+    padding: 14px 10px 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+
+  .cs-app .cs-app__brandLogo{
+    width: 220px !important;
+    height: 58px !important;
+    max-height: 58px !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+/* ================================ */
+/* Rename & Delete Dialogs */
+/* ================================ */
+
+.cs-app__dialogOverlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 6, 23, 0.50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cs-app__dialog{
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.20);
+  max-width: 420px;
+  width: 90%;
+  padding: 24px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cs-app__dialogTitle{
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px;
+}
+
+.cs-app__dialogMessage{
+  font-size: 14px;
+  color: rgba(15, 23, 42, 0.75);
+  margin: 0 0 20px;
+  line-height: 1.45;
+}
+
+.cs-app__dialogInput{
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+.cs-app__dialogInput:focus{
+  outline: none;
+  border-color: rgba(14, 90, 115, 0.40);
+  box-shadow: 0 0 0 3px rgba(14, 90, 115, 0.10);
+}
+
+.cs-app__dialogActions{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.cs-app__dialogBtn{
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.cs-app__dialogBtn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cs-app__dialogBtn--cancel{
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
+.cs-app__dialogBtn--cancel:hover:not(:disabled){
+  background: rgba(15, 23, 42, 0.12);
+}
+
+.cs-app__dialogBtn--confirm{
+  background: linear-gradient(180deg, #0e5a73, #0b4b61);
+  color: #ffffff;
+}
+
+.cs-app__dialogBtn--confirm:hover:not(:disabled){
+  opacity: 0.9;
+}
+
+.cs-app__dialogBtn--danger{
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.cs-app__dialogBtn--danger:hover:not(:disabled){
+  opacity: 0.9;
+}
+
+/* Inline rename input wrapper */
+.cs-app__caseItemRenameInput{
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  border: 1px solid rgba(14, 90, 115, 0.40);
+  border-radius: 6px;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 700;
+  font-family: inherit;
+  margin: 0;
+}
+
+.cs-app__caseItemRenameInput:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(14, 90, 115, 0.20);
+}
+</file>
+
+</files>

@@ -1,10 +1,39 @@
 import { NextResponse } from "next/server";
-import { Document, Packer, Paragraph, TextRun } from "docx";
+import { AlignmentType, Document, Packer, Paragraph, TextRun } from "docx";
 
 type Body = {
   text?: string;
   fileName?: string;
 };
+
+const FONT = "Times New Roman";
+
+const SECTION_TITLE_RE =
+  /^(ΣΤΟΙΧΕΙΑ ΑΣΘΕΝΟΥΣ|ΕΞΕΤΑΣΗ|ΤΕΧΝΙΚΗ|ΕΥΡΗΜΑΤΑ|ΣΥΜΠΕΡΑΣΜΑ|ΓΝΩΜΑΤΕΥΣΗ|ΙΣΤΟΡΙΚΟ)(?=$|[\s:])/;
+
+function headerParagraph(
+  text: string,
+  alignment: (typeof AlignmentType)[keyof typeof AlignmentType],
+  after: number
+) {
+  return new Paragraph({
+    alignment,
+    spacing: { after },
+    children: [new TextRun({ text, bold: true, size: 22, font: FONT })],
+  });
+}
+
+function signatureParagraph(
+  text: string,
+  size: number,
+  spacing: { before?: number; after: number }
+) {
+  return new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing,
+    children: [new TextRun({ text, size, font: FONT })],
+  });
+}
 
 export async function POST(req: Request) {
   try {
@@ -19,17 +48,58 @@ export async function POST(req: Request) {
     }
 
     const lines = text
+      .replace(/\*\*/g, "")
       .split(/\r?\n/)
       .map((l) => l.trim())
       .filter(Boolean);
 
+    const bodyParagraphs = (lines.length ? lines : [text.replace(/\*\*/g, "")]).map(
+      (line) => {
+        const isTitle = SECTION_TITLE_RE.test(line);
+        return new Paragraph({
+          alignment: isTitle ? AlignmentType.LEFT : AlignmentType.JUSTIFIED,
+          spacing: { line: 280, after: 160 },
+          children: [
+            new TextRun({ text: line, size: 24, font: FONT, bold: isTitle }),
+          ],
+        });
+      }
+    );
+
     const doc = new Document({
+      styles: {
+        default: {
+          document: { run: { font: FONT } },
+        },
+      },
       sections: [
         {
-          properties: {},
-          children: lines.length
-            ? lines.map((line) => new Paragraph({ children: [new TextRun(line)] }))
-            : [new Paragraph({ children: [new TextRun(text)] })],
+          properties: {
+            page: {
+              margin: { top: 1134, bottom: 1134, left: 1134, right: 1134 },
+            },
+          },
+          children: [
+            headerParagraph("ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ", AlignmentType.LEFT, 40),
+            headerParagraph("Α’ ΠΕΡΙΦΕΡΕΙΑΚΟ ΣΥΣΤΗΜΑ ΥΓΕΙΑΣ ΑΤΤΙΚΗΣ", AlignmentType.LEFT, 40),
+            headerParagraph("ΓΕΝΙΚΟ ΝΟΣΟΚΟΜΕΙΟ ΠΑΙΔΩΝ", AlignmentType.LEFT, 40),
+            headerParagraph("« Η  ΑΓΙΑ  ΣΟΦΙΑ »", AlignmentType.LEFT, 240),
+
+            headerParagraph("ΤΜΗΜΑ ΑΠΕΙΚΟΝΙΣΤΙΚΩΝ ΜΕΘΟΔΩΝ", AlignmentType.CENTER, 40),
+            headerParagraph("ΑΞΟΝΙΚΗ - ΜΑΓΝΗΤΙΚΗ ΤΟΜΟΓΡΑΦΙΑ", AlignmentType.CENTER, 40),
+            headerParagraph(
+              "ΣΥΝΤΟΝΙΣΤΡΙΑ ΔΙΕΥΘΥΝΤΡΙΑ: Δρ. ΜΑΡΙΑ Μ. ΓΑΒΡΑ",
+              AlignmentType.CENTER,
+              400
+            ),
+
+            ...bodyParagraphs,
+
+            signatureParagraph("Ο/Η  ΙΑΤΡΟΣ", 24, { before: 480, after: 400 }),
+            signatureParagraph("……………………………….", 22, { after: 40 }),
+            signatureParagraph("……………………………….", 22, { after: 40 }),
+            signatureParagraph("-----------------------   ---------", 22, { after: 120 }),
+          ],
         },
       ],
     });
